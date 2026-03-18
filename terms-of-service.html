@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — LUMA</title>
+  <meta name="description" content="LUMA Terms of Service — Terms governing the use of the LUMA AI customer service Shopify application.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { heading: ['Poppins','sans-serif'], body: ['Open Sans','sans-serif'] },
+          colors: {
+            cosmos: { 950:'#020108', 900:'#05021a', 850:'#080330', 800:'#0a0a2e', 700:'#111155', 600:'#1a1a6e' },
+            glow: { 50:'#eef4ff', 100:'#d9e6ff', 200:'#b3ccff', 300:'#7aa8ff', 400:'#5588ff', 500:'#4466ff', 600:'#3355ee', 700:'#2244cc' },
+            surface: '#f8faff',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass { background: rgba(255,255,255,0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.4); }
+    .gradient-hero { background: linear-gradient(145deg, #020108 0%, #05021a 25%, #0a0a2e 50%, #111155 80%, #1a1a6e 100%); }
+    .gradient-footer { background: linear-gradient(180deg, #05021a 0%, #020108 100%); }
+    .gradient-cta { background: linear-gradient(135deg, #4466ff 0%, #5588ff 50%, #7aa8ff 100%); }
+    .btn-glow { box-shadow: 0 0 20px rgba(68,102,255,0.4), 0 4px 15px rgba(68,102,255,0.25); }
+    .logo-glow { filter: drop-shadow(0 0 8px rgba(68,102,255,0.6)) drop-shadow(0 0 20px rgba(68,102,255,0.3)); }
+    .starfield { position: relative; overflow: hidden; }
+    .starfield::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.35) 0%, transparent 100%);
+    }
+    .legal-content h2 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; color: #05021a; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .legal-content h3 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.05rem; color: #0a0a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .legal-content p { color: #4b5563; font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.75rem; }
+    .legal-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 0.75rem; }
+    .legal-content li { color: #4b5563; font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.25rem; }
+    .legal-content a { color: #4466ff; text-decoration: underline; }
+  </style>
+</head>
+<body class="font-body text-gray-900 bg-surface antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-4 left-4 right-4 z-50 glass rounded-2xl shadow-lg shadow-black/5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+      <a href="index.html" class="flex items-center gap-2.5 cursor-pointer" aria-label="LUMA Home">
+        <img src="logo.png" alt="LUMA Logo" class="w-9 h-9 object-contain logo-glow">
+        <span class="font-heading font-bold text-lg text-cosmos-900">LUMA</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#features" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">Features</a>
+        <a href="index.html#pricing" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">Pricing</a>
+        <a href="index.html#faq" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">FAQ</a>
+      </div>
+      <a href="index.html#pricing" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl gradient-cta text-white text-sm font-semibold btn-glow hover:opacity-95 transition-all duration-200 cursor-pointer">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="gradient-hero starfield pt-32 pb-16 md:pt-36 md:pb-20">
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading font-bold text-3xl sm:text-4xl text-white mb-4">Terms of Service</h1>
+      <p class="text-glow-200/70 text-base">Last updated: March 18, 2026</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 legal-content">
+
+      <p>These Terms of Service ("Terms") govern your use of the LUMA application ("Service"), operated by LUMA ("we," "us," or "our"). By installing or using LUMA through the Shopify App Store, you ("Merchant," "you") agree to be bound by these Terms.</p>
+
+      <p>These Terms are in addition to, and do not replace, the <a href="https://www.shopify.com/legal/partner-program-agreement" target="_blank" rel="noopener">Shopify Partner Program Agreement</a> and the <a href="https://www.shopify.com/legal/api-terms" target="_blank" rel="noopener">Shopify API License and Terms of Use</a>.</p>
+
+      <h2>1. Description of Service</h2>
+      <p>LUMA is an AI-powered customer service automation tool for Shopify merchants. The Service provides:</p>
+      <ul>
+        <li>Automated responses to customer messages on Instagram DMs and Shopify storefront chat</li>
+        <li>Real-time order tracking lookups via the Shopify API</li>
+        <li>Product catalog queries from your Shopify inventory</li>
+        <li>Smart pre-filtering of routine messages (greetings, duplicates, etc.)</li>
+        <li>Human escalation workflows for complex inquiries</li>
+        <li>An analytics dashboard within your Shopify admin</li>
+      </ul>
+
+      <h2>2. Account & Installation</h2>
+      <h3>2.1 Eligibility</h3>
+      <p>You must have an active Shopify store and be authorized to install applications on that store. By installing LUMA, you represent that you have the authority to bind your business to these Terms.</p>
+
+      <h3>2.2 Shopify App Store</h3>
+      <p>LUMA is distributed through the Shopify App Store. Installation, billing, and subscription management are handled through Shopify's platform. You agree to Shopify's Terms of Service in addition to these Terms.</p>
+
+      <h3>2.3 Instagram Connection</h3>
+      <p>To use Instagram DM automation, you must connect an Instagram Business or Creator account that you own or are authorized to manage. You are responsible for ensuring compliance with Meta's Platform Terms and Instagram's Community Guidelines when using LUMA's automated messaging features.</p>
+
+      <h2>3. Subscription & Billing</h2>
+      <h3>3.1 Plans</h3>
+      <p>LUMA offers multiple subscription tiers (Free, Starter, Pro) with varying conversation limits and features. Current pricing and plan details are displayed on our website and within the Shopify App Store listing.</p>
+
+      <h3>3.2 Billing</h3>
+      <p>All billing is processed through Shopify's billing system. Subscription fees are charged to your Shopify account on a recurring monthly basis. You can manage your subscription through the Shopify admin.</p>
+
+      <h3>3.3 Free Tier</h3>
+      <p>The Free tier provides limited daily AI conversations at no cost. We reserve the right to modify free tier limits with 30 days' notice.</p>
+
+      <h3>3.4 Refunds</h3>
+      <p>Refunds are handled in accordance with Shopify's App Store refund policies. If you are dissatisfied with the Service, you may uninstall at any time.</p>
+
+      <h2>4. Your Responsibilities</h2>
+      <p>As a Merchant using LUMA, you agree to:</p>
+      <ul>
+        <li><strong>Comply with laws:</strong> Ensure your use of automated messaging complies with all applicable laws, including consumer protection laws, anti-spam regulations, and privacy laws in jurisdictions where your customers are located</li>
+        <li><strong>Accurate information:</strong> Provide accurate product information, pricing, and store policies in your Shopify store, as LUMA relies on this data to respond to customers</li>
+        <li><strong>Monitor responses:</strong> Regularly review LUMA's automated responses and escalation queue to ensure quality and accuracy</li>
+        <li><strong>Customer notifications:</strong> Where required by law, inform your customers that they may be interacting with an AI-powered assistant</li>
+        <li><strong>Instagram compliance:</strong> Ensure your Instagram Business account and messaging practices comply with Meta's Platform Terms and Policies</li>
+        <li><strong>Appropriate use:</strong> Not use LUMA to send spam, unsolicited messages, or content that violates applicable laws or platform policies</li>
+      </ul>
+
+      <h2>5. AI-Generated Responses</h2>
+      <h3>5.1 Nature of AI Responses</h3>
+      <p>LUMA uses artificial intelligence to generate customer responses. While we strive for accuracy, AI-generated responses may occasionally contain errors, inaccuracies, or responses that do not perfectly reflect your brand voice or policies.</p>
+
+      <h3>5.2 Your Oversight</h3>
+      <p>You are ultimately responsible for the customer communications sent from your business accounts. LUMA provides tools for monitoring, customizing, and overriding AI responses. We strongly recommend regularly reviewing automated interactions.</p>
+
+      <h3>5.3 Escalation</h3>
+      <p>LUMA includes confidence-based escalation to route uncertain inquiries to your team. This feature is designed to reduce errors, but does not eliminate the need for human oversight.</p>
+
+      <h2>6. Data & Privacy</h2>
+      <p>Your use of LUMA is subject to our <a href="privacy-policy.html">Privacy Policy</a>, which describes how we collect, use, and protect your data. Key points:</p>
+      <ul>
+        <li>We process data only as necessary to provide the Service</li>
+        <li>We maintain multi-tenant data isolation between merchant stores</li>
+        <li>We implement Shopify's mandatory GDPR webhooks for data requests and deletion</li>
+        <li>We comply with Meta Platform Terms regarding Instagram data</li>
+        <li>We do not sell your data or your customers' data</li>
+      </ul>
+
+      <h2>7. Intellectual Property</h2>
+      <h3>7.1 Our IP</h3>
+      <p>LUMA, including its software, algorithms, design, branding, and documentation, is our intellectual property. These Terms grant you a limited, non-exclusive, non-transferable license to use the Service for your Shopify store during your active subscription.</p>
+
+      <h3>7.2 Your Content</h3>
+      <p>You retain all rights to your store data, product information, customer communications, and custom configurations. We claim no ownership over your content.</p>
+
+      <h3>7.3 Feedback</h3>
+      <p>If you provide suggestions, feature requests, or other feedback, we may use it to improve the Service without obligation or compensation to you.</p>
+
+      <h2>8. Service Availability</h2>
+      <h3>8.1 Uptime</h3>
+      <p>We strive to maintain high availability but do not guarantee 100% uptime. The Service depends on third-party infrastructure (Shopify API, Instagram API, AI providers) that may experience outages beyond our control.</p>
+
+      <h3>8.2 Maintenance</h3>
+      <p>We may perform scheduled maintenance that temporarily affects Service availability. We will provide advance notice for planned maintenance when possible.</p>
+
+      <h3>8.3 API Dependencies</h3>
+      <p>LUMA depends on Shopify and Meta/Instagram APIs. Changes, deprecations, or outages to these APIs may affect LUMA's functionality. We will make reasonable efforts to adapt to API changes promptly.</p>
+
+      <h2>9. Limitation of Liability</h2>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
+      <ul>
+        <li>LUMA IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT</li>
+        <li>WE ARE NOT LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE SERVICE</li>
+        <li>WE ARE NOT LIABLE FOR LOST REVENUE, LOST CUSTOMERS, MISSED SALES, OR BUSINESS INTERRUPTION RESULTING FROM AI-GENERATED RESPONSES, SERVICE OUTAGES, OR API FAILURES</li>
+        <li>OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE SERVICE IN THE 12 MONTHS PRECEDING THE CLAIM</li>
+      </ul>
+
+      <h2>10. Indemnification</h2>
+      <p>You agree to indemnify and hold harmless LUMA, its officers, directors, and employees from any claims, damages, or expenses arising from: (a) your use of the Service, (b) your violation of these Terms, (c) your violation of any third-party rights, or (d) content or communications sent through your accounts using LUMA.</p>
+
+      <h2>11. Termination</h2>
+      <h3>11.1 By You</h3>
+      <p>You may terminate your use of LUMA at any time by uninstalling the app from your Shopify store. Upon uninstallation, your subscription will be cancelled and your data will be deleted in accordance with our Privacy Policy.</p>
+
+      <h3>11.2 By Us</h3>
+      <p>We may suspend or terminate your access to LUMA if: (a) you violate these Terms, (b) you violate Shopify's or Meta's policies in a way that affects our service, (c) your account is delinquent on payments, or (d) continued service would expose us to legal liability. We will provide notice and an opportunity to cure where reasonable.</p>
+
+      <h3>11.3 Effect of Termination</h3>
+      <p>Upon termination, your license to use the Service ends immediately. Sections 7, 9, 10, and 13 survive termination.</p>
+
+      <h2>12. Modifications to Terms</h2>
+      <p>We may modify these Terms at any time. We will notify you of material changes via email or through the LUMA dashboard at least 30 days before they take effect. Continued use of the Service after changes take effect constitutes acceptance. If you do not agree with modified Terms, you may uninstall LUMA before they take effect.</p>
+
+      <h2>13. Governing Law & Disputes</h2>
+      <p>These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law principles. Any disputes arising from these Terms or the Service shall be resolved through binding arbitration in [Your Jurisdiction], except that either party may seek injunctive relief in a court of competent jurisdiction.</p>
+
+      <h2>14. Shopify Platform Compliance</h2>
+      <p>LUMA operates in compliance with the Shopify Partner Program Agreement (as updated February 27, 2026) and the Shopify API License and Terms of Use. In the event of a conflict between these Terms and Shopify's terms, Shopify's terms shall prevail with respect to Shopify platform matters.</p>
+
+      <h2>15. Meta Platform Compliance</h2>
+      <p>LUMA's Instagram integration operates in compliance with Meta Platform Terms and Instagram API Terms of Use. You acknowledge that Meta may modify, restrict, or revoke API access at any time, which may affect LUMA's Instagram DM functionality.</p>
+
+      <h2>16. Miscellaneous</h2>
+      <ul>
+        <li><strong>Entire Agreement:</strong> These Terms, together with the Privacy Policy, constitute the entire agreement between you and LUMA regarding the Service</li>
+        <li><strong>Severability:</strong> If any provision is found unenforceable, the remaining provisions remain in effect</li>
+        <li><strong>Waiver:</strong> Failure to enforce a provision does not constitute a waiver</li>
+        <li><strong>Assignment:</strong> You may not assign these Terms without our consent. We may assign our rights to an affiliate or successor</li>
+      </ul>
+
+      <h2>17. Contact</h2>
+      <p>For questions about these Terms:</p>
+      <ul>
+        <li><strong>Email:</strong> legal@lumabot.app</li>
+        <li><strong>Mailing Address:</strong> LUMA, [Your Business Address]</li>
+      </ul>
+
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="text-xs text-gray-400">These Terms of Service comply with: Shopify Partner Program Agreement (updated Feb 27, 2026), Shopify API License and Terms of Use, Meta Platform Terms, and applicable consumer protection laws.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="gradient-footer text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2.5">
+          <img src="logo.png" alt="LUMA Logo" class="w-8 h-8 object-contain logo-glow">
+          <span class="font-heading font-bold text-lg">LUMA</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="index.html" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Home</a>
+          <a href="privacy-policy.html" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-sm text-glow-300 cursor-pointer">Terms of Service</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-glow-500/10 text-center">
+        <p class="text-xs text-gray-600">&copy; 2026 LUMA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

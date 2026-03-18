@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMA — AI Customer Service for Shopify</title>
+  <meta name="description" content="LUMA automates your Instagram DMs and Shopify chat with AI that speaks your customers' language. Handle 80% of messages instantly — no code required.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Open Sans', 'sans-serif'],
+          },
+          colors: {
+            cosmos: {
+              950: '#020108',
+              900: '#05021a',
+              850: '#080330',
+              800: '#0a0a2e',
+              700: '#111155',
+              600: '#1a1a6e',
+            },
+            glow: {
+              50: '#eef4ff',
+              100: '#d9e6ff',
+              200: '#b3ccff',
+              300: '#7aa8ff',
+              400: '#5588ff',
+              500: '#4466ff',
+              600: '#3355ee',
+              700: '#2244cc',
+            },
+            surface: '#f8faff',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    .glass { background: rgba(255,255,255,0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.4); }
+    .glass-dark { background: rgba(5,2,26,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(68,102,255,0.15); }
+    .glass-card { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(68,102,255,0.08); }
+    .gradient-hero { background: linear-gradient(145deg, #020108 0%, #05021a 25%, #0a0a2e 50%, #111155 80%, #1a1a6e 100%); }
+    .gradient-cta { background: linear-gradient(135deg, #4466ff 0%, #5588ff 50%, #7aa8ff 100%); }
+    .gradient-cta-hover { background: linear-gradient(135deg, #5577ff 0%, #6699ff 50%, #8ab8ff 100%); }
+    .gradient-glow { background: radial-gradient(ellipse at 50% 0%, rgba(68,102,255,0.08) 0%, transparent 70%); }
+    .gradient-footer { background: linear-gradient(180deg, #05021a 0%, #020108 100%); }
+    .star-glow { box-shadow: 0 0 40px rgba(68,102,255,0.3), 0 0 80px rgba(68,102,255,0.15); }
+    .btn-glow { box-shadow: 0 0 20px rgba(68,102,255,0.4), 0 4px 15px rgba(68,102,255,0.25); }
+    .btn-glow:hover { box-shadow: 0 0 30px rgba(68,102,255,0.5), 0 6px 20px rgba(68,102,255,0.35); }
+    .card-hover:hover { box-shadow: 0 0 30px rgba(68,102,255,0.08), 0 20px 40px rgba(0,0,0,0.06); }
+    .float-animation { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .chat-bubble { position: relative; }
+    .chat-bubble::after { content: ''; position: absolute; bottom: -6px; left: 20px; width: 12px; height: 12px; background: inherit; transform: rotate(45deg); border-radius: 2px; }
+    .chat-bubble-right::after { left: auto; right: 20px; }
+    .pricing-popular { box-shadow: 0 0 0 2px #4466ff, 0 0 40px rgba(68,102,255,0.15), 0 25px 50px -12px rgba(68,102,255,0.2); }
+    .text-glow { text-shadow: 0 0 20px rgba(68,102,255,0.5), 0 0 40px rgba(68,102,255,0.25); }
+    .logo-glow { filter: drop-shadow(0 0 8px rgba(68,102,255,0.6)) drop-shadow(0 0 20px rgba(68,102,255,0.3)); }
+    /* Starfield background */
+    .starfield { position: relative; overflow: hidden; }
+    .starfield::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 90%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 60% 30%, rgba(255,255,255,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 45%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 55% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.25) 0%, transparent 100%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="font-body text-gray-900 bg-surface antialiased">
+
+  <!-- ======================== NAVBAR ======================== -->
+  <nav class="fixed top-4 left-4 right-4 z-50 glass rounded-2xl shadow-lg shadow-black/5" id="navbar">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+      <a href="#" class="flex items-center gap-2.5 cursor-pointer" aria-label="LUMA Home">
+        <img src="logo.png" alt="LUMA Logo" class="w-9 h-9 object-contain logo-glow">
+        <span class="font-heading font-bold text-lg text-cosmos-900">LUMA</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">Features</a>
+        <a href="#how-it-works" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">How It Works</a>
+        <a href="#pricing" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">Pricing</a>
+        <a href="#faq" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">FAQ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#pricing" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl gradient-cta text-white text-sm font-semibold btn-glow hover:opacity-95 transition-all duration-200 cursor-pointer">
+          Get Started Free
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 pt-2 border-t border-gray-100">
+      <a href="#features" class="block py-2 text-sm font-medium text-gray-600 hover:text-cosmos-800 cursor-pointer">Features</a>
+      <a href="#how-it-works" class="block py-2 text-sm font-medium text-gray-600 hover:text-cosmos-800 cursor-pointer">How It Works</a>
+      <a href="#pricing" class="block py-2 text-sm font-medium text-gray-600 hover:text-cosmos-800 cursor-pointer">Pricing</a>
+      <a href="#faq" class="block py-2 text-sm font-medium text-gray-600 hover:text-cosmos-800 cursor-pointer">FAQ</a>
+    </div>
+  </nav>
+
+  <!-- ======================== HERO ======================== -->
+  <section class="gradient-hero starfield relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
+    <!-- Background glows -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-20 left-10 w-80 h-80 bg-glow-500 rounded-full filter blur-[160px] opacity-20"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-glow-400 rounded-full filter blur-[180px] opacity-15"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-glow-500 rounded-full filter blur-[250px] opacity-[0.07]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Copy -->
+        <div class="text-center lg:text-left">
+          <!-- Logo badge -->
+          <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8">
+            <img src="logo.png" alt="" class="w-6 h-6 object-contain logo-glow" aria-hidden="true">
+            <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-glow-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-glow-400"></span></span>
+            <span class="text-sm font-medium text-glow-200">Now live on Shopify App Store</span>
+          </div>
+          <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tight">
+            Your AI teammate<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-glow-300 to-glow-500 text-glow">for customer DMs</span>
+          </h1>
+          <p class="mt-6 text-lg sm:text-xl text-glow-200/70 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            LUMA handles your Instagram DMs and Shopify chat automatically — in Arabic, English, and Franco Arabic. Instant replies, order tracking, smart escalation. You focus on growing your brand.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#pricing" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl gradient-cta text-white font-heading font-semibold text-base btn-glow hover:opacity-95 transition-all duration-200 cursor-pointer">
+              Install Free on Shopify
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white/5 backdrop-blur-sm border border-glow-500/20 text-white font-heading font-semibold text-base hover:bg-white/10 hover:border-glow-500/30 transition-all duration-200 cursor-pointer">
+              See How It Works
+            </a>
+          </div>
+          <!-- Social proof -->
+          <div class="mt-10 flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
+            <div class="flex items-center gap-1">
+              <svg class="w-5 h-5 text-glow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-glow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-glow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-glow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-glow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-glow-200/50 text-sm">Trusted by Shopify merchants worldwide</p>
+          </div>
+        </div>
+
+        <!-- Right: Chat mockup -->
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-sm">
+            <div class="glass-dark rounded-3xl p-5 shadow-2xl float-animation star-glow">
+              <div class="flex items-center gap-3 mb-5 pb-4 border-b border-glow-500/10">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-glow-500 to-glow-300 flex items-center justify-center p-1.5">
+                  <img src="logo.png" alt="" class="w-full h-full object-contain" aria-hidden="true">
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">LUMA Bot</p>
+                  <p class="text-glow-400 text-xs flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-glow-400 inline-block"></span> Online
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-end"><div class="chat-bubble chat-bubble-right bg-glow-500 text-white px-4 py-2.5 rounded-2xl rounded-br-md text-sm max-w-[85%]">Do you have the black jacket in medium?</div></div>
+                <div class="flex justify-start"><div class="chat-bubble bg-white/10 text-white px-4 py-2.5 rounded-2xl rounded-bl-md text-sm max-w-[85%]">Yes! The Black Leather Jacket is in stock in Medium. It's EGP 1,250. Want me to send the link?</div></div>
+                <div class="flex justify-end"><div class="chat-bubble chat-bubble-right bg-glow-500 text-white px-4 py-2.5 rounded-2xl rounded-br-md text-sm max-w-[85%]">Where's my order #4521?</div></div>
+                <div class="flex justify-start"><div class="chat-bubble bg-white/10 text-white px-4 py-2.5 rounded-2xl rounded-bl-md text-sm max-w-[85%]">Order #4521 shipped! Tracking: EG2847391. Expected delivery: Mar 20.</div></div>
+              </div>
+              <div class="mt-4 flex items-center gap-2 bg-white/5 rounded-xl px-3 py-2 border border-glow-500/10">
+                <span class="text-gray-500 text-sm flex-1">Type a message...</span>
+                <div class="w-8 h-8 rounded-lg gradient-cta flex items-center justify-center cursor-pointer">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Floating badge: auto-resolved -->
+            <div class="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-lg flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-glow-50 flex items-center justify-center">
+                <svg class="w-5 h-5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-cosmos-900">80%</p>
+                <p class="text-xs text-gray-500">Auto-resolved</p>
+              </div>
+            </div>
+            <!-- Floating badge: response time -->
+            <div class="absolute -top-2 -right-2 glass rounded-xl px-4 py-3 shadow-lg flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-glow-50 flex items-center justify-center">
+                <svg class="w-5 h-5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-cosmos-900">&lt; 2s</p>
+                <p class="text-xs text-gray-500">Response time</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== LOGOS / INTEGRATIONS ======================== -->
+  <section class="py-12 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-8">Integrates seamlessly with</p>
+      <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 opacity-50">
+        <div class="flex items-center gap-2 cursor-pointer hover:opacity-100 transition-opacity duration-200">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="#95BF47"><path d="M20.893 7.472l-.806 6.14s-3.407 1.682-3.407 1.682L13.267 24 3.46 21.607s-.182-2.628-.409-5.9c-.227-3.27-.454-7.14-.454-7.14l4.315-1.033s.893-.213 1.365-.333c.063-.413.137-.866.22-1.34.35-1.973.863-4.38 1.59-4.88C10.813.433 11.527.18 12.347.18c.413 0 .9.093 1.007.113a2.27 2.27 0 00-.06-.12C12.88-.01 12.46-.01 12.24.003c-1.34.073-2.26.82-2.86 1.9-.24.433-.44.933-.6 1.453l-.107.373-4.807 1.14-.12.027-.86.2L2 5.36 2.44 24l11.56 3 9-3.16-.907-7.14-1.2-9.228z"/></svg>
+          <span class="font-heading font-semibold text-gray-700 text-lg">Shopify</span>
+        </div>
+        <div class="flex items-center gap-2 cursor-pointer hover:opacity-100 transition-opacity duration-200">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="#E4405F"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <span class="font-heading font-semibold text-gray-700 text-lg">Instagram</span>
+        </div>
+        <div class="flex items-center gap-2 cursor-pointer hover:opacity-100 transition-opacity duration-200">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="#D97706"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="font-heading font-semibold text-gray-700 text-lg">Claude AI</span>
+        </div>
+        <div class="flex items-center gap-2 cursor-pointer hover:opacity-100 transition-opacity duration-200">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="#3ECF8E"><path d="M13.5 21.168c-.511.63-1.527.283-1.538-.526L11.6 12h8.4c1.3 0 2.06 1.488 1.29 2.531L13.5 21.168zM10.5 2.832c.511-.63 1.527-.283 1.538.526L12.4 12H4c-1.3 0-2.06-1.488-1.29-2.531L10.5 2.832z"/></svg>
+          <span class="font-heading font-semibold text-gray-700 text-lg">Supabase</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== STATS BAR ======================== -->
+  <section class="py-16 gradient-glow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center fade-in">
+          <p class="font-heading font-extrabold text-4xl sm:text-5xl text-cosmos-800">80%</p>
+          <p class="mt-2 text-sm text-gray-500 font-medium">Messages auto-resolved<br>without LLM cost</p>
+        </div>
+        <div class="text-center fade-in">
+          <p class="font-heading font-extrabold text-4xl sm:text-5xl text-cosmos-800">&lt;2s</p>
+          <p class="mt-2 text-sm text-gray-500 font-medium">Average response<br>time to customers</p>
+        </div>
+        <div class="text-center fade-in">
+          <p class="font-heading font-extrabold text-4xl sm:text-5xl text-cosmos-800">3</p>
+          <p class="mt-2 text-sm text-gray-500 font-medium">Languages supported<br>out of the box</p>
+        </div>
+        <div class="text-center fade-in">
+          <p class="font-heading font-extrabold text-4xl sm:text-5xl text-cosmos-800">$0.34</p>
+          <p class="mt-2 text-sm text-gray-500 font-medium">Average AI cost<br>per client / month</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FEATURES ======================== -->
+  <section id="features" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-in">
+        <p class="text-sm font-semibold text-glow-500 uppercase tracking-wider mb-3">Features</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-cosmos-900 leading-tight">Everything you need to automate customer support</h2>
+        <p class="mt-4 text-lg text-gray-500">LUMA isn't just a chatbot. It's a complete customer service platform that lives inside your Shopify admin.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="group glass-card rounded-2xl p-7 card-hover transition-all duration-300 cursor-pointer fade-in">
+          <div class="w-12 h-12 rounded-xl bg-glow-50 flex items-center justify-center mb-5 group-hover:bg-glow-100 transition-colors duration-200">
+            <svg class="w-6 h-6 text-glow-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-2">Multi-Channel Inbox</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">One unified dashboard for Instagram DMs and Shopify storefront chat. No more switching between apps to reply to customers.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="group glass-card rounded-2xl p-7 card-hover transition-all duration-300 cursor-pointer fade-in">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mb-5 group-hover:bg-purple-100 transition-colors duration-200">
+            <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364V3m0 2.364a48.222 48.222 0 00-3.334-.114"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-2">Trilingual AI</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Fluent in Arabic, English, and Franco Arabic. Auto-detects language and responds naturally — not translated, actually native-sounding.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="group glass-card rounded-2xl p-7 card-hover transition-all duration-300 cursor-pointer fade-in">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-5 group-hover:bg-emerald-100 transition-colors duration-200">
+            <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H6.375m11.25-4.5V6.375c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-2">Instant Order Tracking</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Customer asks "where's my order?" — LUMA pulls tracking info directly from Shopify in real-time. Zero AI tokens used, zero wait.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="group glass-card rounded-2xl p-7 card-hover transition-all duration-300 cursor-pointer fade-in">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 group-hover:bg-amber-100 transition-colors duration-200">
+            <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-2">Smart Pre-Filtering</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Greetings, thank-yous, duplicates, emoji-only messages — handled instantly without calling the AI. Saves you 80% on API costs.</p>
+        </div>
+        <!-- Feature 5 -->
+        <div class="group glass-card rounded-2xl p-7 card-hover transition-all duration-300 cursor-pointer fade-in">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center mb-5 group-hover:bg-rose-100 transition-colors duration-200">
+            <svg class="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-2">Human Escalation</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">When the bot isn't confident, it escalates to your team instantly. The customer gets acknowledged, and you see the ticket in your queue.</p>
+        </div>
+        <!-- Feature 6 -->
+        <div class="group glass-card rounded-2xl p-7 card-hover transition-all duration-300 cursor-pointer fade-in">
+          <div class="w-12 h-12 rounded-xl bg-glow-50 flex items-center justify-center mb-5 group-hover:bg-glow-100 transition-colors duration-200">
+            <svg class="w-6 h-6 text-glow-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-2">Real-Time Analytics</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Message volume, resolution times, peak hours heatmap, top issue categories — all live in your Shopify admin dashboard.</p>
+        </div>
+      </div>
+
+      <!-- Additional features -->
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="flex items-start gap-3 fade-in">
+          <div class="w-8 h-8 rounded-lg bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-sm text-cosmos-900">Product Catalog Sync</p>
+            <p class="text-xs text-gray-500 mt-0.5">Auto-syncs from Shopify every 6 hours</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 fade-in">
+          <div class="w-8 h-8 rounded-lg bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-sm text-cosmos-900">WebSocket Live Updates</p>
+            <p class="text-xs text-gray-500 mt-0.5">Real-time ticket push, no polling</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 fade-in">
+          <div class="w-8 h-8 rounded-lg bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-sm text-cosmos-900">Template Library</p>
+            <p class="text-xs text-gray-500 mt-0.5">Custom auto-reply rules per category</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 fade-in">
+          <div class="w-8 h-8 rounded-lg bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-sm text-cosmos-900">Multi-Tenant Architecture</p>
+            <p class="text-xs text-gray-500 mt-0.5">Full data isolation between stores</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== HOW IT WORKS ======================== -->
+  <section id="how-it-works" class="py-20 md:py-28 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-in">
+        <p class="text-sm font-semibold text-glow-500 uppercase tracking-wider mb-3">How It Works</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-cosmos-900 leading-tight">Up and running in 5 minutes</h2>
+        <p class="mt-4 text-lg text-gray-500">Install from the Shopify App Store, connect your Instagram, and let LUMA handle the rest.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="relative fade-in">
+          <div class="glass-card rounded-2xl p-8 text-center h-full">
+            <div class="w-14 h-14 rounded-2xl gradient-cta flex items-center justify-center mx-auto mb-6 btn-glow">
+              <span class="font-heading font-bold text-xl text-white">1</span>
+            </div>
+            <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-3">Install & Connect</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">One-click install from Shopify. Connect your Instagram page and your product catalog syncs automatically.</p>
+          </div>
+          <div class="hidden md:block absolute top-1/2 -right-6 w-12 h-[2px] bg-gradient-to-r from-glow-400/40 to-transparent"></div>
+        </div>
+        <div class="relative fade-in">
+          <div class="glass-card rounded-2xl p-8 text-center h-full">
+            <div class="w-14 h-14 rounded-2xl gradient-cta flex items-center justify-center mx-auto mb-6 btn-glow">
+              <span class="font-heading font-bold text-xl text-white">2</span>
+            </div>
+            <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-3">Customize Responses</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Set up your auto-reply templates, escalation rules, and bot personality. LUMA learns your catalog and policies.</p>
+          </div>
+          <div class="hidden md:block absolute top-1/2 -right-6 w-12 h-[2px] bg-gradient-to-r from-glow-400/40 to-transparent"></div>
+        </div>
+        <div class="fade-in">
+          <div class="glass-card rounded-2xl p-8 text-center h-full">
+            <div class="w-14 h-14 rounded-2xl gradient-cta flex items-center justify-center mx-auto mb-6 btn-glow">
+              <span class="font-heading font-bold text-xl text-white">3</span>
+            </div>
+            <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-3">Go Live</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">LUMA starts handling DMs instantly. Monitor everything from your Shopify admin — intervene only when you want to.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== DIFFERENTIATORS ======================== -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-in">
+        <p class="text-sm font-semibold text-glow-500 uppercase tracking-wider mb-3">Why LUMA</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-cosmos-900 leading-tight">Not another generic chatbot</h2>
+        <p class="mt-4 text-lg text-gray-500">LUMA was built from the ground up for Shopify merchants who sell on Instagram.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Comparison -->
+        <div class="glass-card rounded-2xl p-8 fade-in">
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-6">LUMA vs. Generic Chatbots</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm text-cosmos-900">80% of messages cost $0</p>
+                <p class="text-xs text-gray-500">Pre-filter layer handles greetings, duplicates, and order lookups without AI. Others charge per message.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm text-cosmos-900">Native multilingual, not translated</p>
+                <p class="text-xs text-gray-500">Arabic, English, and Franco Arabic with cultural context. Not Google Translate passed through a prompt.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm text-cosmos-900">Lives in your Shopify admin</p>
+                <p class="text-xs text-gray-500">No separate login, no new app to learn. Embedded directly where you already manage your store.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm text-cosmos-900">Real order tracking, not guesses</p>
+                <p class="text-xs text-gray-500">Queries Shopify API directly for live tracking info. Other bots hallucinate shipping dates.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-glow-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm text-cosmos-900">Escalation is a feature, not a failure</p>
+                <p class="text-xs text-gray-500">Built-in confidence scoring. When unsure, LUMA hands off gracefully — your customer never feels abandoned.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard preview -->
+        <div class="glass-card rounded-2xl p-8 fade-in">
+          <h3 class="font-heading font-semibold text-lg text-cosmos-900 mb-6">Your Command Center</h3>
+          <div class="bg-cosmos-950 rounded-xl p-4 shadow-inner border border-glow-500/10">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="text-xs text-gray-500 ml-2 font-mono">LUMA Dashboard</span>
+            </div>
+            <div class="grid grid-cols-3 gap-3 mb-4">
+              <div class="bg-white/5 rounded-lg p-3 text-center border border-glow-500/10">
+                <p class="text-2xl font-bold text-white">24</p>
+                <p class="text-[10px] text-gray-500">Open Tickets</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-3 text-center border border-glow-500/10">
+                <p class="text-2xl font-bold text-glow-400">142</p>
+                <p class="text-[10px] text-gray-500">Resolved Today</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-3 text-center border border-glow-500/10">
+                <p class="text-2xl font-bold text-glow-300">98%</p>
+                <p class="text-[10px] text-gray-500">Satisfaction</p>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="bg-white/5 rounded-lg px-3 py-2 flex items-center justify-between border border-glow-500/5">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-pink-500/20 flex items-center justify-center"><span class="text-[10px] text-pink-300 font-bold">SA</span></div>
+                  <div><p class="text-xs text-white font-medium">Sara Ahmed</p><p class="text-[10px] text-gray-500">Size inquiry - Black Jacket</p></div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-glow-500/20 text-glow-300 font-medium">Resolved</span>
+              </div>
+              <div class="bg-white/5 rounded-lg px-3 py-2 flex items-center justify-between border border-glow-500/5">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-glow-500/20 flex items-center justify-center"><span class="text-[10px] text-glow-300 font-bold">MK</span></div>
+                  <div><p class="text-xs text-white font-medium">Mohamed Khaled</p><p class="text-[10px] text-gray-500">Order #4521 tracking</p></div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-glow-500/20 text-glow-300 font-medium">Resolved</span>
+              </div>
+              <div class="bg-white/5 rounded-lg px-3 py-2 flex items-center justify-between border border-glow-500/5">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-[10px] text-amber-300 font-bold">NF</span></div>
+                  <div><p class="text-xs text-white font-medium">Nour Farid</p><p class="text-[10px] text-gray-500">Return request - Wrong size</p></div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-400 font-medium">Escalated</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PRICING ======================== -->
+  <section id="pricing" class="py-20 md:py-28 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-in">
+        <p class="text-sm font-semibold text-glow-500 uppercase tracking-wider mb-3">Pricing</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-cosmos-900 leading-tight">Start free, scale when ready</h2>
+        <p class="mt-4 text-lg text-gray-500">No credit card required. Try LUMA with 50 AI conversations per day, upgrade when your store grows.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Free -->
+        <div class="glass-card rounded-2xl p-8 flex flex-col fade-in">
+          <div class="mb-6">
+            <h3 class="font-heading font-semibold text-lg text-cosmos-900">Free</h3>
+            <p class="text-gray-500 text-sm mt-1">Perfect for testing</p>
+          </div>
+          <div class="mb-6">
+            <span class="font-heading font-extrabold text-4xl text-cosmos-900">$0</span>
+            <span class="text-gray-500 text-sm">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>50 AI conversations / day</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Instagram + Shopify chat</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Order tracking</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Smart pre-filtering</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Admin dashboard</li>
+          </ul>
+          <a href="#" class="block w-full py-3 rounded-xl border-2 border-gray-200 text-center font-heading font-semibold text-sm text-cosmos-900 hover:border-glow-400 hover:bg-glow-50 transition-all duration-200 cursor-pointer">Get Started</a>
+        </div>
+
+        <!-- Starter (Popular) -->
+        <div class="glass-card rounded-2xl p-8 flex flex-col pricing-popular relative fade-in">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span class="px-4 py-1 rounded-full gradient-cta text-white text-xs font-semibold btn-glow">Most Popular</span>
+          </div>
+          <div class="mb-6">
+            <h3 class="font-heading font-semibold text-lg text-cosmos-900">Starter</h3>
+            <p class="text-gray-500 text-sm mt-1">For growing brands</p>
+          </div>
+          <div class="mb-6">
+            <span class="font-heading font-extrabold text-4xl text-cosmos-900">$29</span>
+            <span class="text-gray-500 text-sm">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg><strong>200</strong>&nbsp;AI conversations / day</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Everything in Free</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Custom auto-reply templates</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Priority escalation queue</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Advanced analytics</li>
+          </ul>
+          <a href="#" class="block w-full py-3 rounded-xl gradient-cta text-center font-heading font-semibold text-sm text-white btn-glow hover:opacity-95 transition-all duration-200 cursor-pointer">Start Free Trial</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="glass-card rounded-2xl p-8 flex flex-col fade-in">
+          <div class="mb-6">
+            <h3 class="font-heading font-semibold text-lg text-cosmos-900">Pro</h3>
+            <p class="text-gray-500 text-sm mt-1">For high-volume stores</p>
+          </div>
+          <div class="mb-6">
+            <span class="font-heading font-extrabold text-4xl text-cosmos-900">$79</span>
+            <span class="text-gray-500 text-sm">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg><strong>500</strong>&nbsp;AI conversations / day</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Everything in Starter</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Real-time WebSocket updates</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Priority support</li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600"><svg class="w-4 h-4 text-glow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Custom bot personality</li>
+          </ul>
+          <a href="#" class="block w-full py-3 rounded-xl border-2 border-gray-200 text-center font-heading font-semibold text-sm text-cosmos-900 hover:border-glow-400 hover:bg-glow-50 transition-all duration-200 cursor-pointer">Start Free Trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FAQ ======================== -->
+  <section id="faq" class="py-20 md:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <p class="text-sm font-semibold text-glow-500 uppercase tracking-wider mb-3">FAQ</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-cosmos-900 leading-tight">Common questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="group glass-card rounded-xl fade-in">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+            <span class="font-heading font-semibold text-cosmos-900 text-sm">How does LUMA handle messages it can't answer?</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-gray-500 leading-relaxed">LUMA uses confidence scoring on every response. When it detects it isn't confident enough, it instantly acknowledges the customer and creates a ticket in your escalation queue. The bot stays silent on that conversation until you resolve it — no awkward double-replies.</div>
+        </details>
+
+        <details class="group glass-card rounded-xl fade-in">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+            <span class="font-heading font-semibold text-cosmos-900 text-sm">What languages does LUMA support?</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-gray-500 leading-relaxed">Arabic (Modern Standard and Egyptian dialect), English, and Franco Arabic (the Arabic-in-Latin-letters style common across the Middle East). LUMA auto-detects the language and responds in kind — no configuration needed.</div>
+        </details>
+
+        <details class="group glass-card rounded-xl fade-in">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+            <span class="font-heading font-semibold text-cosmos-900 text-sm">How does the "80% auto-resolved" claim work?</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-gray-500 leading-relaxed">LUMA has a pre-filter layer that runs before the AI. It handles greetings, thank-yous, duplicate messages, emoji-only messages, order tracking queries, and more — all with zero AI cost. These typically make up 80% of all incoming messages. Only complex questions reach the AI engine.</div>
+        </details>
+
+        <details class="group glass-card rounded-xl fade-in">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+            <span class="font-heading font-semibold text-cosmos-900 text-sm">Does LUMA know about my products?</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-gray-500 leading-relaxed">Yes. LUMA syncs your entire Shopify product catalog automatically every 6 hours. When a customer asks about a product, LUMA searches your inventory in real-time and provides accurate stock, pricing, and product details.</div>
+        </details>
+
+        <details class="group glass-card rounded-xl fade-in">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+            <span class="font-heading font-semibold text-cosmos-900 text-sm">Is my customer data safe?</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-gray-500 leading-relaxed">Absolutely. LUMA uses multi-tenant architecture with full data isolation — your store's data is completely separated. We verify webhook signatures (HMAC-SHA256), enforce Shopify's GDPR compliance, and all API communications use HTTPS.</div>
+        </details>
+
+        <details class="group glass-card rounded-xl fade-in">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+            <span class="font-heading font-semibold text-cosmos-900 text-sm">Can I customize the bot's responses?</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-gray-500 leading-relaxed">Yes. You get a full template library where you can create custom auto-reply rules per message category. You can also adjust the bot's greeting style, set custom escalation rules, and pause the bot at any time for manual takeover.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FINAL CTA ======================== -->
+  <section class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="gradient-hero starfield rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute top-0 left-1/4 w-64 h-64 bg-glow-500 rounded-full filter blur-[100px] opacity-20"></div>
+          <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-glow-400 rounded-full filter blur-[120px] opacity-15"></div>
+        </div>
+        <div class="relative">
+          <!-- Centered logo -->
+          <div class="flex justify-center mb-8">
+            <img src="logo.png" alt="LUMA" class="w-20 h-20 object-contain logo-glow">
+          </div>
+          <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-6">
+            Stop living in your DMs.<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-glow-300 to-glow-500 text-glow">Let LUMA handle it.</span>
+          </h2>
+          <p class="text-glow-200/70 text-lg max-w-xl mx-auto mb-8">Join the merchants who've reclaimed their time. Install in 5 minutes, free forever on the starter plan.</p>
+          <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl gradient-cta text-white font-heading font-semibold text-base btn-glow hover:opacity-95 transition-all duration-200 cursor-pointer">
+            Install Free on Shopify
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="gradient-footer text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <img src="logo.png" alt="LUMA Logo" class="w-8 h-8 object-contain logo-glow">
+            <span class="font-heading font-bold text-lg">LUMA</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">AI-powered customer service for Shopify merchants. Built for speed, multilingual by default.</p>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-sm mb-4">Product</h4>
+          <ul class="space-y-2">
+            <li><a href="#features" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Features</a></li>
+            <li><a href="#pricing" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Pricing</a></li>
+            <li><a href="#faq" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-sm mb-4">Channels</h4>
+          <ul class="space-y-2">
+            <li><span class="text-sm text-gray-400">Instagram DMs</span></li>
+            <li><span class="text-sm text-gray-400">Shopify Storefront Chat</span></li>
+            <li><span class="text-sm text-gray-400">WhatsApp (Coming Soon)</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-sm mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="privacy-policy.html" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Terms of Service</a></li>
+            <li><a href="privacy-policy.html#gdpr-rights" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">GDPR Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 pt-8 border-t border-glow-500/10 text-center">
+        <p class="text-xs text-gray-600">&copy; 2026 LUMA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================== SCRIPTS ======================== -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('shadow-xl', window.scrollY > 50);
+    }, { passive: true });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

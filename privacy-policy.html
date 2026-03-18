@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — LUMA</title>
+  <meta name="description" content="LUMA Privacy Policy — How we collect, use, and protect your data as a Shopify app and Instagram integration.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { heading: ['Poppins','sans-serif'], body: ['Open Sans','sans-serif'] },
+          colors: {
+            cosmos: { 950:'#020108', 900:'#05021a', 850:'#080330', 800:'#0a0a2e', 700:'#111155', 600:'#1a1a6e' },
+            glow: { 50:'#eef4ff', 100:'#d9e6ff', 200:'#b3ccff', 300:'#7aa8ff', 400:'#5588ff', 500:'#4466ff', 600:'#3355ee', 700:'#2244cc' },
+            surface: '#f8faff',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass { background: rgba(255,255,255,0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.4); }
+    .gradient-hero { background: linear-gradient(145deg, #020108 0%, #05021a 25%, #0a0a2e 50%, #111155 80%, #1a1a6e 100%); }
+    .gradient-footer { background: linear-gradient(180deg, #05021a 0%, #020108 100%); }
+    .gradient-cta { background: linear-gradient(135deg, #4466ff 0%, #5588ff 50%, #7aa8ff 100%); }
+    .btn-glow { box-shadow: 0 0 20px rgba(68,102,255,0.4), 0 4px 15px rgba(68,102,255,0.25); }
+    .logo-glow { filter: drop-shadow(0 0 8px rgba(68,102,255,0.6)) drop-shadow(0 0 20px rgba(68,102,255,0.3)); }
+    .starfield { position: relative; overflow: hidden; }
+    .starfield::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.35) 0%, transparent 100%);
+    }
+    .legal-content h2 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; color: #05021a; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .legal-content h3 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.05rem; color: #0a0a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .legal-content p { color: #4b5563; font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.75rem; }
+    .legal-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 0.75rem; }
+    .legal-content li { color: #4b5563; font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.25rem; }
+    .legal-content a { color: #4466ff; text-decoration: underline; }
+  </style>
+</head>
+<body class="font-body text-gray-900 bg-surface antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-4 left-4 right-4 z-50 glass rounded-2xl shadow-lg shadow-black/5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+      <a href="index.html" class="flex items-center gap-2.5 cursor-pointer" aria-label="LUMA Home">
+        <img src="logo.png" alt="LUMA Logo" class="w-9 h-9 object-contain logo-glow">
+        <span class="font-heading font-bold text-lg text-cosmos-900">LUMA</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#features" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">Features</a>
+        <a href="index.html#pricing" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">Pricing</a>
+        <a href="index.html#faq" class="text-sm font-medium text-gray-600 hover:text-cosmos-800 transition-colors duration-200 cursor-pointer">FAQ</a>
+      </div>
+      <a href="index.html#pricing" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl gradient-cta text-white text-sm font-semibold btn-glow hover:opacity-95 transition-all duration-200 cursor-pointer">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="gradient-hero starfield pt-32 pb-16 md:pt-36 md:pb-20">
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading font-bold text-3xl sm:text-4xl text-white mb-4">Privacy Policy</h1>
+      <p class="text-glow-200/70 text-base">Last updated: March 18, 2026</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 legal-content">
+
+      <p>LUMA ("we," "us," or "our") operates a Shopify application that provides AI-powered customer service automation, including Instagram DM management and Shopify storefront chat. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you install and use the LUMA application.</p>
+
+      <p>This policy is provided in compliance with the <strong>Shopify Partner Program Agreement</strong>, <strong>Shopify API License and Terms of Use</strong>, <strong>Meta Platform Terms</strong>, the <strong>EU General Data Protection Regulation (GDPR)</strong>, the <strong>California Consumer Privacy Act (CCPA/CPRA)</strong>, and all applicable US state privacy laws effective as of 2026.</p>
+
+      <h2>1. Information We Collect</h2>
+
+      <h3>1.1 Information from Shopify (Merchant Data)</h3>
+      <p>When you install LUMA from the Shopify App Store, we access certain data through the Shopify API with your authorization:</p>
+      <ul>
+        <li><strong>Store information:</strong> Store name, domain, email, currency, timezone, and locale settings</li>
+        <li><strong>Product catalog:</strong> Product titles, descriptions, variants, pricing, inventory levels, and images for the purpose of powering AI-assisted customer inquiries</li>
+        <li><strong>Order data:</strong> Order numbers, fulfillment status, tracking numbers, and shipping information solely to respond to customer order tracking inquiries</li>
+        <li><strong>Customer data:</strong> Customer names and conversation context necessary to handle support inquiries. We do not access or store payment information, credit card details, or full customer addresses</li>
+      </ul>
+
+      <h3>1.2 Information from Meta / Instagram</h3>
+      <p>When you connect your Instagram Business or Creator account, we access data through the Instagram Graph API in accordance with <strong>Meta Platform Terms</strong>:</p>
+      <ul>
+        <li><strong>Page/account info:</strong> Instagram Business account name and ID</li>
+        <li><strong>Messages:</strong> Instagram Direct Message content sent to your business page, solely for the purpose of automated customer service responses</li>
+        <li><strong>Message metadata:</strong> Timestamps, sender identifiers (Instagram-scoped IDs only)</li>
+      </ul>
+      <p>We only access Instagram Business or Creator accounts that you explicitly authorize. We do not access personal Instagram accounts, follower lists, or public content beyond your authorized DM conversations.</p>
+
+      <h3>1.3 Information You Provide Directly</h3>
+      <ul>
+        <li>Account configuration preferences (auto-reply templates, escalation rules, bot personality settings)</li>
+        <li>Support inquiries and communications with our team</li>
+      </ul>
+
+      <h3>1.4 Automatically Collected Information</h3>
+      <ul>
+        <li>Usage analytics: Feature usage, message volumes, resolution rates (aggregated)</li>
+        <li>Technical logs: Error logs, API response times, system performance metrics</li>
+        <li>Device/browser information when accessing the LUMA dashboard within Shopify Admin</li>
+      </ul>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>We use the information we collect exclusively for the following purposes:</p>
+      <ul>
+        <li><strong>Providing the Service:</strong> Powering AI-automated customer replies, order tracking lookups, product catalog queries, and human escalation workflows</li>
+        <li><strong>Improving the Service:</strong> Analyzing aggregated, anonymized usage patterns to improve response accuracy, pre-filter efficiency, and overall performance</li>
+        <li><strong>Customer Support:</strong> Responding to your support inquiries and troubleshooting issues</li>
+        <li><strong>Security:</strong> Detecting and preventing fraud, abuse, and security incidents</li>
+        <li><strong>Legal Compliance:</strong> Fulfilling legal obligations, including Shopify's GDPR/privacy compliance requirements</li>
+      </ul>
+      <p><strong>We do not:</strong></p>
+      <ul>
+        <li>Sell, rent, or trade your data or your customers' data to third parties</li>
+        <li>Use merchant or customer data for advertising or marketing purposes</li>
+        <li>Use data collected through the Shopify API or Instagram API for any purpose other than providing and improving the LUMA service</li>
+        <li>Share data between different merchant accounts (multi-tenant data isolation)</li>
+      </ul>
+
+      <h2>3. AI Processing & Data Handling</h2>
+      <p>LUMA uses AI language models (currently Claude by Anthropic) to generate customer responses. Here is how your data interacts with AI:</p>
+      <ul>
+        <li><strong>Pre-filter layer:</strong> Approximately 80% of messages (greetings, order tracking, duplicates, emoji-only) are handled by deterministic rules without any AI processing. No data is sent to any AI provider for these messages.</li>
+        <li><strong>AI-processed messages:</strong> For complex inquiries, message content and relevant product/order context is sent to the AI provider to generate a response. This data is processed in real-time and is not used to train AI models.</li>
+        <li><strong>Data minimization:</strong> We send only the minimum context needed for each response. We do not send full customer profiles, payment data, or unrelated order history.</li>
+      </ul>
+
+      <h2>4. Data Sharing & Third Parties</h2>
+      <p>We share data only with the following categories of service providers, all of whom are bound by data processing agreements:</p>
+      <ul>
+        <li><strong>Anthropic (Claude AI):</strong> Message content for AI response generation. Subject to Anthropic's commercial API data policy — data is not used for model training.</li>
+        <li><strong>Supabase:</strong> Database hosting and real-time infrastructure. Data stored with encryption at rest and in transit.</li>
+        <li><strong>Shopify:</strong> Data exchanged through Shopify's authenticated API as part of the embedded app framework.</li>
+        <li><strong>Meta / Instagram:</strong> Message replies sent back through the Instagram Graph API to the customer's DM conversation.</li>
+      </ul>
+      <p>We do not share data with any advertising networks, data brokers, or analytics platforms that would use your data for their own purposes.</p>
+
+      <h2>5. Data Retention & Deletion</h2>
+      <ul>
+        <li><strong>Active use:</strong> We retain conversation data, analytics, and configuration for as long as the LUMA app is installed on your Shopify store.</li>
+        <li><strong>After uninstall:</strong> When you uninstall LUMA, we initiate deletion of all your store data within 30 days. This includes all conversations, customer data, product catalog data, and configuration settings.</li>
+        <li><strong>Shopify GDPR webhooks:</strong> We implement and respond to all mandatory Shopify GDPR webhooks:
+          <ul>
+            <li><code>customers/data_request</code> — We provide all stored data about a specific customer</li>
+            <li><code>customers/redact</code> — We delete all stored data about a specific customer</li>
+            <li><code>shop/redact</code> — We delete all stored data for the entire shop</li>
+          </ul>
+        </li>
+        <li><strong>Backup retention:</strong> Encrypted backups may persist for up to 90 days after deletion for disaster recovery, after which they are permanently purged.</li>
+      </ul>
+
+      <h2>6. Data Security</h2>
+      <p>We implement industry-standard security measures to protect your data:</p>
+      <ul>
+        <li>All API communications use HTTPS/TLS encryption</li>
+        <li>Shopify webhook signatures verified using HMAC-SHA256</li>
+        <li>Multi-tenant architecture with complete data isolation between merchant stores</li>
+        <li>Database encryption at rest (AES-256)</li>
+        <li>Access tokens stored encrypted and scoped to minimum required permissions</li>
+        <li>Regular security reviews and monitoring</li>
+      </ul>
+
+      <h2>7. Your Rights</h2>
+
+      <h3>7.1 GDPR Rights (EU/EEA/UK Residents)</h3>
+      <p>If you or your customers are located in the EU, EEA, or UK, the following rights apply:</p>
+      <ul>
+        <li><strong>Right of Access:</strong> Request a copy of the personal data we hold</li>
+        <li><strong>Right to Rectification:</strong> Request correction of inaccurate data</li>
+        <li><strong>Right to Erasure:</strong> Request deletion of personal data</li>
+        <li><strong>Right to Restriction:</strong> Request restriction of data processing</li>
+        <li><strong>Right to Data Portability:</strong> Receive data in a structured, machine-readable format</li>
+        <li><strong>Right to Object:</strong> Object to processing based on legitimate interests</li>
+      </ul>
+      <p>Our legal basis for processing is <strong>contractual necessity</strong> (providing the service you installed) and <strong>legitimate interest</strong> (improving service quality).</p>
+
+      <h3>7.2 CCPA/CPRA Rights (California Residents)</h3>
+      <ul>
+        <li><strong>Right to Know:</strong> Request disclosure of data collected and shared</li>
+        <li><strong>Right to Delete:</strong> Request deletion of personal information</li>
+        <li><strong>Right to Opt-Out of Sale:</strong> We do not sell personal information. No opt-out is necessary.</li>
+        <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your rights</li>
+      </ul>
+
+      <h3>7.3 Additional US State Privacy Laws</h3>
+      <p>We comply with all applicable US state privacy laws effective as of 2026, including laws in Virginia, Colorado, Connecticut, Utah, Texas, Oregon, Montana, Iowa, Indiana, Kentucky, Rhode Island, and others. Residents of these states may exercise similar rights as described above.</p>
+
+      <h2>8. Meta Platform Compliance</h2>
+      <p>In addition to the above, we comply with Meta's Platform Terms and Developer Policies:</p>
+      <ul>
+        <li>We only access Instagram data that users explicitly authorize</li>
+        <li>We do not store Instagram data longer than necessary to provide the service</li>
+        <li>We do not transfer Instagram data to third parties except as described in this policy</li>
+        <li>We delete all Instagram-related data upon user request or upon disconnection of the Instagram account</li>
+        <li>We maintain all versions of this privacy policy available upon Meta's request</li>
+        <li>All service providers with access to Instagram data have signed data processing agreements</li>
+      </ul>
+
+      <h2>9. Cookies & Tracking</h2>
+      <p>The LUMA dashboard operates as an embedded Shopify app and does not set its own cookies. We rely on Shopify's session management for authentication. We do not use any third-party tracking pixels, advertising cookies, or behavioral analytics tools.</p>
+
+      <h2>10. Children's Privacy</h2>
+      <p>LUMA is a B2B service designed for Shopify merchants. We do not knowingly collect or process data from children under 16 (or under 13 in the US). If we become aware that we have collected data from a child, we will delete it immediately.</p>
+
+      <h2>11. International Data Transfers</h2>
+      <p>Your data may be processed in countries outside your jurisdiction. We ensure appropriate safeguards are in place, including Standard Contractual Clauses (SCCs) where required for EU/UK data transfers.</p>
+
+      <h2>12. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy in the LUMA dashboard and updating the "Last Updated" date. Continued use of LUMA after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>13. Contact Us</h2>
+      <p>For privacy-related inquiries, data requests, or to exercise your rights:</p>
+      <ul>
+        <li><strong>Email:</strong> privacy@lumabot.app</li>
+        <li><strong>Data Protection Officer:</strong> dpo@lumabot.app</li>
+        <li><strong>Mailing Address:</strong> LUMA, [Your Business Address]</li>
+      </ul>
+      <p>We will respond to all privacy requests within 30 days (or sooner as required by applicable law).</p>
+
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="text-xs text-gray-400">This privacy policy complies with: Shopify Partner Program Agreement (updated Feb 27, 2026), Shopify API License and Terms of Use, Meta Platform Terms, EU GDPR, CCPA/CPRA, and applicable US state privacy laws effective as of 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="gradient-footer text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2.5">
+          <img src="logo.png" alt="LUMA Logo" class="w-8 h-8 object-contain logo-glow">
+          <span class="font-heading font-bold text-lg">LUMA</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="index.html" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Home</a>
+          <a href="privacy-policy.html" class="text-sm text-glow-300 cursor-pointer">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-sm text-gray-400 hover:text-glow-300 transition-colors duration-200 cursor-pointer">Terms of Service</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-glow-500/10 text-center">
+        <p class="text-xs text-gray-600">&copy; 2026 LUMA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
