@@ -4,7 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LUMA — AI Customer Service for Shopify</title>
-  <meta name="description" content="LUMA automates your Instagram DMs and Shopify chat with AI that speaks your customers' language. Handle 80% of messages instantly — no code required.">
+  <meta name="description" content="LUMA turns product questions into sales for Shopify merchants. AI-powered DMs in Arabic, English, and Franco Arabic. Instant replies, order tracking, smart escalation.">
+  <link rel="canonical" href="https://luma-bot.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://luma-bot.com/">
+  <meta property="og:title" content="LUMA — AI That Turns DMs Into Sales for Shopify">
+  <meta property="og:description" content="LUMA turns product questions into sales for Shopify merchants. AI-powered DMs in Arabic, English, and Franco Arabic. Instant replies, order tracking, smart escalation.">
+  <meta property="og:image" content="https://luma-bot.com/og-image.png">
+  <meta property="og:site_name" content="LUMA">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LUMA — AI That Turns DMs Into Sales for Shopify">
+  <meta name="twitter:description" content="LUMA turns product questions into sales for Shopify merchants. AI-powered DMs in Arabic, English, and Franco Arabic.">
+  <meta name="twitter:image" content="https://luma-bot.com/og-image.png">
+
+  <!-- Additional SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="LUMA">
+  <meta name="keywords" content="Shopify chatbot, Instagram DM automation, AI customer service, Shopify app, Arabic chatbot, ecommerce automation, DM sales">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,6 +114,110 @@
       pointer-events: none;
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LUMA",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered customer service and sales automation for Shopify merchants. Handles Instagram DMs and Shopify chat in Arabic, English, and Franco Arabic.",
+    "url": "https://luma-bot.com",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "name": "Free",
+        "description": "20 AI conversations per day"
+      },
+      {
+        "@type": "Offer",
+        "price": "29",
+        "priceCurrency": "USD",
+        "name": "Starter",
+        "description": "200 AI conversations per day"
+      },
+      {
+        "@type": "Offer",
+        "price": "79",
+        "priceCurrency": "USD",
+        "name": "Growth",
+        "description": "600 AI conversations per day"
+      },
+      {
+        "@type": "Offer",
+        "price": "149",
+        "priceCurrency": "USD",
+        "name": "Pro",
+        "description": "1500 AI conversations per day"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "1"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does LUMA handle messages it can't answer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LUMA uses confidence scoring on every response. When it detects it isn't confident enough, it instantly acknowledges the customer and creates a ticket in your escalation queue. The bot stays silent on that conversation until you resolve it — no awkward double-replies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What languages does LUMA support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Arabic (Modern Standard and Egyptian dialect), English, and Franco Arabic (the Arabic-in-Latin-letters style common across the Middle East). LUMA auto-detects the language and responds in kind — no configuration needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the \"80% auto-resolved\" claim work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LUMA has a pre-filter layer that runs before the AI. It handles greetings, thank-yous, duplicate messages, emoji-only messages, order tracking queries, and more — all with zero AI cost. These typically make up 80% of all incoming messages. Only complex questions reach the AI engine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does LUMA know about my products?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LUMA syncs your entire Shopify product catalog automatically every 6 hours. When a customer asks about a product, LUMA searches your inventory in real-time and provides accurate stock, pricing, and product details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my customer data safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. LUMA uses a secure architecture that keeps each store's data completely separate — your store's data is completely separated. We verify webhook signatures (industry-standard security verification), enforce Shopify's GDPR compliance, and all API communications use HTTPS."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I customize the bot's responses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You get a full template library where you can create custom auto-reply rules per message category. You can also adjust the bot's greeting style, set custom escalation rules, and pause the bot at any time for manual takeover."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="font-body text-gray-900 bg-surface antialiased">
 
