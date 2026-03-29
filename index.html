@@ -341,6 +341,9 @@
                 <button onclick="sendChip(this, 'bikam el hoodie?')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">bikam el hoodie?</button>
                 <button onclick="sendChip(this, 'el order feen?')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">el order feen?</button>
                 <button onclick="sendChip(this, '3ayez arga3 el order')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">3ayez arga3 el order</button>
+                <button onclick="sendChip(this, 'How much is the hoodie?')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">How much is the hoodie?</button>
+                <button onclick="sendChip(this, 'Where is my order?')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">Where is my order?</button>
+                <button onclick="sendChip(this, 'I want to return my order')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">I want to return my order</button>
               </div>
               <!-- Input area -->
               <div class="bg-surface rounded-b-2xl px-3 pb-3 pt-1">
@@ -1005,7 +1008,10 @@
     const chatResponses = {
       'bikam el hoodie?': 'El Black Hoodie is in stock! Se3ro EGP 1,250. A7eb ab3atlak el link?',
       'el order feen?': 'Order #4521 is shipped! Hawsalak kaman youmeen. Tracking link: <a href="#" class="underline text-glow-500">track.luma-bot.com/4521</a>',
-      '3ayez arga3 el order': 'Akeed, net2asef enk wageht moshkela. A team member will jump in here to help you process the return in just a moment!'
+      '3ayez arga3 el order': 'Akeed, net2asef enk wageht moshkela. A team member will jump in here to help you process the return in just a moment!',
+      'How much is the hoodie?': 'The Black Hoodie is in stock! It\'s EGP 1,250. Would you like me to send you the checkout link?',
+      'Where is my order?': 'Order #4521 has been shipped! It should arrive in 2 days. Tracking link: <a href="#" class="underline text-glow-500">track.luma-bot.com/4521</a>',
+      'I want to return my order': 'Of course, sorry to hear you had an issue. A team member will jump in here to help you process the return in just a moment!'
     };
     const fallbackReply = 'Ana bot bargos 3ala el sandbox dah bas! Try asking me about the Black Hoodie, or order #4521.';
     let chatBusy = false;
