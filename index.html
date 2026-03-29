@@ -93,6 +93,16 @@
     .pricing-popular { box-shadow: 0 0 0 2px #4466ff, 0 0 40px rgba(68,102,255,0.15), 0 25px 50px -12px rgba(68,102,255,0.2); }
     .text-glow { text-shadow: 0 0 20px rgba(68,102,255,0.5), 0 0 40px rgba(68,102,255,0.25); }
     .logo-glow { filter: drop-shadow(0 0 8px rgba(68,102,255,0.6)) drop-shadow(0 0 20px rgba(68,102,255,0.3)); }
+    /* Typing indicator */
+    .typing-dot { width: 6px; height: 6px; border-radius: 50%; background: #9ca3af; display: inline-block; animation: typingBounce 1.2s infinite; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingBounce { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-4px); opacity: 1; } }
+    /* Custom range slider */
+    input[type=range].luma-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; }
+    input[type=range].luma-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #4466ff; cursor: pointer; box-shadow: 0 0 10px rgba(68,102,255,0.4); transition: box-shadow 0.2s; }
+    input[type=range].luma-slider::-webkit-slider-thumb:hover { box-shadow: 0 0 16px rgba(68,102,255,0.6); }
+    input[type=range].luma-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #4466ff; cursor: pointer; border: none; box-shadow: 0 0 10px rgba(68,102,255,0.4); }
     /* Starfield background */
     .starfield { position: relative; overflow: hidden; }
     .starfield::before {
@@ -299,36 +309,51 @@
           </div>
         </div>
 
-        <!-- Right: Chat mockup -->
+        <!-- Right: Interactive Chat Sandbox -->
         <div class="relative flex justify-center lg:justify-end">
           <div class="relative w-full max-w-sm">
-            <div class="glass-dark rounded-3xl p-5 shadow-2xl float-animation star-glow">
-              <div class="flex items-center gap-3 mb-5 pb-4 border-b border-glow-500/10">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-glow-500 to-glow-300 flex items-center justify-center p-1.5">
+            <div id="chat-sandbox" class="rounded-[2.5rem] p-3 shadow-2xl star-glow" style="background: #05021a; border: 3px solid #111155;">
+              <!-- Phone notch -->
+              <div class="flex justify-center pt-1 pb-2">
+                <div class="w-28 h-5 rounded-full bg-black/80"></div>
+              </div>
+              <!-- Instagram DM header -->
+              <div class="bg-surface rounded-t-2xl px-4 pt-3 pb-2 flex items-center gap-3 border-b border-gray-200">
+                <svg class="w-5 h-5 text-cosmos-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-glow-500 to-glow-300 flex items-center justify-center p-1">
                   <img src="logo.png" alt="" class="w-full h-full object-contain" aria-hidden="true">
                 </div>
-                <div>
-                  <p class="text-white text-sm font-semibold">LUMA Bot</p>
-                  <p class="text-glow-400 text-xs flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-glow-400 inline-block"></span> Online
-                  </p>
+                <div class="flex-1">
+                  <p class="text-cosmos-900 text-sm font-semibold leading-tight">LUMA Bot</p>
+                  <p class="text-gray-400 text-[11px]">Active now</p>
+                </div>
+                <svg class="w-5 h-5 text-cosmos-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <!-- Chat body -->
+              <div id="chat-messages" class="bg-surface px-4 py-3 space-y-2.5 overflow-y-auto" style="height: 280px; scroll-behavior: smooth;">
+                <!-- Welcome message -->
+                <div class="flex justify-start">
+                  <div class="bg-gray-100 text-cosmos-900 px-3.5 py-2 rounded-2xl rounded-bl-md text-[13px] max-w-[85%] leading-relaxed">Ahlan! 👋 I'm LUMA. Try tapping a question below or type your own!</div>
                 </div>
               </div>
-              <div class="space-y-3">
-                <div class="flex justify-end"><div class="chat-bubble chat-bubble-right bg-glow-500 text-white px-4 py-2.5 rounded-2xl rounded-br-md text-sm max-w-[85%]">Do you have the black jacket in medium?</div></div>
-                <div class="flex justify-start"><div class="chat-bubble bg-white/10 text-white px-4 py-2.5 rounded-2xl rounded-bl-md text-sm max-w-[85%]">Yes! The Black Leather Jacket is in stock in Medium. It's EGP 1,250. Want me to send the link?</div></div>
-                <div class="flex justify-end"><div class="chat-bubble chat-bubble-right bg-glow-500 text-white px-4 py-2.5 rounded-2xl rounded-br-md text-sm max-w-[85%]">Where's my order #4521?</div></div>
-                <div class="flex justify-start"><div class="chat-bubble bg-white/10 text-white px-4 py-2.5 rounded-2xl rounded-bl-md text-sm max-w-[85%]">Order #4521 shipped! Tracking: EG2847391. Expected delivery: Mar 20.</div></div>
+              <!-- Prompt chips -->
+              <div class="bg-surface px-3 pt-2 pb-1 flex flex-wrap gap-1.5" id="chat-chips">
+                <button onclick="sendChip(this, 'bikam el hoodie?')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">bikam el hoodie?</button>
+                <button onclick="sendChip(this, 'el order feen?')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">el order feen?</button>
+                <button onclick="sendChip(this, '3ayez arga3 el order')" class="px-3 py-1.5 rounded-full text-[12px] font-medium bg-glow-50 text-glow-600 border border-glow-200 hover:bg-glow-100 transition-colors cursor-pointer whitespace-nowrap">3ayez arga3 el order</button>
               </div>
-              <div class="mt-4 flex items-center gap-2 bg-white/5 rounded-xl px-3 py-2 border border-glow-500/10">
-                <span class="text-gray-500 text-sm flex-1">Type a message...</span>
-                <div class="w-8 h-8 rounded-lg gradient-cta flex items-center justify-center cursor-pointer">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              <!-- Input area -->
+              <div class="bg-surface rounded-b-2xl px-3 pb-3 pt-1">
+                <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 border border-gray-200">
+                  <input id="chat-input" type="text" placeholder="Message..." class="flex-1 bg-transparent text-sm text-cosmos-900 placeholder-gray-400 outline-none font-body" onkeydown="if(event.key==='Enter'){event.preventDefault();sendChatMessage();}">
+                  <button onclick="sendChatMessage()" class="w-7 h-7 rounded-full gradient-cta flex items-center justify-center cursor-pointer flex-shrink-0 hover:opacity-90 transition-opacity">
+                    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
                 </div>
               </div>
             </div>
             <!-- Floating badge: auto-resolved -->
-            <div class="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-lg flex items-center gap-3">
+            <div class="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-lg flex items-center gap-3 z-10">
               <div class="w-10 h-10 rounded-full bg-glow-50 flex items-center justify-center">
                 <svg class="w-5 h-5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
@@ -338,7 +363,7 @@
               </div>
             </div>
             <!-- Floating badge: response time -->
-            <div class="absolute -top-2 -right-2 glass rounded-xl px-4 py-3 shadow-lg flex items-center gap-3">
+            <div class="absolute -top-2 -right-2 glass rounded-xl px-4 py-3 shadow-lg flex items-center gap-3 z-10">
               <div class="w-10 h-10 rounded-full bg-glow-50 flex items-center justify-center">
                 <svg class="w-5 h-5 text-glow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
@@ -672,6 +697,51 @@
     </div>
   </section>
 
+  <!-- ======================== ROI CALCULATOR ======================== -->
+  <section id="roi-calculator" class="py-20 md:py-28 bg-surface">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12 fade-in">
+        <p class="text-sm font-semibold text-glow-500 uppercase tracking-wider mb-3">Time Saved</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-cosmos-900 leading-tight">How much time are DMs costing you?</h2>
+        <p class="mt-4 text-lg text-gray-500">Move the sliders to see how many hours LUMA gives back to your team every month.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100 fade-in">
+        <!-- Slider 1: DMs per day -->
+        <div class="mb-8">
+          <div class="flex items-center justify-between mb-3">
+            <label class="font-heading font-semibold text-cosmos-900 text-sm">Instagram DMs per day?</label>
+            <span id="dms-value" class="font-heading font-bold text-glow-500 text-lg tabular-nums">50</span>
+          </div>
+          <input type="range" id="dms-slider" class="luma-slider w-full" min="10" max="500" value="50" step="10" oninput="updateROI()">
+          <div class="flex justify-between mt-1.5 text-xs text-gray-400"><span>10</span><span>500</span></div>
+        </div>
+
+        <!-- Slider 2: Minutes per DM -->
+        <div class="mb-10">
+          <div class="flex items-center justify-between mb-3">
+            <label class="font-heading font-semibold text-cosmos-900 text-sm">Minutes spent per DM?</label>
+            <span id="mins-value" class="font-heading font-bold text-glow-500 text-lg tabular-nums">3</span>
+          </div>
+          <input type="range" id="mins-slider" class="luma-slider w-full" min="1" max="10" value="3" step="1" oninput="updateROI()">
+          <div class="flex justify-between mt-1.5 text-xs text-gray-400"><span>1 min</span><span>10 min</span></div>
+        </div>
+
+        <!-- Pain metric -->
+        <p class="text-center text-gray-500 text-base mb-6" id="roi-pain">
+          You currently spend <span class="font-semibold text-cosmos-900">75 hours</span> every month answering DMs.
+        </p>
+
+        <!-- Solution callout -->
+        <div class="rounded-xl bg-gradient-to-br from-glow-500 to-glow-400 p-6 md:p-8 text-center text-white">
+          <p class="text-sm font-medium opacity-80 mb-2">LUMA handles 80% automatically. Get back</p>
+          <p class="font-heading font-extrabold text-5xl sm:text-6xl md:text-7xl leading-none mb-2" id="roi-saved">60</p>
+          <p class="text-lg font-semibold opacity-90">hours a month</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================== PRICING ======================== -->
   <section id="pricing" class="py-20 md:py-28 bg-surface">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -930,6 +1000,100 @@
         }
       });
     });
+
+    // ======================== CHAT SANDBOX ========================
+    const chatResponses = {
+      'bikam el hoodie?': 'El Black Hoodie is in stock! Se3ro EGP 1,250. A7eb ab3atlak el link?',
+      'el order feen?': 'Order #4521 is shipped! Hawsalak kaman youmeen. Tracking link: <a href="#" class="underline text-glow-500">track.luma-bot.com/4521</a>',
+      '3ayez arga3 el order': 'Akeed, net2asef enk wageht moshkela. A team member will jump in here to help you process the return in just a moment!'
+    };
+    const fallbackReply = 'Ana bot bargos 3ala el sandbox dah bas! Try asking me about the Black Hoodie, or order #4521.';
+    let chatBusy = false;
+
+    function scrollChat() {
+      const el = document.getElementById('chat-messages');
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function addMessage(text, isUser) {
+      const container = document.getElementById('chat-messages');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'flex ' + (isUser ? 'justify-end' : 'justify-start');
+      wrapper.style.opacity = '0';
+      wrapper.style.transform = 'translateY(8px)';
+      const bubble = document.createElement('div');
+      bubble.className = isUser
+        ? 'bg-glow-500 text-white px-3.5 py-2 rounded-2xl rounded-br-md text-[13px] max-w-[85%] leading-relaxed'
+        : 'bg-gray-100 text-cosmos-900 px-3.5 py-2 rounded-2xl rounded-bl-md text-[13px] max-w-[85%] leading-relaxed';
+      if (isUser) { bubble.textContent = text; } else { bubble.innerHTML = text; }
+      wrapper.appendChild(bubble);
+      container.appendChild(wrapper);
+      requestAnimationFrame(() => {
+        wrapper.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        wrapper.style.opacity = '1';
+        wrapper.style.transform = 'translateY(0)';
+      });
+      scrollChat();
+    }
+
+    function showTyping() {
+      const container = document.getElementById('chat-messages');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'flex justify-start';
+      wrapper.id = 'typing-indicator';
+      wrapper.innerHTML = '<div class="bg-gray-100 px-4 py-2.5 rounded-2xl rounded-bl-md flex items-center gap-1.5"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>';
+      container.appendChild(wrapper);
+      scrollChat();
+    }
+
+    function removeTyping() {
+      const el = document.getElementById('typing-indicator');
+      if (el) el.remove();
+    }
+
+    function botReply(text) {
+      chatBusy = true;
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        addMessage(text, false);
+        chatBusy = false;
+      }, 500);
+    }
+
+    function sendChip(btn, text) {
+      if (chatBusy) return;
+      addMessage(text, true);
+      botReply(chatResponses[text]);
+    }
+
+    function sendChatMessage() {
+      if (chatBusy) return;
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      addMessage(text, true);
+      const lower = text.toLowerCase();
+      let reply = fallbackReply;
+      for (const [key, val] of Object.entries(chatResponses)) {
+        if (lower === key.toLowerCase()) { reply = val; break; }
+      }
+      botReply(reply);
+    }
+
+    // ======================== ROI CALCULATOR ========================
+    function updateROI() {
+      const dms = parseInt(document.getElementById('dms-slider').value);
+      const mins = parseInt(document.getElementById('mins-slider').value);
+      document.getElementById('dms-value').textContent = dms;
+      document.getElementById('mins-value').textContent = mins;
+      const totalMinDay = dms * mins;
+      const totalHoursMonth = Math.round((totalMinDay * 30) / 60);
+      const timeSaved = Math.round(totalHoursMonth * 0.80);
+      document.getElementById('roi-pain').innerHTML = 'You currently spend <span class="font-semibold text-cosmos-900">' + totalHoursMonth + ' hours</span> every month answering DMs.';
+      document.getElementById('roi-saved').textContent = timeSaved;
+    }
   </script>
 </body>
 </html>
