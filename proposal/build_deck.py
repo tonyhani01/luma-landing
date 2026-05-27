@@ -30,6 +30,7 @@ F_SERIF= 'Instrument Serif'
 F_MONO = 'JetBrains Mono'
 
 ASSETS = 'proposal/assets'
+TOTAL = 14
 
 prs = Presentation()
 prs.slide_width  = Inches(13.333)
@@ -186,7 +187,7 @@ def set_alpha_line(shape, alpha_pct):
 def page_num(s, n, dark=True):
     col = C['mute_d'] if dark else C['mute_l']
     text(s, Inches(11.9), Inches(6.95), Inches(1.0), Inches(0.4),
-         [[(f'{n:02d} / 13', dict(size=10, color=col, font=F_MONO))]], align=PP_ALIGN.RIGHT)
+         [[(f'{n:02d} / {TOTAL}', dict(size=10, color=col, font=F_MONO))]], align=PP_ALIGN.RIGHT)
 
 def brand_mark(s, dark=True):
     s.shapes.add_picture(f'{ASSETS}/../../logo.png', Inches(0.5), Inches(0.42),
@@ -234,18 +235,19 @@ toc = [
     ('03', 'How it works', 'Answer · Reply · Hand off', 4),
     ('04', 'Get started in 3 steps', 'Connect, teach, go live', 5),
     ('05', 'Feature set', 'Everything in one inbox', 6),
-    ('06', 'Why LUMA', 'Built for merchants, not generic bots', 7),
-    ('07', 'Proven performance', 'Speed, languages, uptime', 8),
-    ('08', 'Pricing', 'Plans that scale with you', 9),
-    ('09', 'Security & trust', 'Your data, protected', 10),
-    ('10', 'Next steps', 'Start your free trial', 11),
+    ('06', 'Insights & analytics', 'Know your customers at a glance', 7),
+    ('07', 'Why LUMA', 'Built for merchants, not generic bots', 9),
+    ('08', 'Proven performance', 'Speed, languages, uptime', 10),
+    ('09', 'Pricing', 'Plans that scale with you', 11),
+    ('10', 'Security & trust', 'Your data, protected', 12),
+    ('11', 'Next steps', 'Start your free trial', 13),
 ]
 col_x = [Inches(0.8), Inches(6.95)]
-y0 = Inches(2.55); rh = Inches(0.86)
+y0 = Inches(2.42); rh = Inches(0.78)
 for i, (num, title, sub, tgt) in enumerate(toc):
-    col = i // 5; row = i % 5
+    col = i // 6; row = i % 6
     x = col_x[col]; y = Emu(int(y0) + row*int(rh))
-    card = rect(s, x, y, Inches(5.55), Inches(0.74), fill=C['cosmos2'], line=C['glow'], line_w=0.75, radius=0.18)
+    card = rect(s, x, y, Inches(5.55), Inches(0.66), fill=C['cosmos2'], line=C['glow'], line_w=0.75, radius=0.18)
     set_alpha(card, 55); set_alpha_line(card, 55)
     link_to_slide(card, tgt)
     text(s, Emu(int(x)+Emu(Inches(0.22))), Emu(int(y)+Emu(Inches(0.12))), Inches(0.9), Inches(0.5),
@@ -431,10 +433,126 @@ home_button(s); page_num(s,7)
 transition(s, 'zoom', spd='med')
 
 # =====================================================================
-# SLIDE 8 — WHY LUMA
+# SLIDE 8 — INSIGHTS & ANALYTICS (overview dashboard)
 # =====================================================================
 s = slide('bg_dark2.png')
-eyebrow(s, Inches(0.85), Inches(0.85), '06 · Why LUMA')
+eyebrow(s, Inches(0.85), Inches(0.6), '06 · Insights')
+text(s, Inches(0.8), Inches(0.95), Inches(11.6), Inches(0.8),
+     [[('Your store’s conversations, made clear', dict(size=32, color=C['white'], font=F_HEAD, bold=True))]])
+text(s, Inches(0.8), Inches(1.66), Inches(11.6), Inches(0.5),
+     [[('A simple dashboard, built right into your store — no spreadsheets, no guesswork.', dict(size=13.5, color=C['mute_d'], font=F_BODY))]])
+panel=rect(s, Inches(0.8), Inches(2.25), Inches(11.73), Inches(4.45), fill=C['cosmos2'], line=C['glow'], line_w=1.0, radius=0.04, shadow=True)
+set_alpha(panel,25); set_alpha_line(panel,50)
+# KPI tiles
+kpis=[('1,240','Conversations this month'),('94%','Answered instantly'),
+      ('310','After-hours chats handled'),('4.7 / 5','Average customer rating')]
+tw=Inches(2.66); th=Inches(1.15); tx0=Inches(1.05); ty=Inches(2.55); step=Inches(2.84)
+for i,(big,lab) in enumerate(kpis):
+    x=Emu(int(tx0)+i*int(step))
+    tile=rect(s,x,ty,tw,th,fill=C['cosmos'],line=C['glow'],line_w=0.6,radius=0.12)
+    set_alpha(tile,35); set_alpha_line(tile,60)
+    text(s,Emu(int(x)+Emu(Inches(0.25))),Emu(int(ty)+Emu(Inches(0.16))),Emu(int(tw)-Emu(Inches(0.4))),Inches(0.55),
+         [[(big,dict(size=30,color=C['glow_l'],font=F_HEAD,bold=True))]])
+    text(s,Emu(int(x)+Emu(Inches(0.25))),Emu(int(ty)+Emu(Inches(0.74))),Emu(int(tw)-Emu(Inches(0.4))),Inches(0.4),
+         [[(lab,dict(size=10,color=C['mute_d'],font=F_BODY))]])
+# bar chart (left)
+text(s,Inches(1.05),Inches(4.05),Inches(5),Inches(0.4),
+     [[('Conversations per day',dict(size=13,color=C['white'],font=F_HEAD,bold=True))]])
+days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun']; hts=[0.55,0.70,0.62,0.85,1.0,0.92,0.68]
+base=Inches(6.2); maxh=Inches(1.45); bw=Inches(0.5); bx0=Inches(1.2); bstep=Inches(0.84)
+for i,(d,h) in enumerate(zip(days,hts)):
+    bh=Emu(int(int(maxh)*h)); x=Emu(int(bx0)+i*int(bstep))
+    col=C['glow_l'] if h==1.0 else C['glow']
+    bar=rect(s,x,Emu(int(base)-int(bh)),bw,bh,fill=col,radius=0.2)
+    set_alpha(bar, 0 if h==1.0 else 25)
+    text(s,Emu(int(x)-Emu(Inches(0.1))),Emu(int(base)+Emu(Inches(0.04))),Inches(0.7),Inches(0.3),
+         [[(d,dict(size=8.5,color=C['mute_d'],font=F_MONO))]],align=PP_ALIGN.CENTER)
+# handled breakdown (right)
+text(s,Inches(7.75),Inches(4.05),Inches(4.5),Inches(0.4),
+     [[('How messages were handled',dict(size=13,color=C['white'],font=F_HEAD,bold=True))]])
+hb=[('Answered instantly',82,C['glow']),('Passed to your team',18,C['glow_l'])]
+trk_w=Inches(4.0)
+for i,(lab,pct,col) in enumerate(hb):
+    yy=Emu(int(Inches(4.62))+i*int(Inches(0.92)))
+    text(s,Inches(7.75),yy,Inches(3.2),Inches(0.3),[[(lab,dict(size=11,color=C['white'],font=F_BODY))]])
+    text(s,Inches(10.55),yy,Inches(1.7),Inches(0.3),[[(f'{pct}%',dict(size=12,color=col,font=F_MONO,bold=True))]],align=PP_ALIGN.RIGHT)
+    trky=Emu(int(yy)+Emu(Inches(0.34)))
+    trk=rect(s,Inches(7.75),trky,trk_w,Inches(0.2),fill=C['cosmos'],radius=0.5); set_alpha(trk,55)
+    fillw=Emu(int(int(trk_w)*pct/100))
+    fl=rect(s,Inches(7.75),trky,fillw,Inches(0.2),fill=col,radius=0.5)
+text(s,Inches(7.75),Inches(6.18),Inches(4.6),Inches(0.4),
+     [[('Most asked:  ',dict(size=11,color=C['mute_d'],font=F_BODY)),
+       ('“Where’s my order?”',dict(size=11,color=C['glow_l'],font=F_BODY,bold=True))]])
+home_button(s); page_num(s,8)
+transition(s, 'cover', dir='l')
+
+# =====================================================================
+# SLIDE 9 — INSIGHTS IN ACTION
+# =====================================================================
+s = slide('bg_light.png')
+eyebrow(s, Inches(0.85), Inches(0.7), '06 · Insights', color=C['glow'])
+text(s, Inches(0.8), Inches(1.05), Inches(11.5), Inches(0.8),
+     [[('Turn insight into action', dict(size=34, color=C['ink'], font=F_HEAD, bold=True))]])
+text(s, Inches(0.8), Inches(1.78), Inches(11.5), Inches(0.5),
+     [[('Spot patterns, staff smarter, and see exactly what turns chats into sales.', dict(size=13.5, color=C['mute_l'], font=F_BODY))]])
+icw=Inches(3.85); igap=Inches(0.34); ix0=Inches(0.8); iy=Inches(2.5); ich=Inches(4.0)
+cxs=[Emu(int(ix0)+i*(int(icw)+int(igap))) for i in range(3)]
+for x in cxs:
+    card=rect(s,x,iy,icw,ich,fill=C['white'],line=C['glow'],line_w=1.0,radius=0.08,shadow=True)
+    set_alpha_line(card,80)
+# Card 1 — heatmap
+x=cxs[0]
+text(s,Emu(int(x)+Emu(Inches(0.32))),Emu(int(iy)+Emu(Inches(0.28))),Inches(3.3),Inches(0.5),
+     [[('Your busiest hours',dict(size=16,color=C['ink'],font=F_HEAD,bold=True))]])
+inten=[0.20,0.30,0.25,0.40,0.55,0.45, 0.30,0.45,0.55,0.70,0.85,0.60,
+       0.40,0.60,0.75,0.90,1.00,0.80, 0.25,0.40,0.50,0.65,0.55,0.35]
+hcols=6; hrows=4; cell=Inches(0.42); cg=Inches(0.1)
+hx=Emu(int(x)+Emu(Inches(0.34))); hy=Emu(int(iy)+Emu(Inches(1.0)))
+for r in range(hrows):
+    for c in range(hcols):
+        idx=r*hcols+c
+        cxp=Emu(int(hx)+c*(int(cell)+int(cg))); cyp=Emu(int(hy)+r*(int(cell)+int(cg)))
+        cl=rect(s,cxp,cyp,cell,cell,fill=C['glow'],radius=0.22)
+        set_alpha(cl, 100-int(inten[idx]*100))
+text(s,Emu(int(x)+Emu(Inches(0.32))),Emu(int(iy)+Emu(Inches(3.35))),Emu(int(icw)-Emu(Inches(0.6))),Inches(0.6),
+     [[('Evenings are your peak — staff up when it matters most.',dict(size=11,color=C['mute_l'],font=F_BODY))]],line_spacing=1.05)
+# Card 2 — top questions
+x=cxs[1]
+text(s,Emu(int(x)+Emu(Inches(0.32))),Emu(int(iy)+Emu(Inches(0.28))),Inches(3.3),Inches(0.5),
+     [[('Top questions',dict(size=16,color=C['ink'],font=F_HEAD,bold=True))]])
+qs=[('Where’s my order?',34),('Is this in stock?',26),('Shipping & delivery',21),('Returns & exchanges',12)]
+qtrk=Inches(3.05)
+for i,(q,p) in enumerate(qs):
+    yy=Emu(int(iy)+Emu(Inches(1.05))+i*int(Inches(0.72)))
+    text(s,Emu(int(x)+Emu(Inches(0.34))),yy,Inches(2.5),Inches(0.3),[[(q,dict(size=11,color=C['ink'],font=F_BODY))]])
+    text(s,Emu(int(x)+Emu(Inches(2.7))),yy,Inches(0.85),Inches(0.3),[[(f'{p}%',dict(size=11,color=C['glow'],font=F_MONO,bold=True))]],align=PP_ALIGN.RIGHT)
+    trky=Emu(int(yy)+Emu(Inches(0.3)))
+    bg=rect(s,Emu(int(x)+Emu(Inches(0.34))),trky,qtrk,Inches(0.14),fill=C['glow'],radius=0.5); set_alpha(bg,88)
+    fw=Emu(int(int(qtrk)*p/100))
+    fb=rect(s,Emu(int(x)+Emu(Inches(0.34))),trky,fw,Inches(0.14),fill=C['glow'],radius=0.5)
+# Card 3 — conversion
+x=cxs[2]
+text(s,Emu(int(x)+Emu(Inches(0.32))),Emu(int(iy)+Emu(Inches(0.28))),Inches(3.3),Inches(0.5),
+     [[('Chats that became sales',dict(size=16,color=C['ink'],font=F_HEAD,bold=True))]])
+text(s,Emu(int(x)+Emu(Inches(0.3))),Emu(int(iy)+Emu(Inches(0.95))),Inches(3),Inches(0.9),
+     [[('19%',dict(size=52,color=C['glow'],font=F_HEAD,bold=True))]])
+text(s,Emu(int(x)+Emu(Inches(0.34))),Emu(int(iy)+Emu(Inches(2.0))),Emu(int(icw)-Emu(Inches(0.6))),Inches(0.6),
+     [[('of conversations led to a purchase.',dict(size=11.5,color=C['mute_l'],font=F_BODY))]],line_spacing=1.05)
+cbase=Emu(int(iy)+Emu(Inches(3.5))); cmax=Inches(1.0); cbw=Inches(0.55); cbx=Emu(int(x)+Emu(Inches(0.4))); cbs=Inches(0.78)
+chs=[0.45,0.65,0.85,1.0]; lbls=['Wk1','Wk2','Wk3','Wk4']
+for i,(h,lb) in enumerate(zip(chs,lbls)):
+    bh=Emu(int(int(cmax)*h)); bx=Emu(int(cbx)+i*int(cbs))
+    rect(s,bx,Emu(int(cbase)-int(bh)),cbw,bh,fill=C['glow_l'],radius=0.2)
+    text(s,Emu(int(bx)-Emu(Inches(0.08))),Emu(int(cbase)+Emu(Inches(0.04))),Inches(0.7),Inches(0.3),
+         [[(lb,dict(size=8.5,color=C['mute_l'],font=F_MONO))]],align=PP_ALIGN.CENTER)
+home_button(s); page_num(s,9,dark=False)
+transition(s, 'split', orient='horz', dir='out')
+
+# =====================================================================
+# SLIDE 10 — WHY LUMA
+# =====================================================================
+s = slide('bg_dark2.png')
+eyebrow(s, Inches(0.85), Inches(0.85), '07 · Why LUMA')
 text(s, Inches(0.8), Inches(1.25), Inches(11.5), Inches(1.4),
      [[('Not a generic chatbot. ', dict(size=38, color=C['white'], font=F_HEAD, bold=True)),
        ('A real teammate.', dict(size=38, color=C['glow_l'], font=F_HEAD, bold=True))],
@@ -461,14 +579,14 @@ for g,l in rows:
     set_alpha(lc,30); set_alpha_line(lc,40)
     shape_text(lc,[[('✓  ',dict(size=12,color=C['green'],font=F_BODY,bold=True)),(l,dict(size=12.5,color=C['white'],font=F_BODY,bold=True))]],align=PP_ALIGN.LEFT)
     ry=Emu(int(ry)+Emu(Inches(0.7)))
-home_button(s); page_num(s,8)
+home_button(s); page_num(s,10)
 transition(s, 'wipe', dir='u')
 
 # =====================================================================
 # SLIDE 9 — PERFORMANCE STATS
 # =====================================================================
 s = slide('bg_cover.png')
-eyebrow(s, Inches(0.85), Inches(0.95), '07 · Proven performance', color=C['glow_xl'])
+eyebrow(s, Inches(0.85), Inches(0.95), '08 · Proven performance', color=C['glow_xl'])
 text(s, Inches(0.8), Inches(1.35), Inches(11.5), Inches(1),
      [[('Numbers that turn conversations into ', dict(size=34, color=C['white'], font=F_HEAD, bold=True)),
        ('revenue', dict(size=34, color=C['glow_l'], font=F_HEAD, bold=True))]])
@@ -486,14 +604,14 @@ for i,(big,t,d) in enumerate(stats):
     text(s,Emu(int(x)+Emu(Inches(0.25))),Emu(int(y)+Emu(Inches(1.75))),Emu(int(cw)-Emu(Inches(0.5))),Inches(1.1),
          [[(t,dict(size=18,color=C['white'],font=F_HEAD,bold=True))],
           [(d,dict(size=11.5,color=C['mute_d'],font=F_BODY))]],align=PP_ALIGN.CENTER,line_spacing=1.05,space_after=4)
-home_button(s); page_num(s,9)
+home_button(s); page_num(s,11)
 transition(s, 'cover', dir='u')
 
 # =====================================================================
 # SLIDE 10 — PRICING
 # =====================================================================
 s = slide('bg_light.png')
-eyebrow(s, Inches(0.85), Inches(0.7), '08 · Pricing', color=C['glow'])
+eyebrow(s, Inches(0.85), Inches(0.7), '09 · Pricing', color=C['glow'])
 text(s, Inches(0.8), Inches(1.1), Inches(11.5), Inches(0.8),
      [[('Plans that scale with your store', dict(size=34, color=C['ink'], font=F_HEAD, bold=True))]])
 text(s, Inches(0.8), Inches(1.78), Inches(11.5), Inches(0.5),
@@ -528,14 +646,14 @@ for name,price,per,limit,fl,pop in plans:
         text(s,Emu(int(x)+Emu(Inches(0.3))),fy,Emu(int(cw)-Emu(Inches(0.55))),Inches(0.4),
              [[('✓  ',dict(size=11,color=(C['glow_xl'] if pop else C['glow']),font=F_BODY,bold=True)),(f,dict(size=11,color=ft_col,font=F_BODY))]])
         fy=Emu(int(fy)+Emu(Inches(0.42)))
-home_button(s); page_num(s,10,dark=False)
+home_button(s); page_num(s,12,dark=False)
 transition(s, 'push', dir='u')
 
 # =====================================================================
 # SLIDE 11 — SECURITY & TRUST
 # =====================================================================
 s = slide('bg_dark.png')
-eyebrow(s, Inches(0.85), Inches(0.95), '09 · Security & trust')
+eyebrow(s, Inches(0.85), Inches(0.95), '10 · Security & trust')
 text(s, Inches(0.8), Inches(1.35), Inches(11.5), Inches(1),
      [[('Your data is ', dict(size=38, color=C['white'], font=F_HEAD, bold=True)),
        ('protected by design', dict(size=38, color=C['glow_l'], font=F_HEAD, bold=True))]])
@@ -553,7 +671,7 @@ for i,(t,d) in enumerate(sec):
     text(s,Emu(int(x)+Emu(Inches(1.0))),Emu(int(y)+Emu(Inches(0.32))),Emu(int(cw)-Emu(Inches(1.3))),Inches(1.3),
          [[(t,dict(size=17,color=C['white'],font=F_HEAD,bold=True))],
           [(d,dict(size=12.5,color=C['mute_d'],font=F_BODY))]],line_spacing=1.08,space_after=4)
-home_button(s); page_num(s,11)
+home_button(s); page_num(s,13)
 transition(s, 'split', orient='horz', dir='in')
 
 # =====================================================================

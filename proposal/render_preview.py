@@ -179,7 +179,7 @@ prs=Presentation('proposal/LUMA_Business_Proposal.pptx')
 SW,SH=prs.slide_width,prs.slide_height
 imgs=[render_slide(s,i) for i,s in enumerate(prs.slides)]
 # contact sheet: 3 cols x 4 rows
-cols,rows=3,4; pad=24
+cols,rows=3,5; pad=24
 tw,th=imgs[0].size
 sheet=Image.new('RGB',(cols*tw+(cols+1)*pad, rows*th+(rows+1)*pad),(15,15,25))
 for i,im in enumerate(imgs):
@@ -187,6 +187,6 @@ for i,im in enumerate(imgs):
     sheet.paste(im,(pad+c*(tw+pad), pad+r*(th+pad)))
 sheet.save('proposal/preview_contact_sheet.png')
 # also save individual full-res for slides 1,3,5,10
-for n in (0,2,4,9,11):
+for n in (0,2,4,7,8,11):
     imgs[n].save(f'proposal/preview_slide_{n+1:02d}.png')
 print("rendered",len(imgs),"slides -> contact sheet + individual previews")
