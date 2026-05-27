@@ -173,7 +173,7 @@ def home_button(s, target_index=1):
     b = rect(s, Inches(0.45), Inches(6.92), Inches(1.15), Inches(0.42),
              fill=None, line=C['glow_l'], line_w=1.0, radius=0.5)
     set_alpha_line(b, 30)
-    shape_text(b, [[('☰  Menu', dict(size=10.5, color=C['glow_l'], font=F_MONO, bold=True))]],
+    shape_text(b, [[('‹  Menu', dict(size=10.5, color=C['glow_l'], font=F_MONO, bold=True))]],
                align=PP_ALIGN.CENTER)
     link_to_slide(b, target_index)
 
@@ -268,20 +268,20 @@ text(s, Inches(0.8), Inches(1.2), Inches(11.5), Inches(1.6),
        ('sale walking out the door', dict(size=42, color=C['glow_l'], font=F_HEAD, bold=True)),
        ('.', dict(size=42, color=C['white'], font=F_HEAD, bold=True))]], line_spacing=1.05)
 probs = [
-    ('⏱', 'Replies come too late', 'Customers message at midnight and on weekends. By the time you reply, they’ve bought elsewhere.'),
-    ('\U0001F4AC', 'The same questions, endlessly', '“Is this in stock?” “Where’s my order?” “Do you ship to me?” — answered manually, all day.'),
-    ('\U0001F310', 'Customers write in 3 languages', 'Arabic, English, Franco-Arabic in the same inbox. Staff juggle tone and translation.'),
-    ('\U0001F4C9', 'No view of what’s working', 'No idea how many messages convert, what gets asked most, or when your peak hours hit.'),
+    ('Replies come too late', 'Customers message at midnight and on weekends. By the time you reply, they’ve bought elsewhere.'),
+    ('The same questions, endlessly', '“Is this in stock?” “Where’s my order?” “Do you ship to me?” — answered by hand, all day long.'),
+    ('Customers write in three languages', 'Arabic, English and Franco-Arabic in the same inbox. Your team juggles tone and translation.'),
+    ('No view of what’s working', 'No idea how many messages turn into sales, what gets asked most, or when your busiest hours are.'),
 ]
 gx = Inches(0.8); gy = Inches(2.95); cw = Inches(5.85); ch = Inches(1.78); gap = Inches(0.3)
-for i,(ic,t,d) in enumerate(probs):
+for i,(t,d) in enumerate(probs):
     col=i%2; row=i//2
     x=Emu(int(gx)+col*(int(cw)+int(gap))); y=Emu(int(gy)+row*(int(ch)+int(gap)))
     card=rect(s,x,y,cw,ch,fill=C['cosmos2'],line=C['glow'],line_w=0.75,radius=0.10)
     set_alpha(card,50); set_alpha_line(card,60)
-    text(s,Emu(int(x)+Emu(Inches(0.3))),Emu(int(y)+Emu(Inches(0.22))),Inches(1),Inches(0.7),
-         [[(ic,dict(size=30,color=C['glow_l'],font=F_BODY))]])
-    text(s,Emu(int(x)+Emu(Inches(0.3))),Emu(int(y)+Emu(Inches(0.78))),Emu(int(cw)-Emu(Inches(0.6))),Inches(1),
+    text(s,Emu(int(x)+Emu(Inches(0.32))),Emu(int(y)+Emu(Inches(0.22))),Inches(1.1),Inches(0.7),
+         [[(f'{i+1:02d}',dict(size=30,color=C['glow_l'],font=F_MONO,bold=True))]])
+    text(s,Emu(int(x)+Emu(Inches(1.3))),Emu(int(y)+Emu(Inches(0.28))),Emu(int(cw)-Emu(Inches(1.6))),Inches(1.2),
          [[(t,dict(size=17,color=C['white'],font=F_HEAD,bold=True))],
           [(d,dict(size=12,color=C['mute_d'],font=F_BODY))]],line_spacing=1.05,space_after=4)
 home_button(s); page_num(s,3)
@@ -296,13 +296,13 @@ text(s, Inches(0.8), Inches(1.25), Inches(7.4), Inches(2.6),
      [[('An AI teammate that ', dict(size=40, color=C['white'], font=F_HEAD, bold=True)),
        ('never sleeps', dict(size=40, color=C['glow_l'], font=F_HEAD, bold=True))],
       [('', dict(size=8, color=C['white'], font=F_BODY))],
-      [('LUMA reads every Instagram DM and Shopify chat, answers in the customer’s own language with live catalog and order data, and hands off to your team only when it truly matters.',
+      [('LUMA reads every Instagram message and website chat, answers in the customer’s own language using your live product and order information, and passes the conversation to your team whenever a personal touch is needed.',
         dict(size=16.5, color=C['mute_d'], font=F_BODY))]], line_spacing=1.12, space_after=6)
 bullets = [
-    'Replies in under 2 seconds, 24/7',
-    'Speaks Egyptian Arabic, English & Franco-Arabic natively',
-    'Pulls real Shopify orders & catalog — no guessing',
-    'Lives inside your Shopify Admin — not another app to learn',
+    'Replies instantly, day and night',
+    'Speaks Egyptian Arabic, English and Franco-Arabic',
+    'Answers order and product questions accurately',
+    'Works inside your store — no new app to learn',
 ]
 by = Inches(3.95)
 for b in bullets:
@@ -317,13 +317,15 @@ set_alpha(mock,18); set_alpha_line(mock,55)
 hdr=rect(s,mx,Inches(1.25),mw,Inches(0.78),fill=C['glow'],radius=0.06)
 set_alpha(hdr,15)
 s.shapes.add_picture('logo.png', Emu(int(mx)+Emu(Inches(0.22))), Inches(1.43), height=Inches(0.42))
-text(s,Emu(int(mx)+Emu(Inches(0.85))),Inches(1.42),Inches(3),Inches(0.5),
-     [[('LUMA',dict(size=13,color=C['white'],font=F_HEAD,bold=True))],
-      [('● online',dict(size=9,color=C['green'],font=F_MONO))]],space_after=0)
+text(s,Emu(int(mx)+Emu(Inches(0.85))),Inches(1.4),Inches(3),Inches(0.4),
+     [[('LUMA',dict(size=13,color=C['white'],font=F_HEAD,bold=True))]])
+odot=rect(s,Emu(int(mx)+Emu(Inches(0.86))),Inches(1.79),Inches(0.085),Inches(0.085),fill=C['green'],shape=MSO_SHAPE.OVAL)
+text(s,Emu(int(mx)+Emu(Inches(1.02))),Inches(1.71),Inches(2),Inches(0.3),
+     [[('Online now',dict(size=9,color=C['green'],font=F_MONO))]])
 chat=[('in','هل في الجاكيت الأسود مقاس M؟',C['cosmos']),
-      ('out','Yes! The black jacket is in stock in size M — EGP 1,250. Want me to reserve one? \U0001F9E5',C['glow']),
+      ('out','Yes! The black jacket is in stock in size M — EGP 1,250. Would you like me to reserve one?',C['glow']),
       ('in','Where’s my order #4521?',C['cosmos']),
-      ('out','Out for delivery today, arriving by 6 PM \U0001F4E6',C['glow'])]
+      ('out','It’s out for delivery today and should arrive by 6 PM.',C['glow'])]
 cy=Inches(2.25)
 for side,msg,col in chat:
     bw=Inches(3.0)
@@ -345,24 +347,23 @@ eyebrow(s, Inches(0.85), Inches(0.7), '03 · How it works')
 text(s, Inches(0.8), Inches(1.05), Inches(11.5), Inches(0.9),
      [[('Three ways LUMA handles every message', dict(size=34, color=C['white'], font=F_HEAD, bold=True))]])
 text(s, Inches(0.8), Inches(1.75), Inches(11.5), Inches(0.5),
-     [[('Each message routes to the lightest path that solves it — keeping replies instant and costs low.', dict(size=14, color=C['mute_d'], font=F_BODY))]])
-cards=[('⚡','Instant answer','Greetings, thank-yous and duplicate pings are caught by a mechanical pre-filter — zero AI cost.',
-        ['“Hey \U0001F44B”','“شكراً \U0001F64F”','“Where’s order #4521?”']),
-       ('\U0001F9E0','Smart reply','Real product questions trigger an AI search across your live catalog & knowledge base, answered in-language.',
+     [[('Every message is handled the right way — keeping replies instant and your customers looked after.', dict(size=14, color=C['mute_d'], font=F_BODY))]])
+cards=[('Instant answer','Greetings, thank-yous and repeat questions are recognised and answered straight away.',
+        ['“Hi there”','“شكراً”','“Where’s order #4521?”']),
+       ('Smart reply','Real product questions are answered from your live catalogue, in the customer’s own language.',
         ['“Is the black jacket in M?”','“Do you ship to Alexandria?”','“What’s the return policy?”']),
-       ('\U0001F91D','Graceful handoff','Low confidence or a complaint? LUMA acknowledges the customer and opens a ticket for your team.',
-        ['“I want a human”','“This ripped after one wear”','“I’m not happy”'])]
+       ('Personal handoff','Complaints or anything unusual? LUMA reassures the customer and passes it straight to your team.',
+        ['“I’d like to speak to someone”','“This ripped after one wear”','“I’m not happy”'])]
 cw=Inches(3.95); gap=Inches(0.27); x0=Inches(0.8); y=Inches(2.5); ch=Inches(4.05)
-for i,(ic,t,d,ex) in enumerate(cards):
+for i,(t,d,ex) in enumerate(cards):
     x=Emu(int(x0)+i*(int(cw)+int(gap)))
     card=rect(s,x,y,cw,ch,fill=C['cosmos2'],line=C['glow'],line_w=0.9,radius=0.07,shadow=True)
     set_alpha(card,45); set_alpha_line(card,50)
     # number badge
     bdg=rect(s,Emu(int(x)+Emu(Inches(0.3))),Emu(int(y)+Emu(Inches(0.3))),Inches(0.85),Inches(0.85),fill=C['glow'],shape=MSO_SHAPE.OVAL)
-    shape_text(bdg,[[(ic,dict(size=24,color=C['white'],font=F_BODY))]],align=PP_ALIGN.CENTER)
-    text(s,Emu(int(x)+Emu(Inches(0.3))),Emu(int(y)+Emu(Inches(1.3))),Emu(int(cw)-Emu(Inches(0.6))),Inches(1.6),
-         [[(f'{i+1:02d}',dict(size=12,color=C['glow_l'],font=F_MONO,bold=True))],
-          [(t,dict(size=20,color=C['white'],font=F_HEAD,bold=True))],
+    shape_text(bdg,[[(f'{i+1}',dict(size=30,color=C['white'],font=F_HEAD,bold=True))]],align=PP_ALIGN.CENTER)
+    text(s,Emu(int(x)+Emu(Inches(0.3))),Emu(int(y)+Emu(Inches(1.4))),Emu(int(cw)-Emu(Inches(0.6))),Inches(1.6),
+         [[(t,dict(size=20,color=C['white'],font=F_HEAD,bold=True))],
           [(d,dict(size=12,color=C['mute_d'],font=F_BODY))]],line_spacing=1.08,space_after=4)
     ey=Emu(int(y)+Emu(Inches(2.95)))
     for e in ex:
@@ -380,10 +381,10 @@ s = slide('bg_light.png')
 eyebrow(s, Inches(0.85), Inches(0.85), '04 · Onboarding', color=C['glow'])
 text(s, Inches(0.8), Inches(1.25), Inches(11.5), Inches(1),
      [[('Live in an afternoon — ', dict(size=38, color=C['ink'], font=F_HEAD, bold=True)),
-       ('no code, no new app', dict(size=38, color=C['glow'], font=F_HEAD, bold=True))]])
-steps=[('1','Connect','Install from Shopify, link your Instagram Business account. Your catalog syncs automatically.'),
-       ('2','Teach','Set your bot’s tone, auto-reply templates, escalation rules, business hours & product facts — once.'),
-       ('3','Go live','Watch conversations in real time inside Shopify Admin and jump into any thread whenever you want.')]
+       ('no setup headaches', dict(size=38, color=C['glow'], font=F_HEAD, bold=True))]])
+steps=[('1','Connect','Link your store and Instagram account in a few clicks. Your products load in automatically.'),
+       ('2','Personalise','Set the tone, your opening hours and a few product details so LUMA sounds just like your brand.'),
+       ('3','Go live','Watch conversations as they happen and step into any chat yourself whenever you’d like.')]
 cw=Inches(3.85); gap=Inches(0.4); x0=Inches(0.8); y=Inches(3.0); ch=Inches(3.1)
 for i,(n,t,d) in enumerate(steps):
     x=Emu(int(x0)+i*(int(cw)+int(gap)))
@@ -407,24 +408,23 @@ s = slide('bg_dark.png')
 eyebrow(s, Inches(0.85), Inches(0.6), '05 · Feature set')
 text(s, Inches(0.8), Inches(0.95), Inches(11.5), Inches(0.8),
      [[('Everything your inbox needs, in one place', dict(size=33, color=C['white'], font=F_HEAD, bold=True))]])
-feats=[('\U0001F4E5','Unified inbox','Instagram DMs + Shopify chat in one queue'),
-       ('\U0001F310','Native trilingual','Arabic, English & Franco-Arabic per message'),
-       ('\U0001F4E6','Live order tracking','Real Shopify order data, zero hallucination'),
-       ('⚡','Smart pre-filter','Mechanical checks before any AI is called'),
-       ('\U0001F3AF','Confidence scoring','Auto-escalates on low confidence or negativity'),
-       ('\U0001F4CA','Analytics dashboard','Volume, resolution rate, peak-hour heatmap'),
-       ('\U0001F4DA','Product knowledge','Attach facts to products; bot cites verbatim'),
-       ('\U0001F319','After-hours replies','Context-aware off-hours messages, not templates'),
-       ('\U0001F44D','Feedback loop','“Was this helpful?” tunes future replies')]
+feats=[('One inbox','Instagram and website chats together in one place'),
+       ('Three languages','Speaks Arabic, English and Franco-Arabic'),
+       ('Order tracking','Tells customers exactly where their order is'),
+       ('Instant answers','Common questions answered in a moment'),
+       ('Smart handoff','Knows when to bring in your team'),
+       ('Simple dashboard','See your busiest hours and top questions'),
+       ('Product knowledge','Shares accurate details about your products'),
+       ('After-hours replies','Keeps answering when you’re closed'),
+       ('Customer feedback','Asks each customer if the answer helped')]
 cw=Inches(3.85); ch=Inches(1.55); gx=Inches(0.32); gy=Inches(0.3); x0=Inches(0.8); y0=Inches(1.95)
-for i,(ic,t,d) in enumerate(feats):
+for i,(t,d) in enumerate(feats):
     col=i%3; row=i//3
     x=Emu(int(x0)+col*(int(cw)+int(gx))); y=Emu(int(y0)+row*(int(ch)+int(gy)))
     card=rect(s,x,y,cw,ch,fill=C['cosmos2'],line=C['glow'],line_w=0.6,radius=0.10)
     set_alpha(card,50); set_alpha_line(card,65)
-    text(s,Emu(int(x)+Emu(Inches(0.28))),Emu(int(y)+Emu(Inches(0.2))),Inches(1),Inches(0.6),
-         [[(ic,dict(size=24,color=C['glow_l'],font=F_BODY))]])
-    text(s,Emu(int(x)+Emu(Inches(0.28))),Emu(int(y)+Emu(Inches(0.72))),Emu(int(cw)-Emu(Inches(0.56))),Inches(0.8),
+    dot=rect(s,Emu(int(x)+Emu(Inches(0.3))),Emu(int(y)+Emu(Inches(0.32))),Inches(0.16),Inches(0.16),fill=C['glow_l'],shape=MSO_SHAPE.OVAL)
+    text(s,Emu(int(x)+Emu(Inches(0.28))),Emu(int(y)+Emu(Inches(0.66))),Emu(int(cw)-Emu(Inches(0.56))),Inches(0.8),
          [[(t,dict(size=14.5,color=C['white'],font=F_HEAD,bold=True))],
           [(d,dict(size=10.5,color=C['mute_d'],font=F_BODY))]],line_spacing=1.0,space_after=2)
 home_button(s); page_num(s,7)
@@ -447,11 +447,11 @@ set_alpha(ch_generic,30)
 shape_text(ch_generic,[[('GENERIC CHATBOT',dict(size=13,color=C['mute_d'],font=F_MONO,bold=True,spacing=2))]],align=PP_ALIGN.CENTER)
 ch_luma=rect(s,Inches(6.95),hy,Inches(5.55),Inches(0.6),fill=C['glow'],radius=0.18,shadow=True)
 shape_text(ch_luma,[[('LUMA',dict(size=13,color=C['white'],font=F_MONO,bold=True,spacing=2))]],align=PP_ALIGN.CENTER)
-rows=[('Translates word-for-word','Speaks Arabic & Franco natively'),
-      ('Guesses order status','Reads real Shopify order data'),
-      ('Yet another dashboard to open','Embedded in your Shopify Admin'),
-      ('Burns tokens on “hi”','Pre-filters trivial messages free'),
-      ('Loops when confused','Escalates to a human gracefully')]
+rows=[('Translates word-for-word','Speaks Arabic and Franco-Arabic naturally'),
+      ('Guesses order status','Gives accurate, up-to-date order updates'),
+      ('Yet another app to open','Works right inside your store'),
+      ('Replies sound robotic','Sounds like your brand'),
+      ('Gets stuck when confused','Hands off to your team smoothly')]
 ry=Emu(int(hy)+Emu(Inches(0.78)))
 for g,l in rows:
     gc=rect(s,Inches(0.8),ry,Inches(5.85),Inches(0.6),fill=C['cosmos2'],line=C['mute_d'],line_w=0.4,radius=0.14)
@@ -472,10 +472,10 @@ eyebrow(s, Inches(0.85), Inches(0.95), '07 · Proven performance', color=C['glow
 text(s, Inches(0.8), Inches(1.35), Inches(11.5), Inches(1),
      [[('Numbers that turn conversations into ', dict(size=34, color=C['white'], font=F_HEAD, bold=True)),
        ('revenue', dict(size=34, color=C['glow_l'], font=F_HEAD, bold=True))]])
-stats=[('< 2s','Reply time','From customer message to a visible answer.'),
-       ('3','Languages','Arabic, English & Franco-Arabic, auto-detected.'),
-       ('24/7','Always on','Never sleeps — customers always hear back.'),
-       ('2+1','Channels','Instagram + Shopify chat. WhatsApp coming soon.')]
+stats=[('Seconds','Reply time','Customers get an answer almost the moment they ask.'),
+       ('3','Languages','Arabic, English and Franco-Arabic, understood automatically.'),
+       ('24/7','Always on','Never sleeps — your customers always hear back.'),
+       ('3','Channels','Instagram and website chat today, WhatsApp soon.')]
 cw=Inches(2.85); gap=Inches(0.3); x0=Inches(0.8); y=Inches(3.0); ch=Inches(3.0)
 for i,(big,t,d) in enumerate(stats):
     x=Emu(int(x0)+i*(int(cw)+int(gap)))
@@ -539,19 +539,18 @@ eyebrow(s, Inches(0.85), Inches(0.95), '09 · Security & trust')
 text(s, Inches(0.8), Inches(1.35), Inches(11.5), Inches(1),
      [[('Your data is ', dict(size=38, color=C['white'], font=F_HEAD, bold=True)),
        ('protected by design', dict(size=38, color=C['glow_l'], font=F_HEAD, bold=True))]])
-sec=[('\U0001F510','Per-tenant isolation','Every store’s data is fully separated — never shared or co-mingled.'),
-     ('\U0001F512','HTTPS-only & OAuth-scoped','Encrypted in transit; access limited to exactly what’s authorised.'),
-     ('\U0001F4B3','Card data never touches LUMA','All billing runs through Shopify’s native, PCI-compliant system.'),
-     ('\U0001F4DC','GDPR webhooks honored','Shopify data-deletion & access requests respected automatically.')]
+sec=[('Your data stays yours','Every store’s information is kept completely separate and private.'),
+     ('Safe and secure','Conversations are protected and access is tightly controlled.'),
+     ('Payments stay with your store','Billing runs through your store’s trusted, secure checkout.'),
+     ('Privacy respected','Customer data-removal requests are handled automatically.')]
 cw=Inches(5.85); ch=Inches(1.85); gx=Inches(0.3); gy=Inches(0.3); x0=Inches(0.8); y0=Inches(2.85)
-for i,(ic,t,d) in enumerate(sec):
+for i,(t,d) in enumerate(sec):
     col=i%2; row=i//2
     x=Emu(int(x0)+col*(int(cw)+int(gx))); y=Emu(int(y0)+row*(int(ch)+int(gy)))
     card=rect(s,x,y,cw,ch,fill=C['cosmos2'],line=C['glow'],line_w=0.75,radius=0.09)
     set_alpha(card,45); set_alpha_line(card,55)
-    text(s,Emu(int(x)+Emu(Inches(0.35))),Emu(int(y)+Emu(Inches(0.3))),Inches(1),Inches(0.8),
-         [[(ic,dict(size=32,color=C['glow_l'],font=F_BODY))]])
-    text(s,Emu(int(x)+Emu(Inches(1.4))),Emu(int(y)+Emu(Inches(0.32))),Emu(int(cw)-Emu(Inches(1.7))),Inches(1.3),
+    dot=rect(s,Emu(int(x)+Emu(Inches(0.4))),Emu(int(y)+Emu(Inches(0.42))),Inches(0.2),Inches(0.2),fill=C['glow_l'],shape=MSO_SHAPE.OVAL)
+    text(s,Emu(int(x)+Emu(Inches(1.0))),Emu(int(y)+Emu(Inches(0.32))),Emu(int(cw)-Emu(Inches(1.3))),Inches(1.3),
          [[(t,dict(size=17,color=C['white'],font=F_HEAD,bold=True))],
           [(d,dict(size=12.5,color=C['mute_d'],font=F_BODY))]],line_spacing=1.08,space_after=4)
 home_button(s); page_num(s,11)
@@ -580,12 +579,12 @@ text(s, Inches(1), Inches(5.5), Inches(11.33), Inches(0.6),
        ('hello@luma-bot.com', dict(size=15, color=C['white'], font=F_MONO, bold=True))]],
      align=PP_ALIGN.CENTER)
 text(s, Inches(1), Inches(6.2), Inches(11.33), Inches(0.5),
-     [[('Private beta · limited onboarding · powered by Claude', dict(size=12, color=C['glow_xl'], font=F_MONO, spacing=1.5))]],
+     [[('Now welcoming a limited number of local businesses', dict(size=12, color=C['glow_xl'], font=F_MONO, spacing=1.5))]],
      align=PP_ALIGN.CENTER)
 # back to menu
 back=rect(s,Inches(5.86),Inches(6.75),Inches(1.6),Inches(0.45),fill=None,line=C['white'],line_w=1.0,radius=0.5)
 set_alpha_line(back,30)
-shape_text(back,[[('☰  Back to menu',dict(size=10,color=C['white'],font=F_MONO,bold=True))]],align=PP_ALIGN.CENTER)
+shape_text(back,[[('Back to menu',dict(size=10,color=C['white'],font=F_MONO,bold=True))]],align=PP_ALIGN.CENTER)
 link_to_slide(back,1)
 transition(s, 'fade', spd='slow')
 
