@@ -24,18 +24,7 @@
   <link rel="stylesheet" href="warm.css" />
 
   <style>
-    /* Page-specific composition styles (atoms live in warm.css) */
-
-    /* Header */
-    .hdr { position: sticky; top: 0; z-index: 40; background: rgba(244,239,230,.86); backdrop-filter: saturate(1.1) blur(8px); -webkit-backdrop-filter: saturate(1.1) blur(8px); border-bottom: 1px solid var(--line); }
-    .hdr-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
-    .hdr-brand { display: flex; align-items: center; gap: 11px; }
-    .hdr-brand img { width: 30px; height: 30px; object-fit: contain; }
-    .hdr-wordmark { font-family: var(--display); font-weight: 800; font-size: 21px; letter-spacing: .02em; }
-    .hdr-nav { display: flex; gap: 34px; }
-    .hdr-nav a { font-family: var(--display); font-weight: 500; font-size: 15px; color: var(--ink-2); transition: color .2s; }
-    .hdr-nav a:hover { color: var(--ink); }
-    .hdr-right { display: flex; align-items: center; gap: 20px; }
+    /* Page-specific composition styles (atoms + header live in warm.css) */
 
     /* Hero */
     .hero { padding-top: clamp(48px,7vw,96px); padding-bottom: clamp(40px,6vw,80px); }
