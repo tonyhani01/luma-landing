@@ -225,6 +225,9 @@
     .foot-links a:hover { color: var(--paper); }
     .foot-copy { margin-top: 48px; font-family: var(--mono); font-size: 12px; color: rgba(244,239,230,.4); }
   </style>
+
+  <!-- Privacy-friendly analytics: Umami Cloud (cookieless, no consent banner needed). -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="fcdbd97e-6ecc-4f64-978a-c7d4eb612496"></script>
 </head>
 <body>
   <div class="page">
@@ -658,6 +661,12 @@
           var fd = new FormData();
           fd.append(FIELD, email);
           fetch(ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors' }).catch(function () {});
+          // Analytics: fire a cookieless conversion event (no PII — email is never sent to analytics).
+          // Guarded so a blocked/failed Umami script can never break the submit flow.
+          if (window.umami && typeof window.umami.track === 'function') {
+            var where = form.classList.contains('foot-form') ? 'footer' : 'hero';
+            window.umami.track('request-access', { location: where });
+          }
           btn.textContent = "Thanks — we'll be in touch.";
           btn.disabled = true;
           input.disabled = true;
