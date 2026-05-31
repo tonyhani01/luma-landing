@@ -7,17 +7,61 @@
   <meta name="description" content="LUMA is an AI customer-service teammate for Shopify merchants — replying to Instagram DMs and storefront chat in Arabic, English, and Franco Arabic (3arabi). Catalog-aware, confidence-scored, and never silent." />
   <link rel="canonical" href="https://luma-bot.com/" />
   <link rel="icon" type="image/png" href="logo.png" />
+  <meta name="theme-color" content="#F4EFE6" />
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LUMA" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://luma-bot.com/" />
   <meta property="og:title" content="LUMA — The AI teammate behind every DM" />
   <meta property="og:description" content="AI customer service for Shopify merchants, fluent in Arabic, English, and Franco Arabic. Never leave a customer on read." />
   <meta property="og:image" content="https://luma-bot.com/og-image.png" />
+  <meta property="og:image:alt" content="LUMA — AI customer service for Shopify merchants, in Arabic, English, and Franco Arabic." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LUMA — The AI teammate behind every DM" />
   <meta name="twitter:description" content="AI customer service for Shopify merchants, fluent in Arabic, English, and Franco Arabic." />
   <meta name="twitter:image" content="https://luma-bot.com/og-image.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://luma-bot.com/#organization",
+        "name": "LUMA",
+        "url": "https://luma-bot.com/",
+        "logo": "https://luma-bot.com/logo.png",
+        "description": "AI customer-service teammate for Shopify merchants, replying to Instagram DMs and storefront chat in Arabic, English, and Franco Arabic (3arabi)."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://luma-bot.com/#website",
+        "url": "https://luma-bot.com/",
+        "name": "LUMA",
+        "publisher": { "@id": "https://luma-bot.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "LUMA",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Shopify",
+        "url": "https://luma-bot.com/",
+        "publisher": { "@id": "https://luma-bot.com/#organization" },
+        "description": "An AI customer-service teammate for Shopify merchants — replies to Instagram DMs and storefront chat in Arabic, English, and Franco Arabic. Catalog-aware, confidence-scored, and never silent.",
+        "offers": [
+          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Starter", "price": "29", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Growth", "price": "79", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pro", "price": "149", "priceCurrency": "USD" }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

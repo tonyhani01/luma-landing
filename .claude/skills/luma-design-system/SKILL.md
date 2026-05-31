@@ -87,4 +87,9 @@ padding 22px), 560px (footer → 1 col).
 2. Build sections inside `.wrap`; reuse atoms (`.kicker`, `.h2`, `.lede`, `.btn`).
 3. New section-specific CSS → the page's `<style>` block (keep `warm.css` for shared tokens/atoms/header). If a component will be reused across pages, promote it into `warm.css`.
 4. Match measurements/hexes in `reference/handoff.md`.
-5. Verify with a headless screenshot before claiming done (desktop + mobile).
+5. **SEO:** give every page a unique `<title>` + meta description, a
+   `<link rel="canonical">`, and Open Graph + Twitter tags (point `og:image` at
+   `og-image.png`); add the page to `sitemap.xml` with a current `lastmod`.
+   Index-type/landing pages also get JSON-LD structured data (Organization +
+   WebSite + SoftwareApplication — see `index.html`). `theme-color` is `#F4EFE6`.
+6. Verify with a headless screenshot before claiming done (desktop + mobile).
