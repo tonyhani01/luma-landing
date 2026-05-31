@@ -1,0 +1,74 @@
+/* ============================================================
+   LUMA — Legal pages (Privacy, Terms)
+   Warm editorial system. Reuses warm.css tokens + header.
+   ============================================================ */
+
+/* ---- Hero band ---- */
+.legal-hero { border-bottom: 1px solid var(--line); }
+.legal-hero .wrap { padding-top: clamp(56px,8vw,104px); padding-bottom: clamp(28px,4vw,44px); }
+.legal-hero .kicker { margin-bottom: 18px; }
+.legal-hero h1 {
+  font-family: var(--display); font-weight: 800;
+  letter-spacing: -.025em; line-height: 1;
+  font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0; color: var(--ink);
+}
+.legal-hero .updated {
+  font-family: var(--mono); font-size: 13px; color: var(--ink-3);
+  margin: 18px 0 0; letter-spacing: .04em;
+}
+
+/* ---- Body ---- */
+.legal { max-width: 760px; }
+.legal-body { padding-top: clamp(40px,5vw,64px); padding-bottom: clamp(64px,9vw,120px); }
+
+.legal h2 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -.02em; line-height: 1.1;
+  color: var(--ink); margin: 0 0 16px; padding-top: 30px;
+  border-top: 1px solid var(--line); margin-top: 48px;
+}
+.legal h3 {
+  font-family: var(--display); font-weight: 600;
+  font-size: 1.15rem; letter-spacing: -.01em; line-height: 1.2;
+  color: var(--ink); margin: 28px 0 8px;
+}
+.legal p, .legal li {
+  font-family: var(--serif); font-weight: 300;
+  font-size: 17px; line-height: 1.65; color: var(--ink-2);
+}
+.legal p { margin: 0 0 14px; }
+.legal ul { margin: 0 0 18px; padding-left: 22px; }
+.legal li { margin-bottom: 8px; }
+.legal li::marker { color: var(--blue); }
+.legal ul ul { margin: 8px 0 4px; }
+.legal strong { color: var(--ink); font-weight: 500; }
+.legal a {
+  color: var(--blue); border-bottom: 1px solid rgba(38,64,222,.35);
+  transition: border-color .2s;
+}
+.legal a:hover { border-color: var(--blue); }
+.legal code {
+  font-family: var(--mono); font-size: 13px; color: var(--ink);
+  background: var(--paper-2); padding: 1px 6px; border-radius: 2px;
+}
+
+/* Intro paragraphs (before the first numbered section) read as lede */
+.legal-intro p {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.55; color: var(--ink-2);
+}
+
+.legal-note { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); }
+.legal-note p { font-family: var(--mono); font-size: 12px; line-height: 1.65; color: var(--ink-3); margin: 0; }
+
+/* ---- Compact inverted footer ---- */
+.legal-foot { background: var(--ink); color: var(--paper); }
+.legal-foot .wrap { padding-top: 40px; padding-bottom: 40px; }
+.legal-foot-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.legal-foot-brand { display: flex; align-items: center; gap: 10px; }
+.legal-foot-brand img { width: 26px; height: 26px; object-fit: contain; }
+.legal-foot-brand span { font-family: var(--display); font-weight: 800; font-size: 19px; letter-spacing: .02em; }
+.legal-foot-links { display: flex; gap: 26px; flex-wrap: wrap; }
+.legal-foot-links a { font-family: var(--display); font-weight: 500; font-size: 14.5px; color: rgba(244,239,230,.72); transition: color .2s; }
+.legal-foot-links a:hover, .legal-foot-links a.active { color: var(--paper); }
+.legal-foot-copy { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(244,239,230,.15); font-family: var(--mono); font-size: 12px; color: rgba(244,239,230,.4); }

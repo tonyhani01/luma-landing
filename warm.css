@@ -1,0 +1,163 @@
+/* ============================================================
+   LUMA — Marketing "Direction A: The DM, enlarged"
+   Warm editorial system. Paper + ink, grounded brand blue,
+   fashion-black buttons, bilingual Arabic/Latin typography.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Tajawal:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Paper ramp (warm cream) */
+  --paper:   #F4EFE6;
+  --paper-2: #ECE5D7;
+  --paper-3: #E2D9C7;
+  --paper-card: #FBF8F2;
+
+  /* Warm ink ramp */
+  --ink:   #1B1A17;
+  --ink-2: #57514A;
+  --ink-3: #8A8278;
+
+  /* Brand blue (grounded), the through-line across all surfaces */
+  --blue:      #2640DE;
+  --blue-deep: #1A2BA0;
+  --blue-soft: #E4E5FB;
+
+  /* Hairlines */
+  --line:  rgba(27,26,23,.16);
+  --line-2:rgba(27,26,23,.09);
+
+  /* Fonts */
+  --display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --serif:   'Newsreader', Georgia, serif;
+  --ar:      'Tajawal', 'Bricolage Grotesque', sans-serif;
+  --mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --ease: cubic-bezier(.2,.6,.2,1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { display: block; }
+
+/* Subtle paper grain — barely there, no gradient blobs */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: .035; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.page { position: relative; z-index: 1; }
+
+/* ---- Layout ---- */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+/* ---- Atoms ---- */
+.kicker {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--ink-3);
+}
+.num {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  letter-spacing: .1em; color: var(--blue);
+}
+
+.display {
+  font-family: var(--display); font-weight: 800;
+  letter-spacing: -.025em; line-height: .98;
+  font-size: clamp(2.8rem, 6.4vw, 5.4rem);
+  margin: 0;
+}
+.accent-italic {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  letter-spacing: -.01em;
+}
+.h2 {
+  font-family: var(--display); font-weight: 700;
+  letter-spacing: -.02em; line-height: 1.04;
+  font-size: clamp(2rem, 4vw, 3.1rem); margin: 0;
+}
+.lede {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem); line-height: 1.5; color: var(--ink-2);
+}
+
+/* ---- Buttons (fashion black) ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-weight: 600; font-size: 16px;
+  background: var(--ink); color: var(--paper);
+  border: 1px solid var(--ink); border-radius: 2px;
+  padding: 15px 26px; transition: transform .15s var(--ease), background .2s var(--ease);
+}
+.btn:hover { background: #000; }
+.btn:active { transform: translateY(1px); }
+.btn-ghost {
+  background: transparent; color: var(--ink); border: 1px solid var(--ink);
+}
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+.btn .arr { transition: transform .2s var(--ease); }
+.btn:hover .arr { transform: translateX(4px); }
+.btn[disabled] { opacity: .7; cursor: default; }
+.btn[disabled]:hover { background: var(--ink); }
+
+.link-blue {
+  color: var(--blue); font-family: var(--display); font-weight: 600;
+  border-bottom: 1.5px solid transparent; transition: border-color .2s;
+}
+.link-blue:hover { border-color: var(--blue); }
+
+/* ---- Header (shared across index + legal pages) ---- */
+.hdr { position: sticky; top: 0; z-index: 40; background: rgba(244,239,230,.86); backdrop-filter: saturate(1.1) blur(8px); -webkit-backdrop-filter: saturate(1.1) blur(8px); border-bottom: 1px solid var(--line); }
+.hdr-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.hdr-brand { display: flex; align-items: center; gap: 11px; }
+.hdr-brand img { width: 30px; height: 30px; object-fit: contain; }
+.hdr-wordmark { font-family: var(--display); font-weight: 800; font-size: 21px; letter-spacing: .02em; }
+.hdr-nav { display: flex; gap: 34px; }
+.hdr-nav a { font-family: var(--display); font-weight: 500; font-size: 15px; color: var(--ink-2); transition: color .2s; }
+.hdr-nav a:hover { color: var(--ink); }
+.hdr-right { display: flex; align-items: center; gap: 20px; }
+
+/* ---- Email field ---- */
+.field {
+  font-family: var(--serif); font-size: 16px; color: var(--ink);
+  background: var(--paper-card); border: 1px solid var(--line);
+  border-radius: 2px; padding: 15px 18px; outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.field::placeholder { color: var(--ink-3); }
+.field:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+
+/* ---- Responsive collapses ---- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .step-inner { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .lang-grid { grid-template-columns: 1fr !important; }
+  .lang-cell { border-right: none !important; border-bottom: 1px solid var(--line); padding-left: 0 !important; }
+  .plan-row { grid-template-columns: 1fr auto !important; gap: 8px 16px !important; }
+  .plan-row > .plan-desc { grid-column: 1 / -1; }
+  .foot-grid { grid-template-columns: 1fr 1fr !important; }
+  .hdr-nav { display: none !important; }
+  .an-stats { grid-template-columns: 1fr 1fr !important; }
+  .an-stat { border-right: none !important; }
+  .an-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 760px) {
+  .wrap { padding: 0 22px; }
+}
+@media (max-width: 560px) {
+  .foot-grid { grid-template-columns: 1fr !important; }
+  .br-hero { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
