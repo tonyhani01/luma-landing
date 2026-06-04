@@ -226,6 +226,47 @@
     .foot-links a { font-family: var(--display); font-weight: 500; font-size: 14.5px; color: rgba(244,239,230,.72); transition: color .2s; }
     .foot-links a:hover { color: var(--paper); }
     .foot-copy { margin-top: 48px; font-family: var(--mono); font-size: 12px; color: rgba(244,239,230,.4); }
+
+    /* Chat-to-checkout */
+    .cc { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .cc .wrap { padding-top: clamp(56px,7vw,96px); padding-bottom: clamp(56px,7vw,96px); }
+    .cc-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+    .cc-h2 { max-width: 840px; }
+    .cc-grid { margin-top: clamp(40px,5vw,64px); display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px,5vw,72px); align-items: start; }
+    .cc-lede { margin: 0 0 34px; max-width: 470px; }
+    .cc-lede em { font-style: italic; color: var(--ink); }
+    .cc-points { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+    .cc-point { display: grid; grid-template-columns: auto 1fr; gap: clamp(16px,2vw,26px); padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .cc-point .num { padding-top: 3px; }
+    .cc-point h3 { font-family: var(--display); font-weight: 700; font-size: clamp(1.12rem,1.6vw,1.3rem); letter-spacing: -.01em; margin: 0 0 6px; line-height: 1.12; color: var(--ink); }
+    .cc-point p { font-family: var(--serif); font-weight: 300; font-size: 16px; line-height: 1.5; color: var(--ink-2); margin: 0; }
+
+    .cc-card { background: var(--paper-card); border: 1px solid var(--line); border-radius: 4px; padding: clamp(24px,3vw,36px); box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 18px 40px -28px rgba(27,26,23,.4); }
+    .cc-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .cc-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--blue); }
+    .cc-pill { font-family: var(--mono); font-size: 10.5px; font-weight: 500; color: #fff; background: var(--ink); border-radius: 2px; padding: 3px 9px; letter-spacing: .1em; white-space: nowrap; }
+    .cc-customer { border-left: 2px solid var(--ink-3); padding-left: 20px; margin-bottom: 26px; }
+    .cc-customer .kicker { color: var(--ink-2); margin-bottom: 9px; }
+    .cc-q { font-family: var(--display); font-weight: 800; font-size: clamp(1.3rem,2.1vw,1.7rem); line-height: 1.16; margin: 0; letter-spacing: -.02em; color: var(--ink); }
+    .cc-gloss { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin: 11px 0 0; line-height: 1.5; }
+    .cc-gloss span { color: var(--ink-2); }
+    .cc-reply { border-left: 2px solid var(--blue); padding-left: 20px; }
+    .cc-reply-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .cc-reply-head img { width: 18px; height: 18px; object-fit: contain; }
+    .cc-reply-head .kicker { color: var(--blue); }
+    .cc-reply-msg { font-family: var(--display); font-weight: 600; font-size: clamp(1.08rem,1.7vw,1.38rem); line-height: 1.32; margin: 0; letter-spacing: -.01em; color: var(--ink); }
+    .cc-reply-msg strong { font-weight: 800; color: var(--ink); }
+    .cc-plink { color: var(--blue-deep); font-weight: 800; border-bottom: 1.5px solid var(--blue); padding-bottom: 1px; }
+    .cc-buy { margin-top: 20px; }
+    .cc-cart-btn { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--blue); color: #fff; border-radius: 3px; padding: 13px 15px 13px 17px; max-width: 320px; box-shadow: 0 12px 26px -16px var(--blue); }
+    .cc-cart-l { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 15px; }
+    .cc-cart-ic { width: 17px; height: 17px; flex-shrink: 0; }
+    .cc-cart-arr { width: 16px; height: 16px; opacity: .9; flex-shrink: 0; }
+    .cc-checkout-note { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; }
+    .cc-gdot { width: 7px; height: 7px; border-radius: 50%; background: #1F9D55; }
+    .cc-checkout-note span { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
+    .cc-secure { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin: 16px 0 0; letter-spacing: .02em; line-height: 1.55; max-width: 390px; }
+    @media (max-width: 900px) { .cc-grid { grid-template-columns: 1fr; } }
   </style>
 
   <!-- Privacy-friendly analytics: Umami Cloud (cookieless, no consent banner needed). -->
@@ -244,6 +285,7 @@
         <nav class="hdr-nav" aria-label="Primary">
           <a href="#how">How it works</a>
           <a href="#languages">Languages</a>
+          <a href="#checkout">Checkout</a>
           <a href="#pricing">Pricing</a>
           <a href="#security">Security</a>
         </nav>
@@ -406,6 +448,90 @@
             </div>
             <p class="lang-msg en" dir="ltr">Is this back in stock?</p>
             <p class="lang-gloss">no translation needed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHAT-TO-CHECKOUT ============ -->
+    <section class="cc" id="checkout" data-screen-label="Chat-to-checkout">
+      <div class="wrap">
+        <div class="cc-head">
+          <div class="kicker">Chat-to-checkout · New</div>
+          <span class="kicker" style="color:var(--ink-3)">Storefront widget + Instagram DMs</span>
+        </div>
+        <h2 class="h2 cc-h2">
+          Your bot doesn't just reply. <span class="accent-italic" style="color:var(--blue)">It sells.</span>
+        </h2>
+
+        <div class="cc-grid">
+          <!-- left — the argument -->
+          <div>
+            <p class="lede cc-lede">
+              The moment a customer is interested is the moment they'll buy — if you let them. LUMA answers the question <em>and</em> hands over a tappable link, then offers to drop the right size straight into checkout. No <em>“find it on our site.”</em>
+            </p>
+            <div class="cc-points">
+              <div class="cc-point">
+                <span class="num">01</span>
+                <div>
+                  <h3>Every product is a link</h3>
+                  <p>Each item the bot names is tappable — straight to its Shopify page, with the right colour already chosen.</p>
+                </div>
+              </div>
+              <div class="cc-point">
+                <span class="num">02</span>
+                <div>
+                  <h3>One tap adds to cart</h3>
+                  <p>When a customer narrows to one piece, LUMA offers to cart it. A single tap drops their size into Shopify checkout — ready to pay.</p>
+                </div>
+              </div>
+              <div class="cc-point">
+                <span class="num">03</span>
+                <div>
+                  <h3>Without leaving the chat</h3>
+                  <p>It works the same in your storefront widget and in Instagram DMs. Buyers never break the conversation to buy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- right — the moment, shown -->
+          <div>
+            <div class="cc-card">
+              <div class="cc-meta">
+                <span class="cc-dot"></span>
+                <span class="kicker" style="color:var(--ink-2)">Instagram DM · 9:42 PM</span>
+                <span class="cc-pill">READY TO BUY</span>
+              </div>
+
+              <div class="cc-customer">
+                <div class="kicker">Customer</div>
+                <p class="cc-q">3ayza el satin slip dress — 3andko M? 🖤</p>
+                <p class="cc-gloss">Franco Arabic. Means <span>“I want the satin slip dress — do you have it in M?”</span></p>
+              </div>
+
+              <div class="cc-reply">
+                <div class="cc-reply-head">
+                  <img src="logo.png" alt="" />
+                  <span class="kicker">LUMA · answered + offered to cart</span>
+                </div>
+                <p class="cc-reply-msg">el <span class="cc-plink">Satin Slip Dress</span> motwafar bel M 🖤 — <strong>1,250 genaih</strong>. a3mlek add to cart 3altool?</p>
+                <div class="cc-buy">
+                  <div class="cc-cart-btn" role="img" aria-label="Add to cart, size M — opens Shopify checkout">
+                    <span class="cc-cart-l">
+                      <svg class="cc-cart-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg>
+                      Add to cart · size M
+                    </span>
+                    <svg class="cc-cart-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                  </div>
+                  <div class="cc-checkout-note">
+                    <span class="cc-gdot"></span>
+                    <span>opens Shopify checkout · 1 item · secure</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="cc-secure">Built on Shopify cart permalinks — customers check out on Shopify's own secure payment page. No redirects, no re-login.</p>
           </div>
         </div>
       </div>
@@ -613,6 +739,7 @@
             <div class="foot-links">
               <a href="#how">How it works</a>
               <a href="#languages">Languages</a>
+              <a href="#checkout">Chat-to-checkout</a>
               <a href="#pricing">Pricing</a>
               <a href="#security">Security</a>
               <a href="#">Changelog</a>
