@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LUMA Store Voice Reel</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=JetBrains+Mono:wght@500;700&family=Newsreader:opsz,wght@6..72,300;6..72,400&display=swap");
+
+    :root {
+      --paper: #F4EFE6;
+      --paper-2: #ECE5D7;
+      --paper-3: #E2D9C7;
+      --paper-card: #FBF8F2;
+      --ink: #1B1A17;
+      --ink-2: #57514A;
+      --ink-3: #8A8278;
+      --blue: #2640DE;
+      --blue-deep: #1A2BA0;
+      --blue-soft: #E4E5FB;
+      --line: rgba(27, 26, 23, .16);
+      --line-2: rgba(27, 26, 23, .09);
+      --display: "Bricolage Grotesque", system-ui, sans-serif;
+      --serif: "Newsreader", Georgia, serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --ease: cubic-bezier(.2, .6, .2, 1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #151515;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    .workspace {
+      display: grid;
+      gap: 18px;
+      justify-items: center;
+      padding: 24px;
+    }
+
+    .reel {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: var(--paper);
+      isolation: isolate;
+      transform-origin: center;
+    }
+
+    @media (max-height: 1980px) {
+      .reel {
+        margin: -518.4px -291.6px;
+        transform: scale(.46);
+      }
+
+      .workspace {
+        height: 100vh;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-height: 1120px), (max-width: 620px) {
+      .reel {
+        margin: -576px -324px;
+        transform: scale(.4);
+      }
+    }
+
+    @media (max-height: 920px), (max-width: 500px) {
+      .reel {
+        margin: -624px -351px;
+        transform: scale(.35);
+      }
+    }
+
+    .reel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      opacity: .035;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .stage-layer {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 52%;
+    }
+
+    .brand {
+      position: absolute;
+      top: 74px;
+      left: 76px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--display);
+      font-size: 34px;
+      font-weight: 800;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .eyebrow {
+      position: absolute;
+      top: 216px;
+      left: 76px;
+      margin: 0;
+      color: var(--ink-3);
+      font-family: var(--mono);
+      font-size: 20px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .hook {
+      position: absolute;
+      top: 267px;
+      left: 76px;
+      margin: 0;
+      max-width: 820px;
+      font-family: var(--display);
+      font-size: 103px;
+      line-height: .95;
+      letter-spacing: 0;
+    }
+
+    .subhook {
+      position: absolute;
+      top: 473px;
+      left: 80px;
+      max-width: 620px;
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 34px;
+      line-height: 1.08;
+    }
+
+    .notification {
+      position: absolute;
+      left: 76px;
+      right: 76px;
+      display: grid;
+      grid-template-columns: 18px 1fr auto;
+      gap: 22px;
+      align-items: start;
+      padding: 25px 30px;
+      background: rgba(251, 248, 242, .96);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      box-shadow: 0 24px 54px -36px rgba(27, 26, 23, .55);
+    }
+
+    .notification strong {
+      display: block;
+      font-family: var(--display);
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .notification p {
+      margin: 9px 0 0;
+      color: var(--ink-2);
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .notif-dot {
+      width: 14px;
+      height: 14px;
+      margin-top: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .notif-tag {
+      align-self: center;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .phone {
+      position: absolute;
+      left: 76px;
+      right: 76px;
+      top: 635px;
+      height: 1025px;
+      padding: 34px;
+      background: rgba(251, 248, 242, .98);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      box-shadow: 0 30px 70px -46px rgba(27, 26, 23, .55);
+      transform-origin: 50% 58%;
+    }
+
+    .phone-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--display);
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    .status {
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 16px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .thread {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding-top: 30px;
+    }
+
+    .bubble {
+      max-width: 740px;
+      margin: 0;
+      padding: 22px 27px;
+      border-radius: 4px;
+      font-family: var(--display);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .customer {
+      align-self: flex-start;
+      background: var(--paper-2);
+      color: var(--ink);
+    }
+
+    .luma {
+      align-self: flex-end;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .context-strip {
+      align-self: stretch;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 4px 0;
+    }
+
+    .context-chip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      border: 1px solid var(--blue);
+      color: var(--blue-deep);
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .scan-card {
+      align-self: flex-end;
+      width: 620px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .scan-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .scan-line {
+      position: relative;
+      height: 3px;
+      overflow: hidden;
+      background: var(--paper-3);
+    }
+
+    .scan-line::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 42%;
+      background: var(--blue);
+      transform: translateX(-120%);
+    }
+
+    .reply-product {
+      max-width: 760px;
+      min-height: 118px;
+    }
+
+    .reply-policy {
+      max-width: 760px;
+    }
+
+    .reply-text {
+      display: none;
+    }
+
+    .reply-meta {
+      display: none;
+      margin-top: 14px;
+      color: rgba(244, 239, 230, .66);
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .typing-dots {
+      display: inline-flex;
+      gap: 8px;
+      padding: 14px 2px 7px;
+    }
+
+    .typing-dots i {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--paper);
+      animation: dotPulse .8s ease-in-out infinite;
+    }
+
+    .typing-dots i:nth-child(2) { animation-delay: .12s; }
+    .typing-dots i:nth-child(3) { animation-delay: .24s; }
+
+    .handoff {
+      align-self: stretch;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 24px;
+      border: 1px solid var(--blue);
+      color: var(--blue-deep);
+      font-family: var(--mono);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .end-card {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 26px;
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+    }
+
+    .end-card img {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+    }
+
+    .end-card h2 {
+      margin: 0;
+      max-width: 850px;
+      font-family: var(--display);
+      font-size: 94px;
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .end-card p {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(244, 239, 230, .76);
+      font-size: 38px;
+      line-height: 1.1;
+    }
+
+    .end-card span {
+      color: #8FA0FF;
+      font-family: var(--mono);
+      font-size: 22px;
+      letter-spacing: .16em;
+    }
+
+    .eyebrow,
+    .hook,
+    .subhook,
+    .notification,
+    .phone,
+    .bubble,
+    .context-chip,
+    .scan-card,
+    .handoff,
+    .end-card {
+      opacity: 0;
+    }
+
+    .replay {
+      width: auto;
+      min-width: 112px;
+      padding: 12px 18px;
+      border: 1px solid rgba(244, 239, 230, .24);
+      border-radius: 2px;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .replay:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 4px;
+    }
+
+    body.capture {
+      min-height: 1920px;
+      background: var(--paper);
+    }
+
+    body.capture .workspace {
+      height: 1920px;
+      padding: 0;
+      gap: 0;
+      overflow: visible;
+    }
+
+    body.capture .reel {
+      margin: 0;
+      transform: none;
+    }
+
+    body.capture .replay {
+      display: none;
+    }
+
+    @keyframes stageDrift {
+      0% { transform: scale(1) translateY(0); }
+      24% { transform: scale(1.012) translateY(-5px); }
+      58% { transform: scale(1.028) translateY(-24px); }
+      86% { transform: scale(1.018) translateY(-12px); }
+      100% { transform: scale(1.018) translateY(-12px); }
+    }
+
+    @keyframes copyIn {
+      from { opacity: 0; transform: translateY(34px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes notifIn {
+      from { opacity: 0; transform: translateY(-38px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes notifOut {
+      from { opacity: 1; transform: translateY(0) scale(1); }
+      to { opacity: 0; transform: translateY(36px) scale(.985); }
+    }
+
+    @keyframes phoneEnter {
+      from { opacity: 0; transform: translateY(74px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes phoneFocus {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(-18px) scale(1.018); }
+    }
+
+    @keyframes bubbleInLeft {
+      from { opacity: 0; transform: translateX(-54px) scale(.98); }
+      to { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    @keyframes bubbleInRight {
+      from { opacity: 0; transform: translateX(54px) scale(.98); }
+      to { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    @keyframes chipIn {
+      from { opacity: 0; transform: translateY(18px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes scanIn {
+      from { opacity: 0; transform: translateX(42px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes scanSweep {
+      0% { transform: translateX(-120%); }
+      56% { transform: translateX(35%); }
+      100% { transform: translateX(165%); }
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: .35; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    @keyframes revealText {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes endReveal {
+      from { opacity: 0; transform: scale(1.018); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .is-playing .stage-layer {
+      animation: stageDrift 8.7s var(--ease) forwards;
+    }
+
+    .is-playing .eyebrow {
+      animation: copyIn .38s var(--ease) .12s forwards;
+    }
+
+    .is-playing .hook {
+      animation: copyIn .45s var(--ease) .24s forwards;
+    }
+
+    .is-playing .subhook {
+      animation: copyIn .45s var(--ease) .54s forwards;
+    }
+
+    .is-playing .notification-product {
+      top: 548px;
+      animation: notifIn .42s var(--ease) 1.10s forwards,
+                 notifOut .34s var(--ease) 2.42s forwards;
+    }
+
+    .is-playing .notification-policy {
+      top: 678px;
+      animation: notifIn .42s var(--ease) 1.58s forwards,
+                 notifOut .34s var(--ease) 2.62s forwards;
+    }
+
+    .is-playing .phone {
+      animation: phoneEnter .58s var(--ease) 2.18s forwards,
+                 phoneFocus .8s var(--ease) 5.05s forwards;
+    }
+
+    .is-playing .bubble-product {
+      animation: bubbleInLeft .34s var(--ease) 2.86s forwards;
+    }
+
+    .is-playing .bubble-policy {
+      animation: bubbleInLeft .34s var(--ease) 3.24s forwards;
+    }
+
+    .is-playing .context-chip:nth-child(1) {
+      animation: chipIn .28s var(--ease) 3.78s forwards;
+    }
+
+    .is-playing .context-chip:nth-child(2) {
+      animation: chipIn .28s var(--ease) 3.92s forwards;
+    }
+
+    .is-playing .context-chip:nth-child(3) {
+      animation: chipIn .28s var(--ease) 4.06s forwards;
+    }
+
+    .is-playing .context-chip:nth-child(4) {
+      animation: chipIn .28s var(--ease) 4.20s forwards;
+    }
+
+    .is-playing .scan-card {
+      animation: scanIn .34s var(--ease) 4.40s forwards;
+    }
+
+    .is-playing .scan-line::after {
+      animation: scanSweep 1.25s var(--ease) 4.54s forwards;
+    }
+
+    .is-playing .reply-product {
+      animation: bubbleInRight .34s var(--ease) 5.82s forwards;
+    }
+
+    .is-playing .reply-product .typing-dots {
+      animation: notifOut .18s linear 6.36s forwards;
+    }
+
+    .is-playing .reply-product .reply-text {
+      display: inline-block;
+      animation: revealText .24s var(--ease) 6.42s both;
+    }
+
+    .is-playing .reply-product .reply-meta {
+      display: block;
+      animation: revealText .24s var(--ease) 6.66s both;
+    }
+
+    .is-playing .reply-policy {
+      animation: bubbleInRight .34s var(--ease) 6.92s forwards;
+    }
+
+    .is-playing .reply-policy .reply-meta {
+      display: block;
+      animation: revealText .24s var(--ease) 7.16s both;
+    }
+
+    .is-playing .handoff {
+      animation: copyIn .32s var(--ease) 7.54s forwards;
+    }
+
+    .is-playing .end-card {
+      animation: endReveal .5s var(--ease) 8.62s forwards;
+    }
+  </style>
+</head>
+<body>
+  <main class="workspace">
+    <section class="reel is-playing" id="reel" aria-label="LUMA Store Voice animated Reel" data-variant="store-voice" data-slogan="Your store, answering back.">
+      <div class="stage-layer">
+        <div class="brand">
+          <img src="../../logo.png" alt="">
+          <span>LUMA</span>
+        </div>
+
+        <p class="eyebrow">One reply system</p>
+        <h1 class="hook">Your store,<br>answering back.</h1>
+        <p class="subhook">LUMA reads the product, delivery, and return context before it replies.</p>
+
+        <div class="notification notification-product">
+          <span class="notif-dot"></span>
+          <div>
+            <strong>New product question</strong>
+            <p>Is black in stock?</p>
+          </div>
+          <span class="notif-tag">Stock</span>
+        </div>
+
+        <div class="notification notification-policy">
+          <span class="notif-dot"></span>
+          <div>
+            <strong>New return question</strong>
+            <p>Can I return it if it does not fit?</p>
+          </div>
+          <span class="notif-tag">Policy</span>
+        </div>
+
+        <article class="phone">
+          <header class="phone-head">
+            <span>Customer DMs</span>
+            <span class="status">Live</span>
+          </header>
+
+          <div class="thread">
+            <p class="bubble customer bubble-product">Is black in stock?</p>
+            <p class="bubble customer bubble-policy">Can I return it if it does not fit?</p>
+
+            <div class="context-strip" aria-label="Store context checked by LUMA">
+              <span class="context-chip">Stock</span>
+              <span class="context-chip">Sizes</span>
+              <span class="context-chip">Delivery</span>
+              <span class="context-chip">Returns</span>
+            </div>
+
+            <div class="scan-card">
+              <div class="scan-label">
+                <span>Checking store</span>
+                <span>Product + policy</span>
+              </div>
+              <div class="scan-line"></div>
+            </div>
+
+            <div class="bubble luma reply-product">
+              <span class="typing-dots"><i></i><i></i><i></i></span>
+              <span class="reply-text">Black is available in S, M, and L. Ships in 2-3 days.</span>
+              <span class="reply-meta">Stock checked</span>
+            </div>
+
+            <div class="bubble luma reply-policy">
+              Returns are accepted within 14 days if unworn and tagged.
+              <span class="reply-meta">Policy matched</span>
+            </div>
+
+            <div class="handoff">
+              <span>If unclear</span>
+              <strong>hand off to your team</strong>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="end-card">
+        <img src="../../logo.png" alt="">
+        <h2>Your store,<br>answering back.</h2>
+        <p>Product questions. Policy answers. In the DM.</p>
+        <span>luma-bot.com</span>
+      </section>
+    </section>
+
+    <button class="replay" type="button" id="replay">Replay</button>
+  </main>
+
+  <script>
+    if (new URLSearchParams(window.location.search).has("capture")) {
+      document.body.classList.add("capture");
+    }
+
+    const reel = document.querySelector("#reel");
+
+    document.querySelector("#replay").addEventListener("click", () => {
+      reel.classList.remove("is-playing");
+      void reel.offsetWidth;
+      reel.classList.add("is-playing");
+    });
+  </script>
+</body>
+</html>
