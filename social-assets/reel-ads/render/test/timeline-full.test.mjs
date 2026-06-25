@@ -17,6 +17,16 @@ test('key moments produce expected layer states', async () => {
     [t, layerName, cssProp]
   );
 
+  // phone transform at t=2000 (entrance start): ty=520, scale=0.8 — proves entrance alive
+  const phoneTx2000 = await page.evaluate(() => { window.seek(2000); return window.__layers.phone.style.transform; });
+  assert.ok(phoneTx2000.includes('520px'), `phone@2000 transform should include 520px (ty), got: "${phoneTx2000}"`);
+  assert.ok(/scale\(0\.8/.test(phoneTx2000), `phone@2000 transform should include scale(0.8, got: "${phoneTx2000}"`);
+
+  // phone transform at t=3200 (DM pair 1 zoom): ty=90, scale=1.22 — proves zoom/push fire
+  const phoneTx3200 = await page.evaluate(() => { window.seek(3200); return window.__layers.phone.style.transform; });
+  assert.ok(phoneTx3200.includes('90px'), `phone@3200 transform should include 90px (ty), got: "${phoneTx3200}"`);
+  assert.ok(/scale\(1\.22/.test(phoneTx3200), `phone@3200 transform should include scale(1.22, got: "${phoneTx3200}"`);
+
   // dm1 text fully revealed by 3500 ms (reveal=1 → inset with 0% right-clip)
   // Probe the actual string first so we can assert robustly.
   const dm1Clip = await read(3500, 'dm1_text', 'clipPath');

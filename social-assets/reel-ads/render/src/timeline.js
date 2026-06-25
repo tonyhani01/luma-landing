@@ -1,6 +1,21 @@
 // src/timeline.js
 import { collectState } from './timeline-core.js';
 
+// Merge all tracks that share (layer, prop) into one track per group,
+// concatenating their keys arrays and sorting by t ascending.
+function mergeByLayerProp(tracks) {
+  const groups = new Map();
+  for (const tr of tracks) {
+    const key = `${tr.layer} ${tr.prop}`;
+    if (!groups.has(key)) groups.set(key, { layer: tr.layer, prop: tr.prop, keys: [] });
+    groups.get(key).keys.push(...tr.keys);
+  }
+  for (const g of groups.values()) {
+    g.keys.sort((a, b) => a.t - b.t);
+  }
+  return Array.from(groups.values());
+}
+
 // Scenes 1 & 2 (Scene 3/4/5 appended in Task 6).
 export const TRACKS = [
   // Scene 1 — hook
@@ -13,7 +28,7 @@ export const TRACKS = [
     { t: 1800, v: 1.0, ease: 'linear' }, { t: 2200, v: 1.12, ease: 'ease-in' } ] },
   // Scene 2 — phone enters
   { layer: 'phone', prop: 'ty', keys: [ { t: 2000, v: 520 }, { t: 2600, v: 0, ease: 'ease-out' } ] },
-  { layer: 'phone', prop: 'opacity', keys: [ { t: 0, v: 0 }, { t: 2000, v: 0, ease: 'linear' }, { t: 2300, v: 1, ease: 'ease-out' } ] },
+  { layer: 'phone', prop: 'opacity', keys: [ { t: 0, v: 0 }, { t: 2000, v: 0, ease: 'linear' }, { t: 2300, v: 1, ease: 'ease-out' } ] }, // Scene 2: fade in
   { layer: 'phone', prop: 'scale', keys: [
     { t: 2000, v: 0.8 }, { t: 2500, v: 1.03, ease: 'ease-out' }, { t: 2700, v: 1.0, ease: 'ease-out' } ] },
 ];
@@ -53,8 +68,7 @@ TRACKS.push(
 // --- Scene 4: payoff ---
 TRACKS.push(
   { layer: 'phone', prop: 'scale',   keys: [{ t: 8800, v: 1.0 }, { t: 9100, v: 0.85, ease: 'ease-in-out' }, { t: 10300, v: 0.85, ease: 'linear' }, { t: 10600, v: 0.85, ease: 'linear' }] },
-  // Bridge from Scene 2 (0→1 by t=2300) so last-write-wins in collectState stays correct.
-  { layer: 'phone', prop: 'opacity', keys: [{ t: 0, v: 0 }, { t: 2000, v: 0, ease: 'linear' }, { t: 2300, v: 1, ease: 'ease-out' }, { t: 8800, v: 1 }, { t: 9400, v: 0.25, ease: 'ease-in' }, { t: 10300, v: 0.25, ease: 'linear' }, { t: 10600, v: 0, ease: 'ease-in' }] },
+  { layer: 'phone', prop: 'opacity', keys: [{ t: 8800, v: 1 }, { t: 9400, v: 0.25, ease: 'ease-in' }, { t: 10300, v: 0.25, ease: 'linear' }, { t: 10600, v: 0, ease: 'ease-in' }] }, // Scene 4: fade out
   ...['payoff_w1', 'payoff_w2', 'payoff_w3'].flatMap((w, i) => {
     const t0 = 8900 + i * 150;
     return [
@@ -75,8 +89,10 @@ TRACKS.push(
   { layer: 'end_cta', prop: 'scale',   keys: [{ t: 11700, v: 1.0 }, { t: 11850, v: 1.06, ease: 'ease-in-out' }, { t: 12000, v: 1.0, ease: 'ease-in-out' }] },
 );
 
+export const MERGED = mergeByLayerProp(TRACKS);
+
 export function applyState(t, layers) {
-  const state = collectState(TRACKS, t);
+  const state = collectState(MERGED, t);
   for (const [name, s] of Object.entries(state)) {
     const elx = layers[name];
     if (!elx) continue;
