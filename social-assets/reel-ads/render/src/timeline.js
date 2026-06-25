@@ -39,7 +39,7 @@ function dmPair({ dm, reply, base }) {
   // base = pair start time; pattern identical across pairs, offset by base.
   return [
     { layer: dm, prop: 'scale',   keys: [{ t: base + 0, v: 0.8 }, { t: base + 200, v: 1.0, ease: 'ease-out' }] },
-    { layer: dm, prop: 'opacity', keys: [{ t: 0, v: 1 }, { t: base + 0, v: 0, ease: 'linear' }, { t: base + 150, v: 1, ease: 'ease-out' }] },
+    { layer: dm, prop: 'opacity', keys: [{ t: 0, v: 0 }, { t: base + 0, v: 0, ease: 'linear' }, { t: base + 150, v: 1, ease: 'ease-out' }] },
     { layer: `${dm}_text`,   prop: 'reveal', keys: [{ t: base + 200, v: 0 }, { t: base + 800, v: 1, ease: 'linear' }] },
     { layer: `${dm}_cursor`, prop: 'reveal', keys: [{ t: base + 200, v: 0 }, { t: base + 800, v: 1, ease: 'linear' }] },
     { layer: `${dm}_cursor`, prop: 'opacity', keys: [
@@ -48,7 +48,7 @@ function dmPair({ dm, reply, base }) {
     { layer: 'phone', prop: 'scale', keys: [{ t: base + 200, v: 1.0 }, { t: base + 500, v: 1.22, ease: 'ease-in-out' }, { t: base + 1700, v: 1.22, ease: 'linear' }, { t: base + 2000, v: 1.0, ease: 'ease-in-out' }] },
     { layer: 'phone', prop: 'ty',    keys: [{ t: base + 200, v: 0 }, { t: base + 500, v: 90, ease: 'ease-in-out' }, { t: base + 1700, v: 90, ease: 'linear' }, { t: base + 2000, v: 0, ease: 'ease-in-out' }] },
     { layer: reply, prop: 'scale',   keys: [{ t: base + 900, v: 0.8 }, { t: base + 1100, v: 1.0, ease: 'ease-out' }] },
-    { layer: reply, prop: 'opacity', keys: [{ t: 0, v: 1 }, { t: base + 900, v: 0, ease: 'linear' }, { t: base + 1050, v: 1, ease: 'ease-out' }] },
+    { layer: reply, prop: 'opacity', keys: [{ t: 0, v: 0 }, { t: base + 900, v: 0, ease: 'linear' }, { t: base + 1050, v: 1, ease: 'ease-out' }] },
     { layer: `${reply}_text`,   prop: 'reveal', keys: [{ t: base + 1100, v: 0 }, { t: base + 1600, v: 1, ease: 'linear' }] },
     { layer: `${reply}_cursor`, prop: 'reveal', keys: [{ t: base + 1100, v: 0 }, { t: base + 1600, v: 1, ease: 'linear' }] },
     { layer: `${reply}_cursor`, prop: 'opacity', keys: [{ t: base + 1100, v: 1 }, { t: base + 1600, v: 1, ease: 'linear' }, { t: base + 1700, v: 0, ease: 'step' }] },

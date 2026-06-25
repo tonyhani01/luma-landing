@@ -39,6 +39,21 @@ test('key moments produce expected layer states', async () => {
     `dm1_text@3500 should be fully revealed (no positive % in clipPath), got: "${dm1Clip}"`
   );
 
+  // --- Hidden-bubble regression (ghost-bubble fix) ---
+  // At t=2600 (phone just arrived, before any DM pops): reply1 and dm2 must be invisible
+  const reply1O2600 = parseFloat(await read(2600, 'reply1', 'opacity'));
+  const dm2O2600    = parseFloat(await read(2600, 'dm2',    'opacity'));
+  assert.ok(reply1O2600 < 0.05, `reply1 should be hidden at t=2600 (before pop), got opacity=${reply1O2600}`);
+  assert.ok(dm2O2600    < 0.05, `dm2 should be hidden at t=2600 (before pop), got opacity=${dm2O2600}`);
+
+  // At t=3500 (pair 1 active): dm2/reply2 must be invisible; dm1 must be visible
+  const dm2O3500    = parseFloat(await read(3500, 'dm2',    'opacity'));
+  const reply2O3500 = parseFloat(await read(3500, 'reply2', 'opacity'));
+  const dm1O3500    = parseFloat(await read(3500, 'dm1',    'opacity'));
+  assert.ok(dm2O3500    < 0.05, `dm2 should be hidden at t=3500 (not yet popped), got opacity=${dm2O3500}`);
+  assert.ok(reply2O3500 < 0.05, `reply2 should be hidden at t=3500 (not yet popped), got opacity=${reply2O3500}`);
+  assert.ok(dm1O3500    > 0.95, `dm1 should be visible at t=3500 (already popped), got opacity=${dm1O3500}`);
+
   // payoff_line visible at 9900
   const plO = parseFloat(await read(9900, 'payoff_line', 'opacity'));
   assert.ok(plO > 0.95, `payoff_line@9900 ${plO}`);
