@@ -2,8 +2,12 @@
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import { mkdir, rm } from 'node:fs/promises';
-import { pathToFileURL } from 'node:url';
-import { resolve } from 'node:path';
+import { pathToFileURL, fileURLToPath } from 'node:url';
+import { resolve, dirname } from 'node:path';
+
+// Always run relative to this script's directory so cwd-relative paths work
+// regardless of where the caller invokes node from.
+process.chdir(dirname(fileURLToPath(import.meta.url)));
 
 const FPS = 30, DURATION_MS = 12000, W = 1080, H = 1920;
 const TOTAL = Math.round((DURATION_MS / 1000) * FPS); // 360
@@ -30,6 +34,16 @@ const main = async () => {
   await page.evaluate(() => document.fonts.ready);
   await page.evaluate(() => Promise.all(Array.from(document.images).map(img =>
     img.complete ? Promise.resolve() : new Promise(r => { img.onload = img.onerror = r; }))));
+
+  // Abort early if brand fonts failed to download (e.g. no network / Google Fonts blocked).
+  // document.fonts.ready resolves even on font-load failure, so we must check explicitly.
+  const fontsOk = await page.evaluate(() =>
+    document.fonts.check('30px "Tajawal"') && document.fonts.check('30px "Bricolage Grotesque"'));
+  if (!fontsOk) {
+    await browser.close();
+    throw new Error('Brand fonts (Tajawal / Bricolage Grotesque) failed to load — aborting render (check network / Google Fonts). Consider self-hosting fonts under assets/.');
+  }
+
   const stage = await page.$('#stage');
 
   if (probe) {
