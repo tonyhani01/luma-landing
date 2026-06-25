@@ -1,0 +1,16 @@
+{
+  "name": "luma-archetype1-render",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Code-rendered 9:16 MP4 for LUMA Archetype 1 ezayyy ad",
+  "scripts": {
+    "test": "node --test",
+    "probe": "node capture.mjs --probe",
+    "render": "node capture.mjs",
+    "preview": "node -e \"console.log('Open index.html in a browser to scrub')\""
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
