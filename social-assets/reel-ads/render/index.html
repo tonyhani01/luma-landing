@@ -17,6 +17,12 @@
     import { applyState } from './src/timeline.js';
     const stage = document.getElementById('stage');
     const layers = buildScene(stage, document);
+    // give each cursor its text width so reveal can position the caret
+    document.querySelectorAll('[data-role="cursor"]').forEach((cur) => {
+      const text = cur.parentElement.querySelector('[data-role="text"]');
+      cur.dataset.w = String(text.getBoundingClientRect().width);
+      cur.dataset.dir = text.dataset.dir;
+    });
     window.__layers = layers;
     window.seek = (t) => applyState(t, layers);
     const scrub = document.getElementById('scrub');
