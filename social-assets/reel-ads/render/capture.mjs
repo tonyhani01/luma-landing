@@ -28,6 +28,8 @@ const main = async () => {
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   await page.goto(pathToFileURL(resolve('index.html')).href + '?capture=1');
   await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => Promise.all(Array.from(document.images).map(img =>
+    img.complete ? Promise.resolve() : new Promise(r => { img.onload = img.onerror = r; }))));
   const stage = await page.$('#stage');
 
   if (probe) {

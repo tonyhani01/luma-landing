@@ -25,7 +25,8 @@ export function buildScene(root, doc) {
   const screen = el(doc, 'div', { ...abs(250, 320, 580, 1240), background: COLORS.paperCard, borderRadius: '54px', overflow: 'hidden' });
   phone.appendChild(screen);
   screen.appendChild(el(doc, 'div', { ...abs(36, 26), color: COLORS.ink, fontWeight: 500, fontSize: '26px' }, { text: '9:41' }));
-  screen.appendChild(el(doc, 'div', { ...abs(36, 84, 44, 44), background: COLORS.blue, borderRadius: '50%' }));
+  const headerLogo = el(doc, 'img', { ...abs(36, 84, 44, 44), objectFit: 'contain' }, { src: 'assets/luma-logo.png', alt: 'LUMA' });
+  layers.header_logo = headerLogo; screen.appendChild(headerLogo);
   screen.appendChild(el(doc, 'div', { ...abs(92, 90), color: COLORS.ink, fontWeight: 700, fontSize: '32px' }, { text: 'LUMA' }));
   screen.appendChild(el(doc, 'div', { ...abs(0, 158, 580, 2), background: COLORS.line }));
 
@@ -73,7 +74,8 @@ export function buildScene(root, doc) {
   // --- endcard ---
   const endcard = el(doc, 'div', { ...abs(0, 0, 1080, 1920), textAlign: 'center' });
   layers.endcard = endcard; root.appendChild(endcard);
-  endcard.appendChild(el(doc, 'div', { ...abs(508, 820, 64, 64), background: COLORS.blue, borderRadius: '50%' }));
+  const endLogo = el(doc, 'img', { ...abs(450, 770, 180), height: 'auto', objectFit: 'contain' }, { src: 'assets/luma-logo.png', alt: 'LUMA' });
+  layers.end_logo = endLogo; endcard.appendChild(endLogo);
   endcard.appendChild(el(doc, 'div', { position: 'absolute', top: '900px', left: '0', width: '1080px',
     fontWeight: 800, fontSize: '88px', color: COLORS.ink }, { text: 'LUMA' }));
   endcard.appendChild(el(doc, 'div', { position: 'absolute', top: '1018px', left: '0', width: '1080px',
