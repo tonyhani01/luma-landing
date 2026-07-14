@@ -785,7 +785,10 @@
     (function () {
       document.querySelectorAll('a[href="https://apps.shopify.com/luma"]').forEach(function (a) {
         a.addEventListener('click', function () {
-          var where = a.closest('.foot-form') ? 'footer' : (a.closest('.hdr-right') ? 'nav' : 'hero');
+          var where = a.closest('.foot-form') ? 'footer'
+            : a.closest('.hdr-right') ? 'nav'
+            : a.closest('.plan-row') ? 'pricing'
+            : 'hero';
           if (window.umami && typeof window.umami.track === 'function') {
             window.umami.track('install-click', { location: where });
           }
