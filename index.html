@@ -306,7 +306,7 @@
         </nav>
         <div class="hdr-right">
           <a href="#cta" class="link-blue" style="font-size:15px">Sign in</a>
-          <a href="#cta" class="btn" style="padding:11px 18px;font-size:15px">Request access</a>
+          <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn" style="padding:11px 18px;font-size:15px">Install on Shopify</a>
         </div>
       </div>
     </header>
@@ -326,12 +326,11 @@
             <p class="lede hero-lede">
               Most chatbots break on <strong>Franco Arabic</strong> — Egyptian Arabic typed in Latin letters. LUMA was <em>built for it</em>, and answers in Arabic and English too — catalog-aware, confidence-scored, and never silent.
             </p>
-            <form id="cta" class="hero-form lead-form" novalidate>
-              <input class="field" type="email" name="email" required placeholder="you@yourbrand.com" aria-label="Email address" />
-              <button class="btn" type="submit">Request access
+            <div id="cta" class="hero-form">
+              <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify
                 <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </button>
-            </form>
+              </a>
+            </div>
             <p class="hero-note">We personally set up every brand we onboard.</p>
 
             <div class="hero-stats">
@@ -698,25 +697,25 @@
             <div class="plan-name-wrap"><span class="plan-name">Free</span></div>
             <div class="plan-price">$0<span class="mo"> /mo</span></div>
             <div class="plan-desc"><span class="cnt">20</span> conversations / day · Try LUMA on your store</div>
-            <a href="#cta" class="btn btn-ghost">Start free</a>
+            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn btn-ghost">Start free</a>
           </div>
           <div class="plan-row">
             <div class="plan-name-wrap"><span class="plan-name">Starter</span></div>
             <div class="plan-price">$29<span class="mo"> /mo</span></div>
             <div class="plan-desc"><span class="cnt">200</span> conversations / day · For growing DM volume</div>
-            <a href="#cta" class="btn btn-ghost">Request access</a>
+            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn btn-ghost">Install on Shopify</a>
           </div>
           <div class="plan-row hot">
             <div class="plan-name-wrap"><span class="plan-name">Growth</span><span class="plan-popular">Popular</span></div>
             <div class="plan-price">$79<span class="mo"> /mo</span></div>
             <div class="plan-desc"><span class="cnt">600</span> conversations / day · Most active brands</div>
-            <a href="#cta" class="btn">Request access</a>
+            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn">Install on Shopify</a>
           </div>
           <div class="plan-row">
             <div class="plan-name-wrap"><span class="plan-name">Pro</span></div>
             <div class="plan-price">$149<span class="mo"> /mo</span></div>
             <div class="plan-desc"><span class="cnt">1,500</span> conversations / day · High-volume storefronts</div>
-            <a href="#cta" class="btn btn-ghost">Request access</a>
+            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn btn-ghost">Install on Shopify</a>
           </div>
         </div>
       </div>
@@ -729,12 +728,10 @@
         <h2 class="display">
           Stop leaving customers <span class="accent-italic">on read.</span>
         </h2>
-        <form class="foot-form lead-form" novalidate>
-          <input class="field" type="email" name="email" required placeholder="you@yourbrand.com" aria-label="Email address" />
-          <button class="btn" type="submit">Request access
-            <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </button>
-        </form>
+        <div class="foot-form">
+          <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+          <a class="link-blue" href="mailto:team@luma-bot.com" style="margin-inline-start:12px">Talk to us</a>
+        </div>
 
         <div class="foot-grid">
           <div>
@@ -784,37 +781,15 @@
   </div>
 
   <script>
-    // Waitlist capture — posts to the existing Google Form (no-cors), shows success state.
+    // Install CTA — cookieless conversion tracking only; navigation is a plain anchor.
     (function () {
-      var ENDPOINT = 'https://docs.google.com/forms/d/e/1FAIpQLSfzKIxaFC065noyOOX5rS2tPR-uPrxop5IYl3eT1PhRQ_b2oA/formResponse';
-      var FIELD = 'entry.2098781009';
-      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      document.querySelectorAll('form.lead-form').forEach(function (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var input = form.querySelector('input[type=email]');
-          var btn = form.querySelector('button');
-          var email = (input.value || '').trim();
-          if (!EMAIL_RE.test(email)) {
-            input.focus();
-            input.style.borderColor = '#DC2626';
-            return;
-          }
-          input.style.borderColor = '';
-          var fd = new FormData();
-          fd.append(FIELD, email);
-          fetch(ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors' }).catch(function () {});
-          // Analytics: fire a cookieless conversion event (no PII — email is never sent to analytics).
-          // Guarded so a blocked/failed Umami script can never break the submit flow.
+      document.querySelectorAll('a[href="https://apps.shopify.com/luma"]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          var where = a.closest('.foot-form') ? 'footer' : (a.closest('.hdr-right') ? 'nav' : 'hero');
           if (window.umami && typeof window.umami.track === 'function') {
-            var where = form.classList.contains('foot-form') ? 'footer' : 'hero';
-            window.umami.track('request-access', { location: where });
+            window.umami.track('install-click', { location: where });
           }
-          if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'request-access', location: where }); }
-          btn.textContent = "Thanks — we'll be in touch.";
-          btn.disabled = true;
-          input.disabled = true;
+          if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'install-click', location: where }); }
         });
       });
     })();
