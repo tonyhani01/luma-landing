@@ -13,6 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="LUMA" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
   <meta property="og:url" content="https://luma-bot.com/" />
   <meta property="og:title" content="LUMA — Turn every «بكام؟» into an answer" />
   <meta property="og:description" content="AI sales teammate for Shopify merchants in Egypt and the Middle East — answers Instagram DMs and storefront chat in Arabic, English, and Franco-Arabic from your live store data." />
@@ -61,6 +62,25 @@
           { "@type": "Offer", "name": "Pro", "price": "149", "priceCurrency": "USD" }
         ]
       }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which Shopify stores can use LUMA?", "acceptedAnswer": { "@type": "Answer", "text": "Any standard Shopify store can install LUMA from the Shopify App Store. Storefront chat works out of the box; Instagram DMs require an Instagram Business or Creator account." } },
+      { "@type": "Question", "name": "Which channels does LUMA support today?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram DMs and Shopify storefront chat. Both are live today." } },
+      { "@type": "Question", "name": "Does it understand Egyptian Franco-Arabic?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — Franco-Arabic (Egyptian Arabic typed in Latin letters) and Egyptian Arabic script are both core capabilities, alongside English." } },
+      { "@type": "Question", "name": "How does it know my products and orders?", "acceptedAnswer": { "@type": "Answer", "text": "After you install LUMA, it reads your store's catalog, inventory, policies, and order data directly from Shopify — prices and stock come from your real store, not a script." } },
+      { "@type": "Question", "name": "What happens when it isn't sure?", "acceptedAnswer": { "@type": "Answer", "text": "LUMA scores its own confidence on every reply. When the catalog, policy, or order data doesn't clearly support an answer, it stops replying and hands the conversation to your team with full context." } },
+      { "@type": "Question", "name": "Can I or my team take over a conversation?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once LUMA hands off a conversation, it pauses on that thread so you or a teammate can reply without LUMA talking over you." } },
+      { "@type": "Question", "name": "How is customer data handled?", "acceptedAnswer": { "@type": "Answer", "text": "Conversation content and the Shopify data LUMA reads are used to answer customers. Its AI provider is Claude by Anthropic; see our Privacy Policy for retention and your rights." } },
+      { "@type": "Question", "name": "What do I need to set it up?", "acceptedAnswer": { "@type": "Answer", "text": "Install LUMA from the Shopify App Store, then connect an Instagram Business or Creator account if you want DM coverage. LUMA reads your store's catalog and order data once it's connected." } },
+      { "@type": "Question", "name": "Is WhatsApp supported?", "acceptedAnswer": { "@type": "Answer", "text": "Not yet. WhatsApp is on the roadmap; today LUMA covers Instagram DMs and Shopify storefront chat." } },
+      { "@type": "Question", "name": "How do plans count conversations?", "acceptedAnswer": { "@type": "Answer", "text": "Each plan includes a number of conversations per day (Free 20, Starter 200, Growth 600, Pro 1,500). A conversation is a customer chat that LUMA handles that day, across Instagram DMs and storefront chat combined. For edge cases, reach out to team@luma-bot.com." } }
     ]
   }
   </script>
@@ -177,6 +197,10 @@
         <h2 id="proof-heading">Real numbers. One store. Six weeks.</h2>
         <div class="proof-figures">
           <div>
+            <div class="proof-figure-n mono" data-count="99.8" data-decimals="1" data-suffix="%">99.8%</div>
+            <div class="proof-figure-l">of conversations answered</div>
+          </div>
+          <div>
             <div class="proof-figure-n mono" data-count="1846" data-group="true">1,846</div>
             <div class="proof-figure-l">conversations handled</div>
           </div>
@@ -189,7 +213,24 @@
             <div class="proof-figure-l">answered after hours (8 pm – 9 am)</div>
           </div>
         </div>
-        <p class="proof-context">From LUMA's first live store: six weeks and 25,000+ messages across Instagram DMs and storefront chat, with 99.8% of customer conversations answered. One real store's numbers — not a platform average.</p>
+        <p class="proof-context">From LUMA's first live store: six weeks and 25,000+ messages across Instagram DMs and storefront chat. One real store's numbers — not a platform average.</p>
+        <div class="proof-quotes">
+          <p class="proof-quotes-heading mono">what customers replied · unedited</p>
+          <div class="proof-quotes-grid">
+            <figure class="proof-quote">
+              <blockquote>Thanks for being so responsive, you're the best</blockquote>
+              <figcaption class="mono">Instagram DM · July 2026</figcaption>
+            </figure>
+            <figure class="proof-quote">
+              <blockquote>Thank you for the great service and great product 🙏🏽</blockquote>
+              <figcaption class="mono">Instagram DM · July 2026</figcaption>
+            </figure>
+            <figure class="proof-quote">
+              <blockquote lang="ar" dir="rtl">شكرا ع المساعده الفيت تحفه والكوالتى وكل حاجه ان شاء الله مش اخر مره</blockquote>
+              <figcaption class="mono">Instagram DM · July 2026</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -415,12 +456,12 @@
         <h2 id="trust-heading">Confident? It answers. Unsure? It stops.</h2>
         <div class="trust-grid">
           <div class="trust-card">
-            <p class="trust-conf mono" data-confidence=".93">confidence 0.93</p>
+            <p class="trust-conf mono">confidence 0.93</p>
             <span class="trust-tag is-auto">auto-reply</span>
             <p class="body">The catalog, price, and stock all support the answer, so LUMA replies directly — no waiting on your team.</p>
           </div>
           <div class="trust-card">
-            <p class="trust-conf mono" data-confidence=".42">confidence 0.42</p>
+            <p class="trust-conf mono">confidence 0.42</p>
             <span class="trust-tag is-handoff">handoff</span>
             <p class="body">When the data doesn't clearly support an answer, LUMA stops. It stays silent while a human has the conversation.</p>
           </div>
@@ -430,25 +471,74 @@
       </div>
     </section>
 
+    <!-- ============ MERCHANT CONTROL ============ -->
+    <section class="control" id="control" aria-labelledby="control-heading">
+      <div class="wrap">
+        <span class="section-num mono" aria-hidden="true">05</span>
+        <h2 id="control-heading">You see everything. You can take over anything.</h2>
+        <p class="control-intro">The demos above are what your customers see. This is your side: every conversation in one inbox, with LUMA's answers, its confidence, and a takeover button that always works.</p>
+        <div class="control-grid">
+          <div class="control-features">
+            <div class="control-feature">
+              <h3>Every thread, labeled</h3>
+              <p>Auto-replied, handed off, or waiting — you see what LUMA did and why, next to the order it was talking about.</p>
+            </div>
+            <div class="control-feature">
+              <h3>Takeover that sticks</h3>
+              <p>Reply on any thread and LUMA pauses there instantly. It stays silent until you close the conversation back to it.</p>
+            </div>
+            <div class="control-feature">
+              <h3>Full context on handoff</h3>
+              <p>When LUMA escalates, your team gets the whole conversation plus the customer's order — no scrolling through Instagram to catch up.</p>
+            </div>
+          </div>
+          <div class="chat-card inbox-card">
+            <div class="chat-head">
+              <span class="chat-store">LUMA inbox · nilethreads.eg</span>
+              <span class="chat-label">Illustrative example</span>
+            </div>
+            <div class="inbox-list">
+              <div class="inbox-row">
+                <div><strong>@mariam.k</strong><p lang="ar-Latn" dir="ltr">bikam el satin dress?</p></div>
+                <span class="trust-tag is-auto mono">auto-replied · 2.1s</span>
+              </div>
+              <div class="inbox-row is-open">
+                <div><strong>@omar_hs</strong><p lang="ar-Latn" dir="ltr">3ayez arga3 el order</p></div>
+                <span class="trust-tag is-handoff mono">handed to Sara</span>
+              </div>
+              <div class="inbox-takeover">
+                <p class="mono">⏸ LUMA paused · order #10482 attached</p>
+                <div class="inbox-reply" role="presentation" aria-hidden="true"><span>Reply as nilethreads…</span><span class="inbox-send">Send</span></div>
+              </div>
+              <div class="inbox-row">
+                <div><strong>@nour.xx</strong><p lang="ar" dir="rtl">فين الأوردر؟</p></div>
+                <span class="trust-tag is-auto mono">auto-replied · order #10482</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ LANGUAGES ============ -->
     <section class="languages" id="languages" aria-labelledby="languages-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">05</span>
+        <span class="section-num mono" aria-hidden="true">06</span>
         <h2 id="languages-heading">One question, three ways it actually arrives</h2>
         <div class="lang-grid">
           <div class="lang-cell">
             <p class="lang-label">Arabic</p>
-            <p class="lang-msg ar" lang="ar" dir="rtl" aria-label="بكام الهودي؟"><span class="lang-glyphs" aria-hidden="true">بكام الهودي؟</span></p>
+            <p class="lang-msg ar" lang="ar" dir="rtl">بكام الهودي؟</p>
             <p class="lang-note mono">answered in the same language</p>
           </div>
           <div class="lang-cell">
             <p class="lang-label">Franco-Arabic</p>
-            <p class="lang-msg" lang="ar-Latn" dir="ltr" aria-label="bikam el hoodie?"><span class="lang-glyphs" aria-hidden="true">bikam el hoodie?</span></p>
+            <p class="lang-msg" lang="ar-Latn" dir="ltr">bikam el hoodie?</p>
             <p class="lang-note mono">answered in the same language</p>
           </div>
           <div class="lang-cell">
             <p class="lang-label">English</p>
-            <p class="lang-msg" lang="en" dir="ltr" aria-label="How much is the hoodie?"><span class="lang-glyphs" aria-hidden="true">How much is the hoodie?</span></p>
+            <p class="lang-msg" lang="en" dir="ltr">How much is the hoodie?</p>
             <p class="lang-note mono">answered in the same language</p>
           </div>
         </div>
@@ -459,7 +549,7 @@
     <!-- ============ COMPARISON ============ -->
     <section class="compare" aria-labelledby="compare-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">06</span>
+        <span class="section-num mono" aria-hidden="true">07</span>
         <h2 id="compare-heading">Your inbox, three ways</h2>
         <div class="compare-scroll">
           <table class="compare-table">
@@ -514,10 +604,26 @@
       </div>
     </section>
 
+    <!-- ============ SETUP ============ -->
+    <section class="setup" id="setup" data-cta-location="setup" aria-labelledby="setup-heading">
+      <div class="wrap">
+        <span class="section-num mono" aria-hidden="true">08</span>
+        <h2 id="setup-heading">Live before tonight's DMs</h2>
+        <p class="setup-intro">No flows to build, nothing to script. LUMA answers from your store's data from day one.</p>
+        <div class="setup-grid">
+          <div class="setup-step"><span class="setup-marker mono">step 01</span><h3>Install from the Shopify App Store</h3><p>One click. LUMA reads your catalog, inventory, policies, and orders — the same data it answers from.</p><span class="setup-time mono">≈ 2 minutes</span></div>
+          <div class="setup-step"><span class="setup-marker mono">step 02</span><h3>Connect Instagram</h3><p>Link an Instagram Business or Creator account so LUMA can answer DMs. Storefront chat works without it.</p><span class="setup-time mono">≈ 5 minutes</span></div>
+          <div class="setup-step"><span class="setup-marker mono">step 03</span><h3>Review and go live</h3><p>Check the tone and handoff settings, send yourself a test DM, switch it on. You can take over any thread, any time.</p><span class="setup-time mono">same day</span></div>
+        </div>
+        <p class="setup-footnote mono">Permissions: LUMA reads products, inventory, policies, and orders from your Shopify store, and reads &amp; replies to DMs of the Instagram account you connect. Nothing else.</p>
+        <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+      </div>
+    </section>
+
     <!-- ============ PRICING ============ -->
     <section class="pricing" id="pricing" data-cta-location="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">07</span>
+        <span class="section-num mono" aria-hidden="true">09</span>
         <div class="pricing-head">
           <h2 id="pricing-heading">Pricing</h2>
           <p class="pricing-sub">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
@@ -554,7 +660,7 @@
     <!-- ============ FAQ ============ -->
     <section class="faq" id="faq" aria-labelledby="faq-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">08</span>
+        <span class="section-num mono" aria-hidden="true">10</span>
         <h2 id="faq-heading">Frequently asked questions</h2>
         <div class="faq-list">
           <details class="faq-item">
@@ -604,7 +710,7 @@
     <!-- ============ CLOSING CTA ============ -->
     <section class="closing" data-cta-location="footer" aria-labelledby="closing-heading">
       <div class="wrap">
-        <h2 id="closing-heading" class="closing-line1">Your customers are already asking. <bdi class="closing-part" lang="ar" dir="rtl">بكام؟</bdi> <bdi class="closing-part" lang="ar" dir="rtl">فين الأوردر؟</bdi> <span class="closing-part">Do you have size M?</span></h2>
+        <h2 id="closing-heading" class="closing-line1">Your customers are already asking. <bdi lang="ar" dir="rtl">بكام؟</bdi> <bdi lang="ar" dir="rtl">فين الأوردر؟</bdi> <span>Do you have size M?</span></h2>
         <p class="closing-line2">LUMA answers in seconds, from your store's real data — and hands off to you when it matters.</p>
         <div class="closing-ctas">
           <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
@@ -866,14 +972,14 @@
 
           select(0);
         }
-        function revealProblem(){var s=document.querySelector('.problem');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var c=s.querySelectorAll('.problem-col'),l=c[0].querySelectorAll('.pmsg'),r=c[1].querySelectorAll('.pmsg');function v(e,d){window.setTimeout(function(){if(e)e.classList.add('is-revealed');},d)}Array.prototype.slice.call(l).forEach(function(e,i){v(e,i*250);v(e.querySelector('.pmsg-status'),i*250+400)});Array.prototype.slice.call(r).forEach(function(e,i){var d=l.length*250+400+i*250;v(e,d);v(e.querySelector('.pmsg-reply'),d+120);v(e.querySelector('.pmsg-reply-time'),d+120)})})}
+        function revealProblem(){var s=document.querySelector('.problem');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){s.classList.add('is-revealed')})}
         function tween(a,b,d,draw,done){var s;function f(t){if(!s)s=t;var p=Math.min((t-s)/d,1),e=1-Math.pow(1-p,3);draw(a+(b-a)*e);if(p<1)window.requestAnimationFrame(f);else if(done)done()}window.requestAnimationFrame(f)}
-        function revealTrust(){var s=document.querySelector('.trust');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var c=s.querySelectorAll('[data-confidence]');function n(i,a,b,done){tween(a,b,700,function(v){c[i].textContent='confidence '+v.toFixed(2)},done)}n(0,.5,.93,function(){s.querySelector('.is-auto').classList.add('is-revealed');window.setTimeout(function(){n(1,.5,.42,function(){window.setTimeout(function(){s.querySelectorAll('.trust-card')[1].classList.add('is-revealed')},350)})},160)})})}
-        function revealLanguages(){var s=document.querySelector('.languages');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var m=s.querySelectorAll('.lang-msg');function type(i){if(i===m.length){s.classList.add('is-revealed');return}var e=m[i],g=e.querySelector('.lang-glyphs'),t=e.getAttribute('aria-label'),p=0;g.textContent='';e.classList.add('is-typing');function tick(){g.textContent+=t.charAt(p++);if(p<t.length)window.setTimeout(tick,35);else{e.classList.remove('is-typing');window.setTimeout(function(){type(i+1)},80)}}tick()}type(0)})}
-        function revealProof(){var s=document.querySelector('.proof');if(!s||reduceMotion)return;observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('[data-count]')).forEach(function(e){var n=Number(e.getAttribute('data-count')),x=e.getAttribute('data-suffix')||'',d=Number(e.getAttribute('data-decimals')||0),g=e.getAttribute('data-group')==='true';tween(0,n,600,function(v){var value=d?v.toFixed(d):String(Math.round(v));e.textContent=(g?Number(value).toLocaleString('en-US'):value)+x})})})}
-        function revealClosing(){var s=document.querySelector('.closing');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('.closing-part')).forEach(function(e,i){window.setTimeout(function(){e.classList.add('is-revealed')},i*80)})})}
+        function revealSection(selector){var s=document.querySelector(selector);if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){s.classList.add('is-revealed')})}
+        function revealLanguages(){var s=document.querySelector('.languages');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){s.classList.add('is-revealed')})}
+        function revealProof(){var s=document.querySelector('.proof');if(!s||reduceMotion)return;observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('[data-count]')).forEach(function(e){var n=Number(e.getAttribute('data-count')),x=e.getAttribute('data-suffix')||'',d=Number(e.getAttribute('data-decimals')||0),g=e.getAttribute('data-group')==='true',finished=false;function format(v){var value=d?v.toFixed(d):String(Math.round(v));return(g?Number(value).toLocaleString('en-US'):value)+x}function final(){if(finished)return;finished=true;e.textContent=format(n)}tween(0,n,600,function(v){if(!finished)e.textContent=format(v)},final);window.setTimeout(final,900)})})}
+        function revealClosing(){var s=document.querySelector('.closing');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){s.classList.add('is-revealed')})}
         var sentinel=document.querySelector('.header-sentinel');if(header&&sentinel&&'IntersectionObserver'in window)new IntersectionObserver(function(e){header.classList.toggle('is-stuck',!e[0].isIntersecting)},{threshold:0}).observe(sentinel);
-        revealProblem();revealTrust();revealLanguages();revealProof();revealClosing();
+        revealProblem();revealSection('.trust');revealLanguages();revealProof();revealClosing();
       } catch (error) {
         document.documentElement.classList.remove('js');
         Array.prototype.slice.call(document.querySelectorAll('.thread--auto [data-step]')).forEach(function (step) {
