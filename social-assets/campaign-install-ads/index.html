@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LUMA · Instagram campaign renderer</title>
+  <link rel="stylesheet" href="campaign.css">
+  <script src="campaign.js" defer></script>
+</head>
+<body>
+  <main aria-label="LUMA Instagram campaign ad">
+    <article class="ad ad--product" data-ad="1">
+      <img class="ad__photo" src="sources/product-editorial.png" alt="A black T-shirt prepared for an online order in a sunlit fashion studio">
+      <header class="brandbar">
+        <span class="luma-lockup"><img src="brand/luma-logo.png" alt="">LUMA</span>
+        <span class="qualifier"><img src="brand/shopify-bag.svg" alt="">FOR SHOPIFY STORES</span>
+      </header>
+      <h1>Turn product questions into <em>orders.</em></h1>
+      <section class="dm-demo" aria-label="Example Instagram conversation">
+        <p class="customer" lang="ar-Latn">el black size M available?</p>
+        <p class="luma" lang="ar" dir="rtl">أيوه، متاح دلوقتي — تقدري تضيفيه للكارت من هنا</p>
+        <div class="product-card">
+          <span class="garment-icon" aria-hidden="true"></span>
+          <span class="product-copy"><b>Black Essential Tee</b><small>Size M · In stock · EGP 690</small></span>
+          <span class="cart-action"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.5L20 8H7M10 20h.01M17 20h.01"/></svg>Add to cart</span>
+        </div>
+      </section>
+      <section class="capabilities" aria-label="LUMA capabilities">
+        <div class="cap cap--data"><span class="cap-icon" aria-hidden="true"></span><span><b>Live Shopify data</b><span>Prices, stock, products &amp; orders</span></span></div>
+        <div class="cap cap--language"><span class="cap-icon" aria-hidden="true"></span><span><b>Arabic · English · Franco</b><span>Natural replies around the clock</span></span></div>
+        <div class="cap cap--links"><span class="cap-icon" aria-hidden="true"></span><span><b>Product + cart links</b><span>From question to checkout</span></span></div>
+        <div class="cap cap--support"><span class="cap-icon" aria-hidden="true"></span><span><b>Handles customer issues</b><span>Orders, returns, policies + handoff</span></span></div>
+      </section>
+      <footer><strong>See LUMA in action</strong><span>AI SALES + SUPPORT TEAMMATE</span></footer>
+    </article>
+
+    <article class="ad ad--merchant" data-ad="2">
+      <img class="ad__photo" src="sources/merchant-in-motion.png" alt="A fashion merchant packing an order at a worktable">
+      <header class="brandbar brandbar--light">
+        <span class="luma-lockup"><img src="brand/luma-logo.png" alt="">LUMA</span>
+        <span class="qualifier"><img src="brand/shopify-bag.svg" alt="">FOR SHOPIFY STORES</span>
+      </header>
+      <div class="merchant-copy">
+        <p class="kicker">INSTAGRAM DMs, HANDLED</p>
+        <h1>Your customers keep asking. <em>LUMA keeps answering.</em></h1>
+      </div>
+      <section class="merchant-dms" aria-label="Sales and customer support conversations">
+        <div class="message-group message-group--sale">
+          <span class="message-label"><span class="message-symbol message-symbol--cart" aria-hidden="true"></span>BUYING QUESTION</span>
+          <p class="customer" lang="ar-Latn">el black size M available?</p>
+          <p class="luma">Yes — it’s in stock. I can add it to your cart.</p>
+        </div>
+        <div class="message-group message-group--issue">
+          <span class="message-label"><span class="message-symbol message-symbol--support" aria-hidden="true"></span>CUSTOMER ISSUE</span>
+          <p class="customer" lang="ar-Latn">order 1842 lsa mwslsh</p>
+          <p class="luma">I found it. It’s out for delivery today.</p>
+        </div>
+      </section>
+      <footer><strong>Sell while you’re packing.</strong><span>SALES · SUPPORT · HANDOFF</span></footer>
+    </article>
+
+    <article class="ad ad--diptych" data-ad="3">
+      <img class="ad__photo" src="sources/sales-support-texture.png" alt="A packing table divided by blue tape, with a black garment and an open shipping box">
+      <header class="brandbar">
+        <span class="luma-lockup"><img src="brand/luma-logo.png" alt="">LUMA</span>
+        <span class="qualifier"><img src="brand/shopify-bag.svg" alt="">FOR SHOPIFY STORES</span>
+      </header>
+      <h1>From “is it available?” to <em>“where is my order?”</em></h1>
+      <div class="taped-seam" aria-hidden="true"></div>
+      <section class="diptych" aria-label="LUMA sales and support conversations">
+        <section class="diptych-panel diptych-panel--sale" aria-label="Sale conversation">
+          <div class="panel-label"><span class="panel-icon panel-icon--garment" aria-hidden="true"></span><span><small>01</small>Sale</span></div>
+          <div class="panel-chat">
+            <p class="customer" lang="ar-Latn">el black size M available?</p>
+            <p class="luma">Yes — size M is in stock.</p>
+            <div class="mini-product"><span class="garment-icon" aria-hidden="true"></span><span><b>Black Essential Tee</b><small>EGP 690 · In stock</small></span></div>
+          </div>
+          <div class="panel-outcome"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.5L20 8H7M10 20h.01M17 20h.01"/></svg>Add to cart</div>
+        </section>
+        <section class="diptych-panel diptych-panel--support" aria-label="Support conversation">
+          <div class="panel-label"><span class="panel-icon panel-icon--support" aria-hidden="true"></span><span><small>02</small>Support</span></div>
+          <div class="panel-chat">
+            <p class="customer" lang="ar-Latn">order 1842 lsa mwslsh</p>
+            <p class="luma">I found it — it’s out for delivery today.</p>
+            <div class="order-status"><span aria-hidden="true"></span><b>Order #1842</b><small>Out for delivery</small></div>
+          </div>
+          <div class="panel-outcome panel-outcome--handoff"><span class="handoff-icon" aria-hidden="true"></span>Handed to your team with full context</div>
+        </section>
+      </section>
+      <footer><strong>One teammate. Every DM.</strong><span>ARABIC · ENGLISH · FRANCO</span></footer>
+    </article>
+  </main>
+</body>
+</html>
