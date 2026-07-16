@@ -328,6 +328,16 @@ html.js .thread--auto [data-step] { opacity: 0; transform: translateY(8px); }
    HERO
    ============================================================ */
 .hero { padding: clamp(40px,6vw,80px) 0 clamp(48px,7vw,88px); }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+html.js .hero .kicker,
+html.js .hero h1,
+html.js .hero .hero-lede,
+html.js .hero .hero-ctas,
+html.js .hero .hero-friction { animation: hero-rise .45s var(--ease) both; }
+html.js .hero h1 { animation-delay: 90ms; }
+html.js .hero .hero-lede { animation-delay: 180ms; }
+html.js .hero .hero-ctas { animation-delay: 260ms; }
+html.js .hero .hero-friction { animation-delay: 330ms; }
 .hero-grid {
   margin-top: clamp(28px,4vw,48px);
   display: grid; grid-template-columns: 1fr; gap: clamp(32px,5vw,56px);
