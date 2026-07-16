@@ -247,6 +247,8 @@ p.body { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
   align-self: center; text-align: center; margin: 2px 0; max-width: 100%; overflow-wrap: anywhere;
 }
 
+.sysline--info { color: var(--ink-2); }
+
 .typing-indicator {
   align-self: flex-end; display: flex; gap: 4px;
   background: var(--blue-soft); border-radius: var(--r-bubble);

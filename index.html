@@ -174,22 +174,22 @@
     <section class="proof" id="proof" aria-labelledby="proof-heading">
       <div class="wrap">
         <span class="section-num mono" aria-hidden="true">01</span>
-        <h2 id="proof-heading">Real numbers. One store. Seven days.</h2>
+        <h2 id="proof-heading">Real numbers. One store. Six weeks.</h2>
         <div class="proof-figures">
           <div>
-            <div class="proof-figure-n mono" data-count="343">343</div>
+            <div class="proof-figure-n mono" data-count="1846" data-group="true">1,846</div>
             <div class="proof-figure-l">conversations handled</div>
           </div>
           <div>
-            <div class="proof-figure-n mono" data-count="94" data-suffix="%">94%</div>
-            <div class="proof-figure-l">answered</div>
+            <div class="proof-figure-n mono" data-count="2.1" data-decimals="1" data-suffix="s">2.1s</div>
+            <div class="proof-figure-l">median reply time</div>
           </div>
           <div>
-            <div class="proof-figure-n mono" data-count="60" data-suffix="%">60%</div>
-            <div class="proof-figure-l">resolved with zero human involvement</div>
+            <div class="proof-figure-n mono" data-count="846">846</div>
+            <div class="proof-figure-l">answered after hours (8 pm – 9 am)</div>
           </div>
         </div>
-        <p class="proof-context">LUMA's first pilot: 4,500+ messages across Instagram DMs and storefront chat — not a platform average.</p>
+        <p class="proof-context">From LUMA's first live store: six weeks and 25,000+ messages across Instagram DMs and storefront chat, with 99.8% of customer conversations answered. One real store's numbers — not a platform average.</p>
       </div>
     </section>
 
@@ -228,7 +228,7 @@
               <p class="pmsg-status mono">seen · never answered</p>
             </div>
 
-            <p class="problem-closing">High-intent buyers rarely wait until morning.</p>
+            <p class="problem-closing">High-intent buyers rarely wait until morning — at LUMA's first live store, nearly half of all questions arrived after hours.</p>
           </div>
 
           <div class="problem-col">
@@ -426,6 +426,7 @@
           </div>
         </div>
         <p class="trust-note">On handoff, your team sees the full thread alongside the relevant order context.</p>
+        <p class="sysline sysline--info">In production so far, about 1 in 5 conversations is handed to a human.</p>
       </div>
     </section>
 
@@ -869,7 +870,7 @@
         function tween(a,b,d,draw,done){var s;function f(t){if(!s)s=t;var p=Math.min((t-s)/d,1),e=1-Math.pow(1-p,3);draw(a+(b-a)*e);if(p<1)window.requestAnimationFrame(f);else if(done)done()}window.requestAnimationFrame(f)}
         function revealTrust(){var s=document.querySelector('.trust');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var c=s.querySelectorAll('[data-confidence]');function n(i,a,b,done){tween(a,b,700,function(v){c[i].textContent='confidence '+v.toFixed(2)},done)}n(0,.5,.93,function(){s.querySelector('.is-auto').classList.add('is-revealed');window.setTimeout(function(){n(1,.5,.42,function(){window.setTimeout(function(){s.querySelectorAll('.trust-card')[1].classList.add('is-revealed')},350)})},160)})})}
         function revealLanguages(){var s=document.querySelector('.languages');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var m=s.querySelectorAll('.lang-msg');function type(i){if(i===m.length){s.classList.add('is-revealed');return}var e=m[i],g=e.querySelector('.lang-glyphs'),t=e.getAttribute('aria-label'),p=0;g.textContent='';e.classList.add('is-typing');function tick(){g.textContent+=t.charAt(p++);if(p<t.length)window.setTimeout(tick,35);else{e.classList.remove('is-typing');window.setTimeout(function(){type(i+1)},80)}}tick()}type(0)})}
-        function revealProof(){var s=document.querySelector('.proof');if(!s||reduceMotion)return;observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('[data-count]')).forEach(function(e){var n=Number(e.getAttribute('data-count')),x=e.getAttribute('data-suffix')||'';tween(0,n,600,function(v){e.textContent=Math.round(v)+x})})})}
+        function revealProof(){var s=document.querySelector('.proof');if(!s||reduceMotion)return;observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('[data-count]')).forEach(function(e){var n=Number(e.getAttribute('data-count')),x=e.getAttribute('data-suffix')||'',d=Number(e.getAttribute('data-decimals')||0),g=e.getAttribute('data-group')==='true';tween(0,n,600,function(v){var value=d?v.toFixed(d):String(Math.round(v));e.textContent=(g?Number(value).toLocaleString('en-US'):value)+x})})})}
         function revealClosing(){var s=document.querySelector('.closing');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('.closing-part')).forEach(function(e,i){window.setTimeout(function(){e.classList.add('is-revealed')},i*80)})})}
         var sentinel=document.querySelector('.header-sentinel');if(header&&sentinel&&'IntersectionObserver'in window)new IntersectionObserver(function(e){header.classList.toggle('is-stuck',!e[0].isIntersecting)},{threshold:0}).observe(sentinel);
         revealProblem();revealTrust();revealLanguages();revealProof();revealClosing();
