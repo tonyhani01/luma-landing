@@ -26,7 +26,23 @@ Export the three 1080×1350 PNGs from `social-assets/campaign-02/tools` with:
 
 ```bash
 node export-stills.mjs ../../campaign-install-ads/index.html ad=1..3 ../../campaign-install-ads/exports/luma-install-ad
+mv ../../campaign-install-ads/exports/luma-install-ad-01.png ../../campaign-install-ads/exports/luma-install-ad-01-product-editorial.png
+mv ../../campaign-install-ads/exports/luma-install-ad-02.png ../../campaign-install-ads/exports/luma-install-ad-02-merchant-motion.png
+mv ../../campaign-install-ads/exports/luma-install-ad-03.png ../../campaign-install-ads/exports/luma-install-ad-03-sales-support.png
 ```
+
+The exporter always creates the numbered intermediate names (`luma-install-ad-01.png` through `-03.png`); the three `mv` commands are required to produce the exact final filenames listed above.
+
+## Local fonts
+
+Exports are hermetic: `campaign.css` loads the required IBM Plex WOFF2 files from `fonts/` and makes no Google Fonts request. The files are unmodified copies from IBM's official `IBM/plex` distribution:
+
+- IBM Plex Sans 400/500/600/700: `https://raw.githubusercontent.com/IBM/plex/master/packages/plex-sans/fonts/complete/woff2/`
+- IBM Plex Sans Arabic 400/500/700: `https://raw.githubusercontent.com/IBM/plex/master/packages/plex-sans-arabic/fonts/complete/woff2/`
+- IBM Plex Mono 400/500: `https://raw.githubusercontent.com/IBM/plex/master/packages/plex-mono/fonts/complete/woff2/`
+- License source: `https://raw.githubusercontent.com/IBM/plex/master/LICENSE.txt`
+
+IBM Plex is Copyright © 2017 IBM Corp. and distributed under the SIL Open Font License 1.1. The complete license is vendored at `fonts/OFL-1.1.txt`.
 
 ## Source generation prompts
 
