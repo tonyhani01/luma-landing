@@ -39,7 +39,8 @@ h1 em{color:var(--blue);font-style:normal}
 .ad--product .ad__photo{object-position:center 55%}
 .ad--product::after{content:"";position:absolute;inset:auto 0 0;height:42%;z-index:-1;background:linear-gradient(180deg,transparent,rgba(27,26,23,.34))}
 .ad--product .luma-lockup{margin-left:-10px;padding:7px 10px;background:rgba(244,239,230,.9);border-radius:2px}
-.ad--product h1{width:800px;margin:38px 0 0 auto;text-align:right;font-size:78px}
+.ad--product h1{position:relative;z-index:0;width:800px;margin:38px 0 0 auto;text-align:right;font-size:78px}
+.ad--product h1::before{content:"";position:absolute;z-index:-1;inset:-16px 0 -14px;background:linear-gradient(96deg,rgba(244,239,230,.92) 0%,rgba(244,239,230,.88) 58%,rgba(244,239,230,.82) 100%)}
 .ad--product .dm-demo{width:680px;margin:32px 34px 0 auto;padding:20px;background:rgba(244,239,230,.96);border:1px solid rgba(27,26,23,.22);border-radius:4px;box-shadow:0 14px 32px rgba(27,26,23,.12)}
 .ad--product .dm-demo .luma{margin-top:10px;max-width:78%;font-size:22px}
 .product-card{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;margin-top:14px;padding:14px;border-top:1px solid rgba(27,26,23,.18)}
@@ -61,10 +62,11 @@ h1 em{color:var(--blue);font-style:normal}
 .cap--links .cap-icon::before,.cap--links .cap-icon::after{content:"";position:absolute;width:22px;height:12px;border:2px solid currentColor;border-radius:12px;transform:rotate(-38deg)}
 .cap--links .cap-icon::before{left:0;top:6px}.cap--links .cap-icon::after{right:0;bottom:6px}
 .cap--links .cap-icon{background:linear-gradient(currentColor,currentColor) center/17px 2px no-repeat}
-.cap--support .cap-icon{border:2px solid currentColor;border-radius:50% 50% 45% 45%}
-.cap--support .cap-icon::before{content:"";position:absolute;left:-6px;right:-6px;top:16px;height:14px;border:2px solid currentColor;border-top:0;border-radius:0 0 9px 9px}
-.cap--support .cap-icon::after{content:"";position:absolute;right:-7px;bottom:2px;width:10px;height:2px;background:currentColor}
+.support-glyph{border:0;border-radius:0}
+.support-glyph::before,.support-glyph::after{content:none}
+.support-glyph svg{display:block;width:100%;height:100%;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.65;stroke-linecap:round;stroke-linejoin:round}
 .ad--product footer{height:60px;margin-top:16px;padding:0 4px;color:var(--paper)}
+.ad--product footer>span{color:var(--ink)}
 
 /* Variant B — merchant in motion */
 .ad--merchant{padding:38px 44px 36px;color:var(--paper)}
@@ -84,8 +86,6 @@ h1 em{color:var(--blue);font-style:normal}
 .message-symbol--cart{border-bottom:2px solid currentColor}
 .message-symbol--cart::before{content:"";position:absolute;left:3px;top:2px;width:16px;height:11px;border:2px solid currentColor;border-top:0;transform:skew(-8deg)}
 .message-symbol--cart::after{content:"••";position:absolute;left:4px;bottom:-9px;font:bold 15px/1 var(--sans);letter-spacing:7px}
-.message-symbol--support{border:2px solid currentColor;border-radius:50%}
-.message-symbol--support::before{content:"";position:absolute;left:-5px;right:-5px;top:10px;height:9px;border:2px solid currentColor;border-top:0}
 .message-group .customer,.message-group .luma{font-size:19px;padding:11px 14px}
 .message-group .luma{margin-top:8px}
 .ad--merchant footer{height:64px;margin-top:auto;color:var(--paper)}
@@ -103,9 +103,7 @@ h1 em{color:var(--blue);font-style:normal}
 .panel-label small{font:500 11px/1 var(--mono);letter-spacing:.12em}
 .panel-icon{position:relative;width:42px;height:40px;color:var(--blue)}
 .panel-icon--garment{background:currentColor;clip-path:polygon(22% 0,38% 0,43% 11%,57% 11%,62% 0,78% 0,100% 22%,84% 40%,75% 32%,75% 100%,25% 100%,25% 32%,16% 40%,0 22%)}
-.panel-icon--support{border:3px solid var(--blue-soft);border-radius:50%}
-.panel-icon--support::before{content:"";position:absolute;left:-7px;right:-7px;top:19px;height:15px;border:3px solid var(--blue-soft);border-top:0;border-radius:0 0 10px 10px}
-.panel-icon--support::after{content:"";position:absolute;right:-8px;bottom:1px;width:12px;height:3px;background:var(--blue-soft)}
+.panel-icon--support{color:var(--blue-soft)}
 .panel-chat{margin-top:30px;display:flex;flex-direction:column;gap:11px}
 .panel-chat .customer,.panel-chat .luma{max-width:95%;font-size:18px;padding:12px 14px}
 .diptych-panel--support .customer{background:var(--ink);color:var(--paper);border-color:rgba(244,239,230,.24)}
