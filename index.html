@@ -594,7 +594,10 @@
           <div class="setup-step"><span class="setup-marker mono">step 03</span><h3>Review and go live</h3><p>Check the tone and handoff settings, send yourself a test DM, switch it on.</p><span class="setup-time mono">same day</span></div>
         </div>
         <p class="setup-footnote mono">Permissions: LUMA reads products, inventory, policies, and orders from your Shopify store, and reads &amp; replies to DMs of the Instagram account you connect. Nothing else.</p>
-        <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+        <div class="setup-ctas">
+          <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 30-min demo</a>
+        </div>
       </div>
     </section>
 
@@ -692,6 +695,7 @@
         <p class="closing-line2">LUMA answers in seconds, from your store's real data — and hands off to you when it matters.</p>
         <div class="closing-ctas">
           <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 30-min demo</a>
           <a class="btn-text" href="mailto:team@luma-bot.com">Talk to us</a>
         </div>
       </div>
@@ -751,6 +755,18 @@
             window.umami.track('install-click', { location: where });
           }
           if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'install-click', location: where }); }
+        });
+      });
+    })();
+    (function () {
+      Array.prototype.slice.call(document.querySelectorAll('a[href^="https://calendly.com/"]')).forEach(function (a) {
+        a.addEventListener('click', function () {
+          var host = a.closest('[data-cta-location]');
+          var where = (host && host.dataset.ctaLocation) || 'other';
+          if (window.umami && typeof window.umami.track === 'function') {
+            window.umami.track('demo-click', { location: where });
+          }
+          if (typeof fbq === 'function') { fbq('track', 'Schedule', { content_name: 'demo-click', location: where }); }
         });
       });
     })();

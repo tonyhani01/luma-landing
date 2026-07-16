@@ -529,7 +529,7 @@ html.js .languages.motion-pending.is-revealed .lang-cell { opacity: 1; transform
 .setup-step p { margin-top: 8px; color: var(--ink-2); font-size: 15px; }
 .setup-time { margin-top: 18px; color: var(--blue); }
 .setup-footnote { max-width: 780px; margin-top: 24px; color: var(--ink-3); font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
-.setup .btn { margin-top: 24px; }
+.setup-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
 @media (min-width: 768px) {
   .setup-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .setup-step { padding: 28px 24px; border-bottom: 0; }
@@ -592,6 +592,8 @@ html.js .languages.motion-pending.is-revealed .lang-cell { opacity: 1; transform
 .closing h2 { color: var(--paper); }
 .closing .btn { background: var(--paper); border-color: var(--paper); color: var(--ink); }
 .closing .btn:hover { background: var(--paper-2); border-color: var(--paper-2); }
+.closing .btn-outline { background: transparent; color: var(--paper); border-color: var(--paper); }
+.closing .btn-outline:hover { color: var(--paper-2); border-color: var(--paper-2); }
 .closing .btn-text { color: var(--paper); }
 .closing .btn-text:hover { border-bottom-color: var(--paper); }
 .closing a:focus-visible, .closing button:focus-visible { outline-color: var(--paper); }
