@@ -319,7 +319,6 @@ html.js .thread--auto [data-step] { opacity: 0; transform: translateY(8px); }
   .typing-indicator { display: none !important; }
   .thread-replay { display: none !important; }
   .problem.motion-pending .problem-col,
-  .trust.motion-pending .trust-card,
   .languages.motion-pending .lang-cell,
   .closing.motion-pending .closing-line1,
   .closing.motion-pending .closing-line2 { opacity: 1 !important; transform: none !important; }
@@ -435,16 +434,6 @@ html.js .scenario-panel.is-entering.is-active { opacity: 1; transform: translate
   .scenario-tab { width: 100%; }
 }
 
-/* ============================================================
-   HANDOFF / TRUST
-   ============================================================ */
-.trust { padding: clamp(56px,7vw,96px) 0; }
-.trust h2 { max-width: 720px; }
-.trust-grid {
-  margin-top: clamp(28px,4vw,44px);
-  display: grid; grid-template-columns: 1fr; gap: 24px;
-}
-@media (min-width: 768px) { .trust-grid { grid-template-columns: 1fr 1fr; } }
 .trust-card { border: 1px solid var(--line); border-radius: var(--r-card); padding: 24px; background: var(--paper-card); }
 .trust-conf { font-family: var(--font-mono); font-size: 15px; }
 .trust-tag {
@@ -455,10 +444,7 @@ html.js .scenario-panel.is-entering.is-active { opacity: 1; transform: translate
 .trust-tag.is-auto { color: var(--green-text); border-color: var(--green-text); }
 .trust-tag.is-handoff { color: var(--ink-2); }
 .trust-card p.body { margin-top: 14px; }
-.trust-note { margin-top: 28px; max-width: 680px; color: var(--ink-2); font-size: 15px; }
-html.js .trust.motion-pending .trust-card { opacity: 0; transform: translateY(8px); transition: opacity 240ms var(--ease), transform 240ms var(--ease); }
-html.js .trust.motion-pending .trust-card:nth-child(2) { transition-delay: 80ms; }
-html.js .trust.motion-pending.is-revealed .trust-card { opacity: 1; transform: translateY(0); }
+.trust-note { max-width: 680px; color: var(--ink-2); font-size: 15px; }
 
 /* ============================================================
    MERCHANT CONTROL
@@ -467,10 +453,8 @@ html.js .trust.motion-pending.is-revealed .trust-card { opacity: 1; transform: t
 .control h2 { max-width: 760px; }
 .control-intro { max-width: 680px; margin-top: 14px; color: var(--ink-2); }
 .control-grid { margin-top: clamp(32px,4vw,48px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; isolation: isolate; }
-.control-features { border-top: 2px solid var(--ink); }
-.control-feature { padding: 18px 0; border-bottom: 1px solid var(--line); }
-.control-feature h3 { font-size: 18px; line-height: 1.25; }
-.control-feature p { margin-top: 6px; color: var(--ink-2); font-size: 15px; }
+.control-trust { display: grid; gap: 16px; min-width: 0; }
+.control-trust .sysline--info { margin-top: 12px; }
 .inbox-card { --chat-min-h: 0; padding: 18px; }
 .inbox-list { margin-top: 8px; }
 .inbox-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line-2); }
