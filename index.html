@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LUMA — The AI teammate behind every DM</title>
-  <meta name="description" content="LUMA is an AI customer-service teammate for Shopify merchants — replying to Instagram DMs and storefront chat in Arabic, English, and Franco Arabic (3arabi). Catalog-aware, confidence-scored, and never silent." />
+  <title>LUMA — Turn every «بكام؟» into an answer | AI sales teammate for Shopify</title>
+  <meta name="description" content="LUMA answers Instagram DMs and Shopify storefront chat in Arabic, English, and Franco-Arabic — with prices, stock, and order status read from your real Shopify store. Unsure? It hands off to your team." />
   <link rel="canonical" href="https://luma-bot.com/" />
   <link rel="icon" type="image/png" href="logo.png" />
   <meta name="theme-color" content="#F4EFE6" />
@@ -14,15 +14,15 @@
   <meta property="og:site_name" content="LUMA" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://luma-bot.com/" />
-  <meta property="og:title" content="LUMA — The AI teammate behind every DM" />
-  <meta property="og:description" content="AI customer service for Shopify merchants, fluent in Arabic, English, and Franco Arabic. Never leave a customer on read." />
+  <meta property="og:title" content="LUMA — Turn every «بكام؟» into an answer" />
+  <meta property="og:description" content="AI sales teammate for Shopify merchants in Egypt and the Middle East — answers Instagram DMs and storefront chat in Arabic, English, and Franco-Arabic from your live store data." />
   <meta property="og:image" content="https://luma-bot.com/og-image-v2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="LUMA — AI customer service for Shopify merchants, in Arabic, English, and Franco Arabic." />
+  <meta property="og:image:alt" content="LUMA — AI customer service for Shopify merchants, in Arabic, English, and Franco-Arabic." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LUMA — The AI teammate behind every DM" />
-  <meta name="twitter:description" content="AI customer service for Shopify merchants, fluent in Arabic, English, and Franco Arabic." />
+  <meta name="twitter:title" content="LUMA — Turn every «بكام؟» into an answer" />
+  <meta name="twitter:description" content="AI sales teammate for Shopify merchants — answers Instagram DMs and storefront chat in Arabic, English, and Franco-Arabic from your live store data." />
   <meta name="twitter:image" content="https://luma-bot.com/og-image-v2.png" />
 
   <!-- Structured data -->
@@ -36,7 +36,7 @@
         "name": "LUMA",
         "url": "https://luma-bot.com/",
         "logo": "https://luma-bot.com/logo.png",
-        "description": "AI customer-service teammate for Shopify merchants, replying to Instagram DMs and storefront chat in Arabic, English, and Franco Arabic (3arabi)."
+        "description": "LUMA is an AI sales and customer-service teammate for Shopify merchants in Egypt and the Middle East, answering Instagram DMs and Shopify storefront chat in Arabic, English, and Franco-Arabic."
       },
       {
         "@type": "WebSite",
@@ -53,7 +53,7 @@
         "operatingSystem": "Web, Shopify",
         "url": "https://luma-bot.com/",
         "publisher": { "@id": "https://luma-bot.com/#organization" },
-        "description": "An AI customer-service teammate for Shopify merchants — replies to Instagram DMs and storefront chat in Arabic, English, and Franco Arabic. Catalog-aware, confidence-scored, and never silent.",
+        "description": "LUMA reads a Shopify store's catalog, inventory, policies, and orders to answer customers in Arabic, English, and Franco-Arabic across Instagram DMs and storefront chat — and hands off to a human when it isn't sure.",
         "offers": [
           { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
           { "@type": "Offer", "name": "Starter", "price": "29", "priceCurrency": "USD" },
@@ -65,214 +65,16 @@
   }
   </script>
 
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="warm.css" />
-
-  <style>
-    /* Page-specific composition styles (atoms + header live in warm.css) */
-
-    /* Hero */
-    .hero { padding-top: clamp(48px,7vw,96px); padding-bottom: clamp(40px,6vw,80px); }
-    .hero h1 { max-width: 1040px; }
-    .hero-accent { color: var(--blue); font-size: 0.82em; font-weight: 400; }
-    .hero-grid { margin-top: clamp(40px,5vw,68px); display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px,5vw,72px); align-items: start; }
-    .hero-lede { margin: 0; max-width: 480px; }
-    .hero-lede strong { color: var(--ink); font-weight: 500; }
-    .hero-lede em { font-style: italic; color: var(--ink); }
-    .hero-form { margin-top: 32px; display: flex; gap: 10px; flex-wrap: wrap; max-width: 460px; }
-    .hero-form .field { flex: 1 1 200px; }
-    .hero-note { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); margin: 16px 0 0; letter-spacing: .02em; }
-    .hero-stats { margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--line-2); display: flex; gap: 36px; flex-wrap: wrap; }
-    .hero-stat-n { font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; letter-spacing: -.02em; }
-    .hero-stat-l { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); margin-top: 7px; text-transform: uppercase; letter-spacing: .1em; }
-    .hero-card { background: var(--paper-card); border: 1px solid var(--line); border-radius: 4px; padding: clamp(26px,3vw,40px); box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 18px 40px -28px rgba(27,26,23,.4); }
-
-    /* Exchange (DM card) */
-    .ex-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; flex-wrap: wrap; }
-    .ex-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--blue); }
-    .ex-pill { font-family: var(--mono); font-size: 10.5px; font-weight: 500; color: #fff; background: var(--blue); border-radius: 2px; padding: 3px 9px; letter-spacing: .1em; white-space: nowrap; }
-    .ex-customer { border-left: 2px solid var(--ink-3); padding-left: 22px; margin-bottom: 30px; }
-    .ex-customer .kicker { color: var(--ink-2); margin-bottom: 10px; }
-    .ex-msg { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem,3.4vw,2.9rem); line-height: 1.1; margin: 0; letter-spacing: -.02em; color: var(--ink); }
-    .ex-gloss { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); margin: 12px 0 0; line-height: 1.55; }
-    .ex-gloss span { color: var(--ink-2); }
-    .ex-reply { border-left: 2px solid var(--blue); padding-left: 22px; }
-    .ex-reply-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-    .ex-reply-head img { width: 18px; height: 18px; object-fit: contain; }
-    .ex-reply-head .kicker { color: var(--blue); }
-    .ex-reply-msg { font-family: var(--display); font-weight: 600; font-size: clamp(1.35rem,2.3vw,1.9rem); line-height: 1.3; margin: 0; letter-spacing: -.01em; color: var(--ink); }
-    .ex-reply-msg strong { font-weight: 800; color: var(--blue-deep); }
-    .ex-conf { display: inline-flex; align-items: center; gap: 7px; margin-top: 16px; }
-    .ex-conf .gdot { width: 7px; height: 7px; border-radius: 50%; background: #1F9D55; }
-    .ex-conf span.t { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
-
-    /* Statement */
-    .statement { padding: clamp(64px,9vw,128px) 0; }
-    .statement .wrap { max-width: 1000px; }
-    .statement .h2 { max-width: 920px; }
-
-    /* How it works */
-    .how { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .how .wrap { padding-top: clamp(56px,7vw,96px); padding-bottom: clamp(56px,7vw,96px); }
-    .how-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; }
-    .how-head .h2 { max-width: 520px; }
-    .step-row { display: grid; grid-template-columns: auto 1fr; gap: clamp(24px,5vw,80px); align-items: start; padding: 30px 0; border-top: 1px solid var(--line); }
-    .step-row .num { font-size: 15px; padding-top: 6px; }
-    .step-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(16px,4vw,56px); }
-    .step-inner h3 { font-family: var(--display); font-weight: 700; font-size: clamp(1.4rem,2.3vw,1.9rem); letter-spacing: -.02em; margin: 0; line-height: 1.1; }
-    .step-inner p { font-family: var(--serif); font-weight: 300; font-size: 17.5px; line-height: 1.55; color: var(--ink-2); margin: 0; }
-
-    /* Languages */
-    .langs { padding: clamp(56px,8vw,112px) 0; }
-    .langs .h2 { max-width: 820px; margin-bottom: 8px; }
-    .lang-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
-    .lang-cell { padding: 36px 28px 36px 0; }
-    .lang-cell + .lang-cell { padding-left: 28px; }
-    .lang-cell:not(:last-child) { border-right: 1px solid var(--line); }
-    .lang-cell-head { display: flex; align-items: center; gap: 9px; margin-bottom: 28px; flex-wrap: wrap; }
-    .lang-cell-head .num { color: var(--ink-3); }
-    .lang-cell-head .lbl { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-2); }
-    .lang-msg { font-family: var(--display); font-weight: 800; font-size: clamp(1.6rem,2.4vw,2.1rem); line-height: 1.2; margin: 0; letter-spacing: -.02em; min-height: 2.4em; color: var(--ink); }
-    .lang-msg.ar { font-family: var(--ar); font-weight: 700; letter-spacing: 0; }
-    .lang-msg.en { font-weight: 700; }
-    .lang-gloss { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin: 16px 0 0; }
-
-    /* Analytics */
-    .an { padding: clamp(56px,8vw,112px) 0; }
-    .an-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; }
-    .an .h2 { max-width: 880px; }
-    .an-stats { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
-    .an-stat { padding: 26px 24px 26px 0; }
-    .an-stat + .an-stat { padding-left: 24px; }
-    .an-stat:not(:last-child) { border-right: 1px solid var(--line); }
-    .an-stat-n { font-family: var(--display); font-weight: 800; font-size: clamp(2rem,3vw,2.7rem); letter-spacing: -.03em; line-height: 1; color: var(--ink); }
-    .an-stat-l { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--ink); margin-top: 12px; }
-    .an-stat-s { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); margin-top: 5px; line-height: 1.4; }
-
-    .an-panel { border: 1px solid var(--line); border-radius: 4px; background: var(--paper-card); }
-    .an-volume { margin-top: 64px; padding: clamp(24px,3vw,36px); }
-    .an-panel-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; flex-wrap: wrap; gap: 8px; }
-    .an-panel-title { font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -.01em; }
-    .an-panel-meta { font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); }
-
-    .vchart { display: flex; align-items: flex-end; gap: clamp(5px,1vw,11px); height: 150px; }
-    .vbar-col { flex: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; }
-    .vbar { width: 100%; border-radius: 3px 3px 0 0; }
-    .vbar-lbl { font-family: var(--mono); font-size: 9.5px; color: var(--ink-3); }
-
-    .an-grid { margin-top: 28px; display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(20px,3vw,28px); }
-    .an-grid .an-panel { padding: clamp(24px,3vw,34px); }
-    .an-grid .sub { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin: 6px 0 26px; }
-
-    .cbar { margin-bottom: 18px; }
-    .cbar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; gap: 12px; }
-    .cbar-lbl { font-family: var(--display); font-weight: 600; font-size: 15.5px; color: var(--ink); }
-    .cbar-val { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
-    .cbar-track { height: 7px; background: var(--paper-3); border-radius: 999px; overflow: hidden; }
-    .cbar-fill { height: 100%; background: var(--blue); border-radius: 999px; }
-    .cbar-sample { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); margin-top: 7px; }
-
-    .note-row { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; gap: 12px; }
-    .note-tag { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; color: var(--blue); border: 1px solid var(--blue); border-radius: 2px; padding: 2px 7px; height: fit-content; white-space: nowrap; }
-    .note-row p, .peak-note p { font-family: var(--serif); font-weight: 300; font-size: 16px; line-height: 1.5; color: var(--ink-2); margin: 0; }
-    .peak-note { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
-    .peak-note em { font-style: italic; color: var(--ink); }
-
-    .hchart { display: flex; align-items: flex-end; gap: 3px; height: 150px; }
-    .hbar-col { flex: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 7px; }
-    .hbar { width: 100%; border-radius: 2px 2px 0 0; }
-    .hbar-lbl { font-family: var(--mono); font-size: 8.5px; color: var(--ink-3); white-space: nowrap; }
-
-    /* Pricing */
-    .pricing { background: var(--paper-2); border-top: 1px solid var(--line); }
-    .pricing .wrap { padding-top: clamp(56px,7vw,96px); padding-bottom: clamp(56px,7vw,96px); }
-    .pricing-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
-    .pricing-head .kicker { max-width: 220px; text-align: right; }
-    .plan-table { border-top: 2px solid var(--ink); }
-    .plan-row { display: grid; grid-template-columns: 1.2fr 1fr 1.4fr auto; gap: 24px; align-items: center; padding: 26px 0; border-bottom: 1px solid var(--line); }
-    .plan-row.hot { background: rgba(38,64,222,.05); }
-    .plan-name-wrap { display: flex; align-items: center; gap: 12px; }
-    .plan-name { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.01em; }
-    .plan-popular { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue); border-radius: 2px; padding: 2px 7px; }
-    .plan-price { font-family: var(--display); font-weight: 800; font-size: 28px; letter-spacing: -.02em; }
-    .plan-price .mo { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--ink-3); }
-    .plan-desc { font-family: var(--serif); font-size: 16px; color: var(--ink-2); }
-    .plan-desc .cnt { font-family: var(--mono); font-size: 13px; color: var(--ink); }
-    .plan-row .btn { padding: 11px 20px; font-size: 14px; white-space: nowrap; }
-
-    /* Footer (inverted) */
-    .foot { background: var(--ink); color: var(--paper); }
-    .foot .wrap { padding-top: clamp(64px,9vw,128px); padding-bottom: 56px; }
-    .foot .kicker.k1 { color: rgba(244,239,230,.5); margin-bottom: 26px; }
-    .foot .display { color: var(--paper); font-size: clamp(2.4rem,5.4vw,4.4rem); max-width: 900px; }
-    .foot .display .accent-italic { color: #8FA0FF; font-weight: 400; }
-    .foot-form { margin-top: 38px; display: flex; gap: 10px; flex-wrap: wrap; max-width: 520px; }
-    .foot-form .field { flex: 1 1 240px; background: rgba(255,255,255,.06); border-color: rgba(244,239,230,.2); color: var(--paper); }
-    .foot-form .field::placeholder { color: rgba(244,239,230,.5); }
-    .foot-form .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-    .foot-form .btn:hover { background: #fff; }
-    .foot-form .btn[disabled]:hover { background: var(--paper); }
-    .foot-grid { margin-top: clamp(56px,8vw,104px); padding-top: 40px; border-top: 1px solid rgba(244,239,230,.15); display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 32px; }
-    .foot-brand-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .foot-brand-row img { width: 26px; height: 26px; object-fit: contain; }
-    .foot-brand-row span { font-family: var(--display); font-weight: 800; font-size: 19px; letter-spacing: .02em; }
-    .foot-blurb { font-family: var(--serif); font-weight: 300; font-size: 15px; line-height: 1.6; color: rgba(244,239,230,.6); margin: 0; max-width: 280px; }
-    .foot-chips { display: flex; align-items: center; gap: 18px; margin-top: 22px; opacity: .7; }
-    .foot-chip { display: flex; align-items: center; gap: 6px; font-size: 12px; font-family: var(--mono); color: rgba(244,239,230,.65); }
-    .foot-chip .sq { width: 9px; height: 9px; border-radius: 2px; }
-    .foot-col .kicker { color: rgba(244,239,230,.45); margin-bottom: 16px; }
-    .foot-links { display: flex; flex-direction: column; gap: 11px; }
-    .foot-links a { font-family: var(--display); font-weight: 500; font-size: 14.5px; color: rgba(244,239,230,.72); transition: color .2s; }
-    .foot-links a:hover { color: var(--paper); }
-    .foot-copy { margin-top: 48px; font-family: var(--mono); font-size: 12px; color: rgba(244,239,230,.4); }
-
-    /* Chat-to-checkout */
-    .cc { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .cc .wrap { padding-top: clamp(56px,7vw,96px); padding-bottom: clamp(56px,7vw,96px); }
-    .cc-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
-    .cc-h2 { max-width: 840px; }
-    .cc-grid { margin-top: clamp(40px,5vw,64px); display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px,5vw,72px); align-items: start; }
-    .cc-lede { margin: 0 0 34px; max-width: 470px; }
-    .cc-lede em { font-style: italic; color: var(--ink); }
-    .cc-points { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
-    .cc-point { display: grid; grid-template-columns: auto 1fr; gap: clamp(16px,2vw,26px); padding: 22px 0; border-bottom: 1px solid var(--line); }
-    .cc-point .num { padding-top: 3px; }
-    .cc-point h3 { font-family: var(--display); font-weight: 700; font-size: clamp(1.12rem,1.6vw,1.3rem); letter-spacing: -.01em; margin: 0 0 6px; line-height: 1.12; color: var(--ink); }
-    .cc-point p { font-family: var(--serif); font-weight: 300; font-size: 16px; line-height: 1.5; color: var(--ink-2); margin: 0; }
-
-    .cc-card { background: var(--paper-card); border: 1px solid var(--line); border-radius: 4px; padding: clamp(24px,3vw,36px); box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 18px 40px -28px rgba(27,26,23,.4); }
-    .cc-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
-    .cc-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--blue); }
-    .cc-pill { font-family: var(--mono); font-size: 10.5px; font-weight: 500; color: #fff; background: var(--ink); border-radius: 2px; padding: 3px 9px; letter-spacing: .1em; white-space: nowrap; }
-    .cc-customer { border-left: 2px solid var(--ink-3); padding-left: 20px; margin-bottom: 26px; }
-    .cc-customer .kicker { color: var(--ink-2); margin-bottom: 9px; }
-    .cc-q { font-family: var(--display); font-weight: 800; font-size: clamp(1.3rem,2.1vw,1.7rem); line-height: 1.16; margin: 0; letter-spacing: -.02em; color: var(--ink); }
-    .cc-gloss { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin: 11px 0 0; line-height: 1.5; }
-    .cc-gloss span { color: var(--ink-2); }
-    .cc-reply { border-left: 2px solid var(--blue); padding-left: 20px; }
-    .cc-reply-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-    .cc-reply-head img { width: 18px; height: 18px; object-fit: contain; }
-    .cc-reply-head .kicker { color: var(--blue); }
-    .cc-reply-msg { font-family: var(--display); font-weight: 600; font-size: clamp(1.08rem,1.7vw,1.38rem); line-height: 1.32; margin: 0; letter-spacing: -.01em; color: var(--ink); }
-    .cc-reply-msg strong { font-weight: 800; color: var(--ink); }
-    .cc-plink { color: var(--blue-deep); font-weight: 800; border-bottom: 1.5px solid var(--blue); padding-bottom: 1px; }
-    .cc-buy { margin-top: 20px; }
-    .cc-cart-btn { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--blue); color: #fff; border-radius: 3px; padding: 13px 15px 13px 17px; max-width: 320px; box-shadow: 0 12px 26px -16px var(--blue); }
-    .cc-cart-l { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 15px; }
-    .cc-cart-ic { width: 17px; height: 17px; flex-shrink: 0; }
-    .cc-cart-arr { width: 16px; height: 16px; opacity: .9; flex-shrink: 0; }
-    .cc-checkout-note { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; }
-    .cc-gdot { width: 7px; height: 7px; border-radius: 50%; background: #1F9D55; }
-    .cc-checkout-note span { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
-    .cc-secure { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin: 16px 0 0; letter-spacing: .02em; line-height: 1.55; max-width: 390px; }
-    @media (max-width: 900px) { .cc-grid { grid-template-columns: 1fr; } }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;display=swap" />
+  <link rel="stylesheet" href="landing.css" />
 
   <!-- Privacy-friendly analytics: Umami Cloud (cookieless, no consent banner needed). -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="fcdbd97e-6ecc-4f64-978a-c7d4eb612496"></script>
 
-  <!-- Meta Pixel — replace 1066034615859469 with the real Pixel ID from Meta Events Manager -->
+  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -285,516 +87,800 @@
     fbq('init', '1066034615859469');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1066034615859469&ev=PageView&noscript=1" /></noscript>
 </head>
 <body>
-  <div class="page">
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1066034615859469&amp;ev=PageView&amp;noscript=1" /></noscript>
+  <div class="header-sentinel" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <!-- ============ HEADER ============ -->
-    <header class="hdr">
-      <div class="wrap hdr-inner">
-        <a href="#" class="hdr-brand" aria-label="LUMA home">
-          <img src="logo.png" alt="LUMA" />
-          <span class="hdr-wordmark">LUMA</span>
-        </a>
-        <nav class="hdr-nav" aria-label="Primary">
-          <a href="#how">How it works</a>
-          <a href="#languages">Languages</a>
-          <a href="#checkout">Checkout</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#security">Security</a>
-        </nav>
-        <div class="hdr-right">
-          <a href="#cta" class="link-blue" style="font-size:15px">Sign in</a>
-          <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn" style="padding:11px 18px;font-size:15px">Install on Shopify</a>
-        </div>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" data-cta-location="nav">
+    <div class="wrap hdr-inner">
+      <a href="/" class="hdr-brand" aria-label="LUMA home">
+        <img src="logo.png" alt="LUMA" width="28" height="28" />
+        <span class="hdr-wordmark">LUMA</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+        <span class="nav-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="#product">Product</a>
+        <a href="#languages">Languages</a>
+        <a href="#proof">Proof</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="hdr-right">
+        <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
       </div>
-    </header>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
 
     <!-- ============ HERO ============ -->
-    <section class="hero">
+    <section class="hero" id="top" data-cta-location="hero" aria-labelledby="hero-heading">
       <div class="wrap">
-        <div class="kicker" style="margin-bottom:30px">AI customer service · built for Egyptian commerce</div>
-
-        <h1 class="display">
-          Your customer service, handled. <span class="accent-italic hero-accent">An AI teammate fluent in Arabic, English, and 3arabi.</span>
+        <p class="kicker">For Shopify stores in Egypt &amp; the Middle East</p>
+        <h1 id="hero-heading">
+          Turn every <span class="ar-inline">«<bdi lang="ar" dir="rtl">بكام؟</bdi>»</span> into an answer — before the customer leaves.
         </h1>
-
         <div class="hero-grid">
-          <!-- left — lede + CTA -->
           <div>
-            <p class="lede hero-lede">
-              Most chatbots break on <strong>Franco Arabic</strong> — Egyptian Arabic typed in Latin letters. LUMA was <em>built for it</em>, and answers in Arabic and English too — catalog-aware, confidence-scored, and never silent.
-            </p>
-            <div id="cta" class="hero-form">
-              <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify
-                <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </a>
+            <p class="lede hero-lede">LUMA answers your Instagram DMs and Shopify storefront chat in Arabic, English, and Franco — with prices, stock, and order status read from your Shopify store, not guessed. When it isn't sure, it hands the conversation to you.</p>
+            <div class="hero-ctas">
+              <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+              <a class="btn btn-outline" href="#product">See how LUMA works</a>
             </div>
-            <p class="hero-note">We personally set up every brand we onboard.</p>
-
-            <div class="hero-stats">
-              <div>
-                <div class="hero-stat-n">&lt; 2s</div>
-                <div class="hero-stat-l">median reply</div>
-              </div>
-              <div>
-                <div class="hero-stat-n">24/7</div>
-                <div class="hero-stat-l">every channel</div>
-              </div>
-              <div>
-                <div class="hero-stat-n">3</div>
-                <div class="hero-stat-l">languages, auto</div>
-              </div>
-            </div>
+            <p class="hero-friction">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
           </div>
 
-          <!-- right — the enlarged DM -->
-          <div class="hero-card">
-            <div>
-              <div class="ex-meta">
-                <span class="ex-dot"></span>
-                <span class="kicker" style="color:var(--ink-2)">Instagram DM · 11:48 PM</span>
-                <span class="ex-pill">FRANCO ARABIC</span>
+          <div class="chat-card chat-card--hero thread--auto" id="hero-thread">
+            <div class="chat-head">
+              <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
+              <span class="chat-label">Example conversation</span>
+            </div>
+            <div class="chat-body">
+              <div class="msg msg-customer" data-step>
+                <p lang="ar-Latn" dir="ltr">bikam el hoodie el oversize? 👀</p>
               </div>
-
-              <div class="ex-customer">
-                <div class="kicker">Customer</div>
-                <p class="ex-msg">bikam el hoodie el oversize? 👀</p>
-                <p class="ex-gloss">Egyptian Arabic, typed in Latin letters. Means <span>“how much is the oversized hoodie?”</span></p>
+              <p class="sysline" data-step>→ Franco-Arabic detected</p>
+              <p class="sysline" data-step>→ shopify: catalog lookup · Oversized Hoodie · in stock</p>
+              <div class="msg msg-luma" data-step data-typing>
+                <p lang="ar-Latn" dir="ltr">el oversized hoodie bi <strong>750 genaih</strong> 🖤 mawgood mn S l XL — tehebby size eh?</p>
               </div>
-
-              <div class="ex-reply">
-                <div class="ex-reply-head">
-                  <img src="logo.png" alt="" />
-                  <span class="kicker">LUMA · replied in Franco, in 1.4s</span>
+              <div class="msg msg-customer" data-step>
+                <p>M please</p>
+              </div>
+              <p class="sysline" data-step>→ variant M · in stock · checkout link created</p>
+              <div class="msg msg-luma" data-step data-typing>
+                <div class="product-card">
+                  <div class="product-thumb" aria-hidden="true"></div>
+                  <div class="product-info">
+                    <p class="product-name">Oversized Hoodie</p>
+                    <p class="product-price mono">EGP 750 · size M</p>
+                  </div>
+                  <span class="demo-action" role="presentation" aria-hidden="true">Checkout</span>
                 </div>
-                <p class="ex-reply-msg">el oversized hoodie bi <strong>750 genaih</strong> 🖤 mawgood mn S l XL — eswed w zayti. agiblak el size?</p>
-                <div class="ex-conf">
-                  <span class="gdot"></span>
-                  <span class="t">94% confident · answered from live catalog</span>
-                </div>
               </div>
+            </div>
+            <button type="button" class="thread-replay" hidden>Replay ↻</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROOF ============ -->
+    <section class="proof" id="proof" aria-labelledby="proof-heading">
+      <div class="wrap">
+        <span class="section-num mono" aria-hidden="true">01</span>
+        <h2 id="proof-heading">Real numbers. One store. Seven days.</h2>
+        <div class="proof-figures">
+          <div>
+            <div class="proof-figure-n mono" data-count="343">343</div>
+            <div class="proof-figure-l">conversations handled</div>
+          </div>
+          <div>
+            <div class="proof-figure-n mono" data-count="94" data-suffix="%">94%</div>
+            <div class="proof-figure-l">answered</div>
+          </div>
+          <div>
+            <div class="proof-figure-n mono" data-count="60" data-suffix="%">60%</div>
+            <div class="proof-figure-l">resolved with zero human involvement</div>
+          </div>
+        </div>
+        <p class="proof-context">LUMA's first pilot: 4,500+ messages across Instagram DMs and storefront chat — not a platform average.</p>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="problem" aria-labelledby="problem-heading">
+      <div class="wrap">
+        <span class="section-num mono" aria-hidden="true">02</span>
+        <h2 id="problem-heading">The 11:47 pm problem</h2>
+        <div class="problem-grid">
+          <div class="problem-col">
+            <h3>Without LUMA</h3>
+            <p class="problem-col-note">Store team asleep</p>
+            <p class="problem-caption">Illustrative example</p>
+
+            <div class="pmsg">
+              <div class="pmsg-row">
+                <p class="pmsg-text" lang="ar" dir="rtl">بكام؟</p>
+                <span class="pmsg-time mono">11:47 pm</span>
+              </div>
+              <p class="pmsg-status mono">seen · answered 10:15 am</p>
+            </div>
+
+            <div class="pmsg">
+              <div class="pmsg-row">
+                <p class="pmsg-text" lang="ar-Latn" dir="ltr">3andoko size L?</p>
+                <span class="pmsg-time mono">11:52 pm</span>
+              </div>
+              <p class="pmsg-status mono">seen · answered 10:15 am</p>
+            </div>
+
+            <div class="pmsg">
+              <div class="pmsg-row">
+                <p class="pmsg-text" lang="ar" dir="rtl">فين الأوردر؟</p>
+                <span class="pmsg-time mono">12:04 am</span>
+              </div>
+              <p class="pmsg-status mono">seen · never answered</p>
+            </div>
+
+            <p class="problem-closing">High-intent buyers rarely wait until morning.</p>
+          </div>
+
+          <div class="problem-col">
+            <h3>With LUMA</h3>
+            <p class="problem-col-note">Answers arrive in seconds</p>
+            <p class="problem-caption">Illustrative example</p>
+
+            <div class="pmsg">
+              <div class="pmsg-row">
+                <p class="pmsg-text" lang="ar" dir="rtl">بكام؟</p>
+                <span class="pmsg-time mono">11:47 pm</span>
+              </div>
+              <div class="pmsg-reply" lang="ar" dir="rtl">الهودي بـ750 جنيه ومتوفر بمقاسات <bdi dir="ltr">S</bdi> لـ <bdi dir="ltr">XL</bdi>.</div>
+              <p class="pmsg-reply-time mono">11:47 pm · 4s later</p>
+            </div>
+
+            <div class="pmsg">
+              <div class="pmsg-row">
+                <p class="pmsg-text" lang="ar-Latn" dir="ltr">3andoko size L?</p>
+                <span class="pmsg-time mono">11:52 pm</span>
+              </div>
+              <div class="pmsg-reply" lang="ar-Latn" dir="ltr">Aiwa, size L mawgood 🖤 — <span class="demo-copy mono" role="presentation" aria-hidden="true">checkout: nilethreads.eg/co/8813</span></div>
+              <p class="pmsg-reply-time mono">11:52 pm · 3s later</p>
+            </div>
+
+            <div class="pmsg">
+              <div class="pmsg-row">
+                <p class="pmsg-text" lang="ar" dir="rtl">فين الأوردر؟</p>
+                <span class="pmsg-time mono">12:04 am</span>
+              </div>
+              <div class="pmsg-reply" lang="ar" dir="rtl">أوردرك رقم <bdi dir="ltr">10482</bdi> مع شركة الشحن — رقم التتبع <bdi class="mono" dir="ltr">BOSTA-882140</bdi></div>
+              <p class="pmsg-reply-time mono">12:04 am · 2s later</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ STATEMENT ============ -->
-    <section class="statement">
+    <!-- ============ PRODUCT DEMO ============ -->
+    <section class="product-demo" id="product" aria-labelledby="product-heading">
       <div class="wrap">
-        <div class="kicker" style="margin-bottom:28px">Why it matters</div>
-        <p class="h2">
-          A customer who waits is a customer who leaves. LUMA makes sure no one is <span class="accent-italic" style="color:var(--blue)">left on read</span> — even at 2am, even in Franco Arabic, even when your team is asleep.
-        </p>
+        <span class="section-num mono" aria-hidden="true">03</span>
+        <h2 id="product-heading">From DM to done</h2>
+        <p class="product-demo-intro">Four things customers keep asking. Select one to see the full exchange — without JavaScript, all four are shown below.</p>
+
+        <div class="scenario-tabs demo-tabs" role="tablist" aria-label="Example scenarios">
+          <button type="button" class="scenario-tab" id="tab-price" role="tab" aria-selected="true" aria-controls="panel-price">
+            <bdi class="ar-part" lang="ar" dir="rtl">بكام؟</bdi> — Price &amp; stock
+          </button>
+          <button type="button" class="scenario-tab" id="tab-order" role="tab" aria-selected="false" aria-controls="panel-order" tabindex="-1">
+            <bdi class="ar-part" lang="ar" dir="rtl">فين الأوردر؟</bdi> — Order status
+          </button>
+          <button type="button" class="scenario-tab" id="tab-size" role="tab" aria-selected="false" aria-controls="panel-size" tabindex="-1">
+            Do you have size L? — Size → checkout
+          </button>
+          <button type="button" class="scenario-tab" id="tab-return" role="tab" aria-selected="false" aria-controls="panel-return" tabindex="-1">
+            <span class="ar-part" lang="ar-Latn" dir="ltr">3ayez arga3 el order</span> — Return → human
+          </button>
+        </div>
+
+        <div class="scenario-panels">
+
+          <div class="scenario-panel" id="panel-price" role="tabpanel" aria-labelledby="tab-price">
+            <h3>«<bdi lang="ar" dir="rtl">بكام؟</bdi>» — Price &amp; stock</h3>
+            <div class="chat-card chat-card--standard thread--auto">
+              <div class="chat-head">
+                <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
+                <span class="chat-label">Example conversation</span>
+              </div>
+              <div class="chat-body">
+                <div class="msg msg-customer" data-step>
+                  <p lang="ar-Latn" dir="ltr">bikam el satin slip dress?</p>
+                </div>
+                <p class="sysline" data-step>→ shopify: catalog lookup · Satin Slip Dress</p>
+                <div class="msg msg-luma" data-step data-typing>
+                  <p lang="ar-Latn" dir="ltr">el Satin Slip Dress bi <strong>1,250 genaih</strong> 🖤 mawgood bel S, M w L</p>
+                </div>
+                <div class="msg msg-luma" data-step>
+                  <div class="product-card">
+                    <div class="product-thumb" aria-hidden="true"></div>
+                    <div class="product-info">
+                      <p class="product-name">Satin Slip Dress</p>
+                      <p class="product-price mono">EGP 1,250</p>
+                      <div class="size-chips">
+                        <span class="demo-action demo-chip" role="presentation" aria-hidden="true">S</span>
+                        <span class="demo-action demo-chip" role="presentation" aria-hidden="true">M</span>
+                        <span class="demo-action demo-chip" role="presentation" aria-hidden="true">L</span>
+                      </div>
+                    </div>
+                    <span class="demo-action" role="presentation" aria-hidden="true">View product</span>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="thread-replay" hidden>Replay ↻</button>
+            </div>
+          </div>
+
+          <div class="scenario-panel" id="panel-order" role="tabpanel" aria-labelledby="tab-order">
+            <h3>«<bdi lang="ar" dir="rtl">فين الأوردر؟</bdi>» — Order status</h3>
+            <div class="chat-card chat-card--standard thread--auto">
+              <div class="chat-head">
+                <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
+                <span class="chat-label">Example conversation</span>
+              </div>
+              <div class="chat-body">
+                <div class="msg msg-customer" dir="rtl" data-step>
+                  <p lang="ar" dir="rtl">فين الأوردر؟ 😩</p>
+                </div>
+                <p class="sysline" data-step>→ shopify: order #10482 · fulfilled</p>
+                <div class="msg msg-luma" dir="rtl" data-step data-typing>
+                  <p lang="ar" dir="rtl">أوردرك اتشحن يوم الاتنين 🚚 وهيوصلك خلال يومين — ده رقم التتبع:</p>
+                </div>
+                <p class="sysline mono" data-step>BOSTA-882140</p>
+                <div class="msg msg-luma" dir="rtl" data-step>
+                  <span class="demo-action demo-action--compact" role="presentation" aria-hidden="true" lang="en" dir="ltr">Track order</span>
+                </div>
+              </div>
+              <button type="button" class="thread-replay" hidden>Replay ↻</button>
+            </div>
+          </div>
+
+          <div class="scenario-panel" id="panel-size" role="tabpanel" aria-labelledby="tab-size">
+            <h3>"Do you have size L?" — Size → checkout</h3>
+            <div class="chat-card chat-card--tall thread--auto">
+              <div class="chat-head">
+                <span class="chat-store">@nilethreads.eg · Shopify storefront chat</span>
+                <span class="chat-label">Example conversation</span>
+              </div>
+              <div class="chat-body">
+                <div class="msg msg-customer" data-step>
+                  <p>Do you have size L?</p>
+                </div>
+                <p class="sysline" data-step>→ shopify: inventory check · size L</p>
+                <div class="msg msg-luma" data-step data-typing>
+                  <p>Yes — size L is in stock. Want me to set up checkout?</p>
+                </div>
+                <div class="msg msg-customer" data-step>
+                  <p>yes</p>
+                </div>
+                <div class="msg msg-luma" data-step data-typing>
+                  <div class="product-card">
+                    <div class="product-thumb" aria-hidden="true"></div>
+                    <div class="product-info">
+                      <p class="product-name">Oversized Hoodie</p>
+                      <p class="product-price mono">EGP 750 · size L</p>
+                    </div>
+                    <span class="demo-action" role="presentation" aria-hidden="true">Checkout</span>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="thread-replay" hidden>Replay ↻</button>
+            </div>
+          </div>
+
+          <div class="scenario-panel" id="panel-return" role="tabpanel" aria-labelledby="tab-return">
+            <h3><span lang="ar-Latn" dir="ltr">"3ayez arga3 el order"</span> — Return → human</h3>
+            <div class="chat-card chat-card--return thread--auto">
+              <div class="chat-head">
+                <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
+                <span class="chat-label">Example conversation</span>
+              </div>
+              <div class="chat-body">
+                <div class="msg msg-customer" data-step>
+                  <p lang="ar-Latn" dir="ltr">3ayez arga3 el order</p>
+                </div>
+                <p class="sysline" data-step>→ intent: return request · policy: needs human review</p>
+                <p class="sysline" data-step>confidence 0.42 → escalate</p>
+                <div class="msg msg-luma" data-step>
+                  <div class="handoff-card">⏸ LUMA paused this conversation — handed to Sara with the full thread and order #10482 attached. LUMA won't reply here again until Sara closes it.</div>
+                </div>
+              </div>
+              <button type="button" class="thread-replay" hidden>Replay ↻</button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="how" id="how">
+    <!-- ============ HANDOFF / TRUST ============ -->
+    <section class="trust" aria-labelledby="trust-heading">
       <div class="wrap">
-        <div class="how-head">
-          <h2 class="h2">How an AI teammate earns trust</h2>
-          <span class="kicker">Four steps · every message</span>
-        </div>
-        <div>
-          <div class="step-row">
-            <div class="num">01</div>
-            <div class="step-inner">
-              <h3>Detects the language</h3>
-              <p>Arabic, English, or Franco Arabic — decided per message, no language picker, no setup. LUMA replies in kind.</p>
-            </div>
+        <span class="section-num mono" aria-hidden="true">04</span>
+        <h2 id="trust-heading">Confident? It answers. Unsure? It stops.</h2>
+        <div class="trust-grid">
+          <div class="trust-card">
+            <p class="trust-conf mono" data-confidence=".93">confidence 0.93</p>
+            <span class="trust-tag is-auto">auto-reply</span>
+            <p class="body">The catalog, price, and stock all support the answer, so LUMA replies directly — no waiting on your team.</p>
           </div>
-          <div class="step-row">
-            <div class="num">02</div>
-            <div class="step-inner">
-              <h3>Searches your live catalog</h3>
-              <p>Syncs Shopify products every few hours, so prices, stock, and detail come straight from your real store.</p>
-            </div>
-          </div>
-          <div class="step-row">
-            <div class="num">03</div>
-            <div class="step-inner">
-              <h3>Scores its own confidence</h3>
-              <p>Every reply carries a confidence score. Sure → it answers. Unsure → it never guesses.</p>
-            </div>
-          </div>
-          <div class="step-row">
-            <div class="num">04</div>
-            <div class="step-inner">
-              <h3>Hands off to you, gracefully</h3>
-              <p>Low-confidence chats open a ticket, pause the bot on that thread, and ping your team — no awkward double replies.</p>
-            </div>
+          <div class="trust-card">
+            <p class="trust-conf mono" data-confidence=".42">confidence 0.42</p>
+            <span class="trust-tag is-handoff">handoff</span>
+            <p class="body">When the data doesn't clearly support an answer, LUMA stops. It stays silent while a human has the conversation.</p>
           </div>
         </div>
+        <p class="trust-note">On handoff, your team sees the full thread alongside the relevant order context.</p>
       </div>
     </section>
 
     <!-- ============ LANGUAGES ============ -->
-    <section class="langs" id="languages">
+    <section class="languages" id="languages" aria-labelledby="languages-heading">
       <div class="wrap">
-        <div class="kicker" style="margin-bottom:18px">One inbox, three languages</div>
-        <h2 class="h2">
-          Your customers don't switch to English for you. <span class="accent-italic" style="color:var(--blue)">LUMA meets them where they type.</span>
-        </h2>
+        <span class="section-num mono" aria-hidden="true">05</span>
+        <h2 id="languages-heading">One question, three ways it actually arrives</h2>
         <div class="lang-grid">
           <div class="lang-cell">
-            <div class="lang-cell-head">
-              <span class="num">01</span>
-              <span class="lbl">Franco Arabic</span>
-            </div>
-            <p class="lang-msg" dir="ltr">3ayez arga3 el order</p>
-            <p class="lang-gloss">I want to return my order</p>
+            <p class="lang-label">Arabic</p>
+            <p class="lang-msg ar" lang="ar" dir="rtl" aria-label="بكام الهودي؟"><span class="lang-glyphs" aria-hidden="true">بكام الهودي؟</span></p>
+            <p class="lang-note mono">answered in the same language</p>
           </div>
           <div class="lang-cell">
-            <div class="lang-cell-head">
-              <span class="num">02</span>
-              <span class="lbl">Arabic</span>
-            </div>
-            <p class="lang-msg ar" dir="rtl">الأوردر وصل؟</p>
-            <p class="lang-gloss">Did my order arrive?</p>
+            <p class="lang-label">Franco-Arabic</p>
+            <p class="lang-msg" lang="ar-Latn" dir="ltr" aria-label="bikam el hoodie?"><span class="lang-glyphs" aria-hidden="true">bikam el hoodie?</span></p>
+            <p class="lang-note mono">answered in the same language</p>
           </div>
           <div class="lang-cell">
-            <div class="lang-cell-head">
-              <span class="num">03</span>
-              <span class="lbl">English</span>
-            </div>
-            <p class="lang-msg en" dir="ltr">Is this back in stock?</p>
-            <p class="lang-gloss">no translation needed</p>
+            <p class="lang-label">English</p>
+            <p class="lang-msg" lang="en" dir="ltr" aria-label="How much is the hoodie?"><span class="lang-glyphs" aria-hidden="true">How much is the hoodie?</span></p>
+            <p class="lang-note mono">answered in the same language</p>
           </div>
         </div>
+        <p class="languages-footnote">Customers switch scripts mid-thread all the time. LUMA follows, message by message.</p>
       </div>
     </section>
 
-    <!-- ============ CHAT-TO-CHECKOUT ============ -->
-    <section class="cc" id="checkout" data-screen-label="Chat-to-checkout">
+    <!-- ============ COMPARISON ============ -->
+    <section class="compare" aria-labelledby="compare-heading">
       <div class="wrap">
-        <div class="cc-head">
-          <div class="kicker">Chat-to-checkout · New</div>
-          <span class="kicker" style="color:var(--ink-3)">Storefront widget + Instagram DMs</span>
-        </div>
-        <h2 class="h2 cc-h2">
-          Your bot doesn't just reply. <span class="accent-italic" style="color:var(--blue)">It sells.</span>
-        </h2>
-
-        <div class="cc-grid">
-          <!-- left — the argument -->
-          <div>
-            <p class="lede cc-lede">
-              The moment a customer is interested is the moment they'll buy — if you let them. LUMA answers the question <em>and</em> hands over a tappable link, then offers to drop the right size straight into checkout. No <em>“find it on our site.”</em>
-            </p>
-            <div class="cc-points">
-              <div class="cc-point">
-                <span class="num">01</span>
-                <div>
-                  <h3>Every product is a link</h3>
-                  <p>Each item the bot names is tappable — straight to its Shopify page, with the right colour already chosen.</p>
-                </div>
-              </div>
-              <div class="cc-point">
-                <span class="num">02</span>
-                <div>
-                  <h3>One tap adds to cart</h3>
-                  <p>When a customer narrows to one piece, LUMA offers to cart it. A single tap drops their size into Shopify checkout — ready to pay.</p>
-                </div>
-              </div>
-              <div class="cc-point">
-                <span class="num">03</span>
-                <div>
-                  <h3>Without leaving the chat</h3>
-                  <p>It works the same in your storefront widget and in Instagram DMs. Buyers never break the conversation to buy.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- right — the moment, shown -->
-          <div>
-            <div class="cc-card">
-              <div class="cc-meta">
-                <span class="cc-dot"></span>
-                <span class="kicker" style="color:var(--ink-2)">Instagram DM · 9:42 PM</span>
-                <span class="cc-pill">READY TO BUY</span>
-              </div>
-
-              <div class="cc-customer">
-                <div class="kicker">Customer</div>
-                <p class="cc-q">3ayza el satin slip dress — 3andko M? 🖤</p>
-                <p class="cc-gloss">Franco Arabic. Means <span>“I want the satin slip dress — do you have it in M?”</span></p>
-              </div>
-
-              <div class="cc-reply">
-                <div class="cc-reply-head">
-                  <img src="logo.png" alt="" />
-                  <span class="kicker">LUMA · answered + offered to cart</span>
-                </div>
-                <p class="cc-reply-msg">el <span class="cc-plink">Satin Slip Dress</span> motwafar bel M 🖤 — <strong>1,250 genaih</strong>. a3mlek add to cart 3altool?</p>
-                <div class="cc-buy">
-                  <div class="cc-cart-btn" role="img" aria-label="Add to cart, size M — opens Shopify checkout">
-                    <span class="cc-cart-l">
-                      <svg class="cc-cart-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg>
-                      Add to cart · size M
-                    </span>
-                    <svg class="cc-cart-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                  </div>
-                  <div class="cc-checkout-note">
-                    <span class="cc-gdot"></span>
-                    <span>opens Shopify checkout · 1 item · secure</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="cc-secure">Built on Shopify cart permalinks — customers check out on Shopify's own secure payment page. No redirects, no re-login.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ANALYTICS ============ -->
-    <section class="an" id="analytics">
-      <div class="wrap">
-        <div class="an-head">
-          <div class="kicker">The other edge · Analytics</div>
-          <span class="kicker" style="color:var(--ink-3)">Updated live · last 14 days</span>
-        </div>
-        <h2 class="h2">
-          Every conversation tells you something about your store. <span class="accent-italic" style="color:var(--blue)">LUMA turns them into numbers you can act on.</span>
-        </h2>
-
-        <!-- headline KPIs -->
-        <div class="an-stats">
-          <div class="an-stat">
-            <div class="an-stat-n">81%</div>
-            <div class="an-stat-l">resolution rate</div>
-            <div class="an-stat-s">resolved without you</div>
-          </div>
-          <div class="an-stat">
-            <div class="an-stat-n">86%</div>
-            <div class="an-stat-l">bot answer rate</div>
-            <div class="an-stat-s">handled, no escalation</div>
-          </div>
-          <div class="an-stat">
-            <div class="an-stat-n">93%</div>
-            <div class="an-stat-l">CSAT</div>
-            <div class="an-stat-s">positive after a reply</div>
-          </div>
-          <div class="an-stat">
-            <div class="an-stat-n">1.4s</div>
-            <div class="an-stat-l">avg. response time</div>
-            <div class="an-stat-s">bot replies, any hour</div>
-          </div>
-        </div>
-
-        <!-- daily message volume -->
-        <div class="an-panel an-volume">
-          <div class="an-panel-head">
-            <span class="an-panel-title">Message volume</span>
-            <span class="an-panel-meta">▲ 31% vs. previous 14 days</span>
-          </div>
-          <div class="vchart">
-            <div class="vbar-col"><div class="vbar" style="height:50.53px;background:var(--blue-soft)"></div><span class="vbar-lbl">1</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:65.68px;background:var(--blue-soft)"></div><span class="vbar-lbl">2</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:59.37px;background:var(--blue-soft)"></div><span class="vbar-lbl">3</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:79.58px;background:var(--blue-soft)"></div><span class="vbar-lbl">4</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:73.26px;background:var(--blue-soft)"></div><span class="vbar-lbl">5</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:102.32px;background:var(--blue-soft)"></div><span class="vbar-lbl">6</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:90.95px;background:var(--blue-soft)"></div><span class="vbar-lbl">7</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:75.79px;background:var(--blue-soft)"></div><span class="vbar-lbl">8</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:111.16px;background:var(--blue-soft)"></div><span class="vbar-lbl">9</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:99.79px;background:var(--blue-soft)"></div><span class="vbar-lbl">10</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:120.0px;background:var(--blue-soft)"></div><span class="vbar-lbl">11</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:106.11px;background:var(--blue-soft)"></div><span class="vbar-lbl">12</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:96.0px;background:var(--blue)"></div><span class="vbar-lbl">13</span></div>
-            <div class="vbar-col"><div class="vbar" style="height:114.95px;background:var(--blue-soft)"></div><span class="vbar-lbl">14</span></div>
-          </div>
-        </div>
-
-        <!-- two panels -->
-        <div class="an-grid">
-          <div class="an-panel">
-            <div class="an-panel-title">Top ticket categories</div>
-            <div class="sub">What customers ask, auto-tagged from every message</div>
-
-            <div class="cbar">
-              <div class="cbar-top"><span class="cbar-lbl">Order status</span><span class="cbar-val">34%</span></div>
-              <div class="cbar-track"><div class="cbar-fill" style="width:34%"></div></div>
-              <div class="cbar-sample">“el order feen?”</div>
-            </div>
-            <div class="cbar">
-              <div class="cbar-top"><span class="cbar-lbl">Product question</span><span class="cbar-val">26%</span></div>
-              <div class="cbar-track"><div class="cbar-fill" style="width:26%"></div></div>
-              <div class="cbar-sample">“3andko el size L?”</div>
-            </div>
-            <div class="cbar">
-              <div class="cbar-top"><span class="cbar-lbl">Returns &amp; refunds</span><span class="cbar-val">18%</span></div>
-              <div class="cbar-track"><div class="cbar-fill" style="width:18%"></div></div>
-              <div class="cbar-sample">“3ayez arga3”</div>
-            </div>
-            <div class="cbar">
-              <div class="cbar-top"><span class="cbar-lbl">Shipping</span><span class="cbar-val">12%</span></div>
-              <div class="cbar-track"><div class="cbar-fill" style="width:12%"></div></div>
-              <div class="cbar-sample">“el sha7n bikam?”</div>
-            </div>
-            <div class="cbar">
-              <div class="cbar-top"><span class="cbar-lbl">Sizing</span><span class="cbar-val">10%</span></div>
-              <div class="cbar-track"><div class="cbar-fill" style="width:10%"></div></div>
-              <div class="cbar-sample">“da true to size?”</div>
-            </div>
-
-            <div class="note-row">
-              <span class="note-tag">TAKE NOTE</span>
-              <p>1 in 10 tickets is about sizing. A clearer size chart could quietly remove them.</p>
-            </div>
-          </div>
-
-          <div class="an-panel">
-            <div class="an-panel-title">Peak hours</div>
-            <div class="sub">When your customers actually message</div>
-            <div class="hchart">
-              <div class="hbar-col"><div class="hbar" style="height:8.05px;background:var(--paper-3)"></div><span class="hbar-lbl">12a</span></div>
-              <div class="hbar-col"><div class="hbar" style="height:5.36px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:2.68px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:2.68px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:2.68px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:5.36px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:10.73px;background:var(--paper-3)"></div><span class="hbar-lbl">6a</span></div>
-              <div class="hbar-col"><div class="hbar" style="height:18.77px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:29.5px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:37.55px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:42.91px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:48.27px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:53.64px;background:var(--paper-3)"></div><span class="hbar-lbl">12p</span></div>
-              <div class="hbar-col"><div class="hbar" style="height:50.95px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:45.59px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:42.91px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:48.27px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:59.0px;background:var(--paper-3)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:75.09px;background:var(--paper-3)"></div><span class="hbar-lbl">6p</span></div>
-              <div class="hbar-col"><div class="hbar" style="height:91.18px;background:var(--blue)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:107.27px;background:var(--blue)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:118.0px;background:var(--blue)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:88.5px;background:var(--blue)"></div><span class="hbar-lbl"></span></div>
-              <div class="hbar-col"><div class="hbar" style="height:48.27px;background:var(--paper-3)"></div><span class="hbar-lbl">11p</span></div>
-            </div>
-            <div class="peak-note">
-              <p>Your busiest hour is <em>9–10pm</em> — long after most shops reply. LUMA never clocks off.</p>
-            </div>
-          </div>
+        <span class="section-num mono" aria-hidden="true">06</span>
+        <h2 id="compare-heading">Your inbox, three ways</h2>
+        <div class="compare-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col"><span class="sr-only">Criteria</span></th>
+                <th scope="col">Managing DMs yourself</th>
+                <th scope="col">A generic chatbot</th>
+                <th scope="col" class="is-luma">LUMA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Understands Franco-Arabic &amp; Egyptian Arabic</th>
+                <td data-label="Managing DMs yourself">Yes, if you type it yourself</td>
+                <td data-label="A generic chatbot">Not out of the box</td>
+                <td data-label="LUMA" class="is-luma">Core capability</td>
+              </tr>
+              <tr>
+                <th scope="row">Reads your Shopify catalog &amp; orders</th>
+                <td data-label="Managing DMs yourself">You look it up manually</td>
+                <td data-label="A generic chatbot">Only scripted flows you build</td>
+                <td data-label="LUMA" class="is-luma">Reads them live</td>
+              </tr>
+              <tr>
+                <th scope="row">Sends product &amp; checkout links</th>
+                <td data-label="Managing DMs yourself">If you remember to</td>
+                <td data-label="A generic chatbot">Only if pre-built</td>
+                <td data-label="LUMA" class="is-luma">From real data</td>
+              </tr>
+              <tr>
+                <th scope="row">Knows when to hand off to a human</th>
+                <td data-label="Managing DMs yourself">It's always you</td>
+                <td data-label="A generic chatbot">No confidence-based escalation</td>
+                <td data-label="LUMA" class="is-luma">Escalates when unsure</td>
+              </tr>
+              <tr>
+                <th scope="row">Replies at 3 am</th>
+                <td data-label="Managing DMs yourself">Only while you're awake</td>
+                <td data-label="A generic chatbot">Available if configured</td>
+                <td data-label="LUMA" class="is-luma">Yes, from real store data</td>
+              </tr>
+              <tr>
+                <th scope="row">Setup &amp; upkeep</th>
+                <td data-label="Managing DMs yourself">None — it's just you</td>
+                <td data-label="A generic chatbot">You build and maintain every flow</td>
+                <td data-label="LUMA" class="is-luma">Install once, reads your store</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
     <!-- ============ PRICING ============ -->
-    <section class="pricing" id="pricing">
+    <section class="pricing" id="pricing" data-cta-location="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
+        <span class="section-num mono" aria-hidden="true">07</span>
         <div class="pricing-head">
-          <h2 class="h2">Priced per conversation,<br class="br-hero" />not per seat.</h2>
-          <span class="kicker">7-day free trial · billed through Shopify · cancel anytime</span>
+          <h2 id="pricing-heading">Pricing</h2>
+          <p class="pricing-sub">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
         </div>
         <div class="plan-table">
           <div class="plan-row">
-            <div class="plan-name-wrap"><span class="plan-name">Free</span></div>
-            <div class="plan-price">$0<span class="mo"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">20</span> conversations / day · Try LUMA on your store</div>
-            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn btn-ghost">Start free</a>
+            <div class="plan-name-row"><span class="plan-name">Free</span></div>
+            <div class="plan-price">$0<span class="mo mono"> /mo</span></div>
+            <div class="plan-desc"><span class="cnt">20</span> conversations/day · Try LUMA on your store</div>
+            <a class="btn btn-outline" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Start free</a>
           </div>
           <div class="plan-row">
-            <div class="plan-name-wrap"><span class="plan-name">Starter</span></div>
-            <div class="plan-price">$29<span class="mo"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">200</span> conversations / day · For growing DM volume</div>
-            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn btn-ghost">Install on Shopify</a>
+            <div class="plan-name-row"><span class="plan-name">Starter</span></div>
+            <div class="plan-price">$29<span class="mo mono"> /mo</span></div>
+            <div class="plan-desc"><span class="cnt">200</span> conversations/day · For growing DM volume</div>
+            <a class="btn btn-outline" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
           </div>
-          <div class="plan-row hot">
-            <div class="plan-name-wrap"><span class="plan-name">Growth</span><span class="plan-popular">Popular</span></div>
-            <div class="plan-price">$79<span class="mo"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">600</span> conversations / day · Most active brands</div>
-            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn">Install on Shopify</a>
+          <div class="plan-row is-popular">
+            <div class="plan-name-row"><span class="plan-name">Growth</span><span class="plan-popular-tag">Most popular</span></div>
+            <div class="plan-price">$79<span class="mo mono"> /mo</span></div>
+            <div class="plan-desc"><span class="cnt">600</span> conversations/day · Most active brands</div>
+            <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
           </div>
           <div class="plan-row">
-            <div class="plan-name-wrap"><span class="plan-name">Pro</span></div>
-            <div class="plan-price">$149<span class="mo"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">1,500</span> conversations / day · High-volume storefronts</div>
-            <a href="https://apps.shopify.com/luma" target="_blank" rel="noopener" class="btn btn-ghost">Install on Shopify</a>
+            <div class="plan-name-row"><span class="plan-name">Pro</span></div>
+            <div class="plan-price">$149<span class="mo mono"> /mo</span></div>
+            <div class="plan-desc"><span class="cnt">1,500</span> conversations/day · High-volume storefronts</div>
+            <a class="btn btn-outline" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="foot" id="security">
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-heading">
       <div class="wrap">
-        <div class="kicker k1">Private beta · limited onboarding</div>
-        <h2 class="display">
-          Stop leaving customers <span class="accent-italic">on read.</span>
-        </h2>
-        <div class="foot-form">
-          <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-          <a class="link-blue" href="mailto:team@luma-bot.com" style="margin-inline-start:12px">Talk to us</a>
+        <span class="section-num mono" aria-hidden="true">08</span>
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Which Shopify stores can use LUMA?</summary>
+            <p>Any standard Shopify store can install LUMA from the Shopify App Store. Storefront chat works out of the box; Instagram DMs require an Instagram Business or Creator account.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which channels does LUMA support today?</summary>
+            <p>Instagram DMs and Shopify storefront chat. Both are live today.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Does it understand Egyptian Franco-Arabic?</summary>
+            <p>Yes — Franco-Arabic (Egyptian Arabic typed in Latin letters) and Egyptian Arabic script are both core capabilities, alongside English.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How does it know my products and orders?</summary>
+            <p>After you install LUMA, it reads your store's catalog, inventory, policies, and order data directly from Shopify — prices and stock come from your real store, not a script.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What happens when it isn't sure?</summary>
+            <p>LUMA scores its own confidence on every reply. When the catalog, policy, or order data doesn't clearly support an answer, it stops replying and hands the conversation to your team with full context.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I or my team take over a conversation?</summary>
+            <p>Yes. Once LUMA hands off a conversation, it pauses on that thread so you or a teammate can reply without LUMA talking over you.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How is customer data handled?</summary>
+            <p>Conversation content and the Shopify data LUMA reads are used to answer customers. Its AI provider is Claude by Anthropic; see our <a href="privacy-policy.html">Privacy Policy</a> for retention and your rights.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What do I need to set it up?</summary>
+            <p>Install LUMA from the Shopify App Store, then connect an Instagram Business or Creator account if you want DM coverage. LUMA reads your store's catalog and order data once it's connected.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is WhatsApp supported?</summary>
+            <p>Not yet. WhatsApp is on the roadmap; today LUMA covers Instagram DMs and Shopify storefront chat.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do plans count conversations?</summary>
+            <p>Each plan includes a number of conversations per day (Free 20, Starter 200, Growth 600, Pro 1,500). A conversation is a customer chat that LUMA handles that day, across Instagram DMs and storefront chat combined. For edge cases, reach out to <a href="mailto:team@luma-bot.com">team@luma-bot.com</a>.</p>
+          </details>
         </div>
-
-        <div class="foot-grid">
-          <div>
-            <div class="foot-brand-row">
-              <img src="logo.png" alt="LUMA" />
-              <span>LUMA</span>
-            </div>
-            <p class="foot-blurb">The AI teammate behind every DM. Built for Shopify merchants across the Middle East.</p>
-            <div class="foot-chips">
-              <span class="foot-chip"><span class="sq" style="background:#95BF47"></span>Shopify</span>
-              <a class="foot-chip" href="https://www.instagram.com/luma__bot/" target="_blank" rel="noopener" aria-label="LUMA on Instagram" style="transition:color .2s"><span class="sq" style="background:#E4405F"></span>Instagram</a>
-              <span class="foot-chip"><span class="sq" style="background:#25D366"></span>WhatsApp</span>
-            </div>
-          </div>
-          <div class="foot-col">
-            <div class="kicker">Product</div>
-            <div class="foot-links">
-              <a href="#how">How it works</a>
-              <a href="#languages">Languages</a>
-              <a href="#checkout">Chat-to-checkout</a>
-              <a href="#pricing">Pricing</a>
-              <a href="#security">Security</a>
-              <a href="#">Changelog</a>
-            </div>
-          </div>
-          <div class="foot-col">
-            <div class="kicker">Company</div>
-            <div class="foot-links">
-              <a href="#">About</a>
-              <a href="#">Careers</a>
-              <a href="#">Contact</a>
-            </div>
-          </div>
-          <div class="foot-col">
-            <div class="kicker">Legal</div>
-            <div class="foot-links">
-              <a href="privacy-policy.html">Privacy</a>
-              <a href="terms-of-service.html">Terms</a>
-              <a href="#">Data handling</a>
-            </div>
-          </div>
-        </div>
-        <div class="foot-copy">© 2026 LUMA · Made for merchants who never leave a customer on read.</div>
       </div>
-    </footer>
+    </section>
 
-  </div>
+    <!-- ============ CLOSING CTA ============ -->
+    <section class="closing" data-cta-location="footer" aria-labelledby="closing-heading">
+      <div class="wrap">
+        <h2 id="closing-heading" class="closing-line1">Your customers are already asking. <bdi class="closing-part" lang="ar" dir="rtl">بكام؟</bdi> <bdi class="closing-part" lang="ar" dir="rtl">فين الأوردر؟</bdi> <span class="closing-part">Do you have size M?</span></h2>
+        <p class="closing-line2">LUMA answers in seconds, from your store's real data — and hands off to you when it matters.</p>
+        <div class="closing-ctas">
+          <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+          <a class="btn-text" href="mailto:team@luma-bot.com">Talk to us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-top">
+        <img src="logo.png" alt="" width="24" height="24" />
+        <span>LUMA</span>
+      </div>
+      <p class="foot-blurb">An AI sales and customer-service teammate for Shopify merchants in Egypt and the Middle East.</p>
+
+      <div class="foot-grid">
+        <div>
+          <p class="foot-col-title">Product</p>
+          <div class="foot-links">
+            <a href="#product">Product</a>
+            <a href="#languages">Languages</a>
+            <a href="#proof">Proof</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </div>
+        <div>
+          <p class="foot-col-title">Legal</p>
+          <div class="foot-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+          </div>
+        </div>
+        <div>
+          <p class="foot-col-title">Contact</p>
+          <div class="foot-links">
+            <a href="https://www.instagram.com/luma__bot/" target="_blank" rel="noopener">Instagram</a>
+            <a href="mailto:team@luma-bot.com">Email</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="foot-note">Works with Instagram DMs and Shopify storefront chat today · WhatsApp on the roadmap</p>
+      <p class="foot-copy">© 2026 LUMA</p>
+    </div>
+  </footer>
 
   <script>
-    // Install CTA — cookieless conversion tracking only; navigation is a plain anchor.
+    // Install CTA — Umami cookieless analytics and Meta Pixel conversion tracking; navigation is a plain anchor.
     (function () {
-      document.querySelectorAll('a[href="https://apps.shopify.com/luma"]').forEach(function (a) {
+      Array.prototype.slice.call(document.querySelectorAll('a[href="https://apps.shopify.com/luma"]')).forEach(function (a) {
         a.addEventListener('click', function () {
-          var where = a.closest('.foot-form') ? 'footer'
-            : a.closest('.hdr-right') ? 'nav'
-            : a.closest('.plan-row') ? 'pricing'
-            : 'hero';
+          var host = a.closest('[data-cta-location]');
+          var where = (host && host.dataset.ctaLocation) || 'other';
           if (window.umami && typeof window.umami.track === 'function') {
             window.umami.track('install-click', { location: where });
           }
           if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'install-click', location: where }); }
         });
       });
+    })();
+  </script>
+  <script>
+    (function () {
+      try {
+        var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        var header = document.querySelector('.site-header');
+        var navToggle = document.querySelector('.nav-toggle');
+
+        function closeNav(returnFocus) {
+          if (!header || !navToggle) return;
+          header.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          if (returnFocus) navToggle.focus();
+        }
+
+        if (header && navToggle) {
+          navToggle.addEventListener('click', function () {
+            var isOpen = header.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          });
+          Array.prototype.slice.call(document.querySelectorAll('.nav-links a')).forEach(function (link) {
+            link.addEventListener('click', function () { closeNav(false); });
+          });
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && header.classList.contains('open')) closeNav(true);
+          });
+        }
+
+        function setupThread(card) {
+          if (!card) return { play: function (done) { if (done) done(); }, cancel: function () {}, complete: function () {} };
+          var items = Array.prototype.slice.call(card.querySelectorAll('[data-step]'));
+          var timers = [];
+          var indicators = [];
+
+          function cancel() {
+            timers.forEach(function (timer) { window.clearTimeout(timer); });
+            timers = [];
+            indicators.forEach(function (indicator) { indicator.remove(); });
+            indicators = [];
+          }
+
+          function schedule(fn, delay) {
+            var timer = window.setTimeout(function () {
+              timers = timers.filter(function (id) { return id !== timer; });
+              fn();
+            }, delay);
+            timers.push(timer);
+          }
+
+          function complete() {
+            cancel();
+            items.forEach(function (el) {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            });
+          }
+
+          function reset() {
+            cancel();
+            card.classList.add('thread--resetting');
+            items.forEach(function (el) {
+              el.style.opacity = '0';
+              el.style.transform = 'translateY(8px)';
+            });
+            card.offsetWidth;
+            card.classList.remove('thread--resetting');
+          }
+
+          function play(done) {
+            if (!items.length || reduceMotion) { complete(); if (done) done(); return; }
+            reset();
+            var i = 0;
+            function finishAfterTransition() { schedule(function () { if (done) done(); }, 410); }
+            function step() {
+              if (i >= items.length) { if (done) done(); return; }
+              var el = items[i];
+              function reveal() {
+                el.style.transition = 'opacity .4s var(--ease), transform .4s var(--ease)';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+                i++;
+                if (i >= items.length) finishAfterTransition();
+                else schedule(step, 220);
+              }
+              if (el.hasAttribute('data-typing')) {
+                var indicator = document.createElement('div');
+                indicator.className = 'typing-indicator';
+                indicator.setAttribute('aria-hidden', 'true');
+                indicator.innerHTML = '<span></span><span></span><span></span>';
+                el.parentNode.insertBefore(indicator, el);
+                indicators.push(indicator);
+                schedule(function () {
+                  indicator.remove();
+                  indicators = indicators.filter(function (item) { return item !== indicator; });
+                  reveal();
+                }, 650);
+              } else {
+                schedule(reveal, 120);
+              }
+            }
+            step();
+          }
+
+          return { play: play, cancel: cancel, complete: complete };
+        }
+
+        function observeOnce(target, callback) {
+          if (!target || reduceMotion || !('IntersectionObserver' in window)) { callback(); return; }
+          var observer = new IntersectionObserver(function (entries) {
+            if (entries[0] && entries[0].isIntersecting) { observer.disconnect(); callback(); }
+          }, { threshold: .15, rootMargin: '0px 0px -10%' });
+          observer.observe(target);
+        }
+
+        // Hero thread — autoplay once on scroll into view.
+        var heroCard = document.getElementById('hero-thread');
+        var heroCtrl = setupThread(heroCard);
+        var heroReplay = heroCard && heroCard.querySelector('.thread-replay');
+        if (heroReplay) {
+          heroReplay.addEventListener('click', function () {
+            if (io) io.disconnect();
+            played = true;
+            heroReplay.hidden = true;
+            heroCtrl.play(function () { heroReplay.hidden = false; });
+          });
+        }
+        if (heroCard && !reduceMotion && 'IntersectionObserver' in window) {
+          var played = false;
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !played) {
+                played = true;
+                heroCtrl.play(function () { if (heroReplay) heroReplay.hidden = false; });
+                io.disconnect();
+              }
+            });
+          }, { threshold: .15, rootMargin: '0px 0px -10%' });
+          io.observe(heroCard);
+        } else {
+          heroCtrl.complete();
+          if (heroReplay) heroReplay.hidden = false;
+        }
+
+        // Scenario tabs are an enhancement: the static page shows every panel.
+        var tabs = Array.prototype.slice.call(document.querySelectorAll('.scenario-tab'));
+        if (tabs.length) {
+          var panels = tabs.map(function (tab) { return document.getElementById(tab.getAttribute('aria-controls')); });
+          panels.forEach(function (panel, index) { panel.hidden = index !== 0; });
+          var ctrls = panels.map(function (panel) { return setupThread(panel.querySelector('.chat-card')); });
+          var replays = panels.map(function (panel) { return panel.querySelector('.thread-replay'); });
+          var panelTimers = panels.map(function () { return null; });
+
+          function resetPanelCrossfade(index) {
+            if (panelTimers[index] !== null) window.clearTimeout(panelTimers[index]);
+            panelTimers[index] = null;
+            panels[index].classList.remove('is-entering', 'is-active');
+          }
+
+          function playScenario(index) {
+            ctrls.forEach(function (ctrl) { ctrl.cancel(); });
+            if (replays[index]) replays[index].hidden = true;
+            ctrls[index].play(function () { if (replays[index]) replays[index].hidden = false; });
+          }
+
+          function select(index, focus) {
+            panels.forEach(function (panel, panelIndex) { resetPanelCrossfade(panelIndex); });
+            tabs.forEach(function (tab, tabIndex) {
+              var isSelected = tabIndex === index;
+              tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+              tab.tabIndex = isSelected ? 0 : -1;
+              panels[tabIndex].hidden = !isSelected;
+            });
+            panels[index].classList.add('is-entering');
+            panels[index].offsetWidth;
+            panels[index].classList.add('is-active');
+            panelTimers[index] = window.setTimeout(function () {
+              panels[index].classList.remove('is-entering', 'is-active');
+              panelTimers[index] = null;
+            }, 160);
+            if (focus) tabs[index].focus();
+            playScenario(index);
+          }
+
+          tabs.forEach(function (tab, index) {
+            tab.addEventListener('click', function () { select(index); });
+            tab.addEventListener('keydown', function (event) {
+              var next = null;
+              if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
+              if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
+              if (next !== null) { event.preventDefault(); select(next, true); }
+            });
+            if (replays[index]) replays[index].addEventListener('click', function () { playScenario(index); });
+          });
+
+          select(0);
+        }
+        function revealProblem(){var s=document.querySelector('.problem');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var c=s.querySelectorAll('.problem-col'),l=c[0].querySelectorAll('.pmsg'),r=c[1].querySelectorAll('.pmsg');function v(e,d){window.setTimeout(function(){if(e)e.classList.add('is-revealed');},d)}Array.prototype.slice.call(l).forEach(function(e,i){v(e,i*250);v(e.querySelector('.pmsg-status'),i*250+400)});Array.prototype.slice.call(r).forEach(function(e,i){var d=l.length*250+400+i*250;v(e,d);v(e.querySelector('.pmsg-reply'),d+120);v(e.querySelector('.pmsg-reply-time'),d+120)})})}
+        function tween(a,b,d,draw,done){var s;function f(t){if(!s)s=t;var p=Math.min((t-s)/d,1),e=1-Math.pow(1-p,3);draw(a+(b-a)*e);if(p<1)window.requestAnimationFrame(f);else if(done)done()}window.requestAnimationFrame(f)}
+        function revealTrust(){var s=document.querySelector('.trust');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var c=s.querySelectorAll('[data-confidence]');function n(i,a,b,done){tween(a,b,700,function(v){c[i].textContent='confidence '+v.toFixed(2)},done)}n(0,.5,.93,function(){s.querySelector('.is-auto').classList.add('is-revealed');window.setTimeout(function(){n(1,.5,.42,function(){window.setTimeout(function(){s.querySelectorAll('.trust-card')[1].classList.add('is-revealed')},350)})},160)})})}
+        function revealLanguages(){var s=document.querySelector('.languages');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){var m=s.querySelectorAll('.lang-msg');function type(i){if(i===m.length){s.classList.add('is-revealed');return}var e=m[i],g=e.querySelector('.lang-glyphs'),t=e.getAttribute('aria-label'),p=0;g.textContent='';e.classList.add('is-typing');function tick(){g.textContent+=t.charAt(p++);if(p<t.length)window.setTimeout(tick,35);else{e.classList.remove('is-typing');window.setTimeout(function(){type(i+1)},80)}}tick()}type(0)})}
+        function revealProof(){var s=document.querySelector('.proof');if(!s||reduceMotion)return;observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('[data-count]')).forEach(function(e){var n=Number(e.getAttribute('data-count')),x=e.getAttribute('data-suffix')||'';tween(0,n,600,function(v){e.textContent=Math.round(v)+x})})})}
+        function revealClosing(){var s=document.querySelector('.closing');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('.closing-part')).forEach(function(e,i){window.setTimeout(function(){e.classList.add('is-revealed')},i*80)})})}
+        var sentinel=document.querySelector('.header-sentinel');if(header&&sentinel&&'IntersectionObserver'in window)new IntersectionObserver(function(e){header.classList.toggle('is-stuck',!e[0].isIntersecting)},{threshold:0}).observe(sentinel);
+        revealProblem();revealTrust();revealLanguages();revealProof();revealClosing();
+      } catch (error) {
+        document.documentElement.classList.remove('js');
+        Array.prototype.slice.call(document.querySelectorAll('.thread--auto [data-step]')).forEach(function (step) {
+          step.style.opacity = '1';
+          step.style.transform = 'translateY(0)';
+        });
+        Array.prototype.slice.call(document.querySelectorAll('.scenario-panel')).forEach(function (panel) { panel.hidden = false; });
+      }
     })();
   </script>
 </body>
