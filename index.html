@@ -110,6 +110,8 @@
 </head>
 <body>
   <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1066034615859469&amp;ev=PageView&amp;noscript=1" /></noscript>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <div class="header-sentinel" aria-hidden="true"></div>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -150,7 +152,7 @@
             <p class="lede hero-lede">LUMA answers your Instagram DMs and Shopify storefront chat in Arabic, English, and Franco — with prices, stock, and order status read from your Shopify store, not guessed. When it isn't sure, it hands the conversation to you.</p>
             <div class="hero-ctas">
               <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-              <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 30-min demo</a>
+              <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
               <a class="btn-text" href="#product">See how LUMA works</a>
             </div>
             <p class="hero-friction">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
@@ -597,7 +599,7 @@
         <p class="setup-footnote mono">Permissions: LUMA reads products, inventory, policies, and orders from your Shopify store, and reads &amp; replies to DMs of the Instagram account you connect. Nothing else.</p>
         <div class="setup-ctas">
           <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 30-min demo</a>
+          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
         </div>
       </div>
     </section>
@@ -696,7 +698,7 @@
         <p class="closing-line2">LUMA answers in seconds, from your store's real data — and hands off to you when it matters.</p>
         <div class="closing-ctas">
           <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 30-min demo</a>
+          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
           <a class="btn-text" href="mailto:team@luma-bot.com">Talk to us</a>
         </div>
       </div>
@@ -755,22 +757,33 @@
           if (window.umami && typeof window.umami.track === 'function') {
             window.umami.track('install-click', { location: where });
           }
-          if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'install-click', location: where }); }
+          if (typeof fbq === 'function') { fbq('trackCustom', 'InstallClick', { location: where }); }
         });
       });
     })();
     (function () {
       Array.prototype.slice.call(document.querySelectorAll('a[href^="https://calendly.com/"]')).forEach(function (a) {
-        a.addEventListener('click', function () {
+        a.addEventListener('click', function (e) {
           var host = a.closest('[data-cta-location]');
           var where = (host && host.dataset.ctaLocation) || 'other';
           if (window.umami && typeof window.umami.track === 'function') {
             window.umami.track('demo-click', { location: where });
           }
-          if (typeof fbq === 'function') { fbq('track', 'Schedule', { content_name: 'demo-click', location: where }); }
+          if (typeof fbq === 'function') { fbq('trackCustom', 'DemoClick', { location: where }); }
+          if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+            window.Calendly.initPopupWidget({ url: a.href });
+            e.preventDefault();
+          }
         });
       });
     })();
+    window.addEventListener('message', function (e) {
+      if (typeof e.origin === 'string' && e.origin.indexOf('calendly.com') === -1) return;
+      if (e.data && e.data.event === 'calendly.event_scheduled') {
+        if (typeof fbq === 'function') { fbq('track', 'Schedule', { content_name: 'demo-booked' }); }
+        if (window.umami && typeof window.umami.track === 'function') { window.umami.track('demo-booked'); }
+      }
+    });
   </script>
   <script>
     (function () {
