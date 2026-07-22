@@ -1,0 +1,12 @@
+# Internal planning docs, specs, and working material — keep out of the public repo
+docs/
+google-form-autoreply/
+index-cosmos.html
+
+# Local/editor junk
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+.env
+.env.*
