@@ -7,7 +7,7 @@
   <meta name="description" content="LUMA answers Instagram DMs and Shopify storefront chat in Arabic, English, and Franco-Arabic — with prices, stock, and order status read from your real Shopify store. Unsure? It hands off to your team." />
   <link rel="canonical" href="https://luma-bot.com/" />
   <link rel="icon" type="image/png" href="logo.png" />
-  <meta name="theme-color" content="#F4EFE6" />
+  <meta name="theme-color" content="#060824" />
   <meta name="facebook-domain-verification" content="8utcrivshlh7pi265543shz1l9l5vp" />
 
   <!-- Open Graph / social -->
@@ -89,7 +89,9 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;display=swap" />
+  <link rel="preload" as="image" href="img/night-street-2048.webp" media="(min-width: 761px)" />
+  <link rel="preload" as="image" href="img/night-street-1024.webp" media="(max-width: 760px)" />
   <link rel="stylesheet" href="landing.css" />
 
   <!-- Privacy-friendly analytics: Umami Cloud (cookieless, no consent banner needed). -->
@@ -109,60 +111,78 @@
     fbq('track', 'PageView');
   </script>
 </head>
-<body>
+<body data-sky="night">
   <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1066034615859469&amp;ev=PageView&amp;noscript=1" /></noscript>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <div class="header-sentinel" aria-hidden="true"></div>
   <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" data-cta-location="nav">
-    <div class="wrap hdr-inner">
+    <div class="hdr-inner">
       <a href="/" class="hdr-brand" aria-label="LUMA home">
-        <img src="logo.png" alt="LUMA" width="28" height="28" />
+        <img src="logo.png" alt="LUMA" width="40" height="28" />
         <span class="hdr-wordmark">LUMA</span>
       </a>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
-        <span class="nav-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
-      </button>
+      <span class="clock" aria-hidden="true">
+        <span class="clock-orb"></span>
+        <span class="clock-t">11:47 pm</span>
+        <span class="clock-c">Cairo</span>
+      </span>
       <nav class="nav-links" id="primary-nav" aria-label="Primary">
         <a href="#product">Product</a>
         <a href="#languages">Languages</a>
         <a href="#proof">Proof</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
+        <a class="nav-demo" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a demo</a>
       </nav>
       <div class="hdr-right">
-        <a class="btn" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a demo</a>
+        <a class="btn btn-sm" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install<span class="hide-sm">&nbsp;on Shopify</span></a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </header>
 
   <main id="main-content" tabindex="-1">
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="top" data-cta-location="hero" aria-labelledby="hero-heading">
-      <div class="wrap">
-        <p class="kicker">For Shopify stores in Egypt &amp; the Middle East</p>
-        <h1 id="hero-heading">
-          Turn every <span class="ar-inline">«<bdi lang="ar" dir="rtl">بكام؟</bdi>»</span> into an answer — before the customer leaves.
-        </h1>
-        <div class="hero-grid">
-          <div>
-            <p class="lede hero-lede">LUMA answers your Instagram DMs and Shopify storefront chat in Arabic, English, and Franco — with prices, stock, and order status read from your Shopify store, not guessed. When it isn't sure, it hands the conversation to you.</p>
-            <div class="hero-ctas">
-              <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-              <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
-              <a class="btn-text" href="#product">See how LUMA works</a>
-            </div>
-            <p class="hero-friction">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
-          </div>
+    <!-- ============ HERO · 11:47 pm ============ -->
+    <section class="hero" id="top" data-sky="night" data-clock="23:47" data-cta-location="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 760px)" srcset="img/night-street-1024.webp" />
+          <img src="img/night-street-2048.webp" alt="" width="2048" height="1152" fetchpriority="high" data-parallax="0.18" />
+        </picture>
+        <div class="hero-spot"></div>
+      </div>
 
-          <div class="chat-card chat-card--hero thread--auto" id="hero-thread">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker rise" style="--d:0"><span class="dot-live" aria-hidden="true"></span>For Shopify stores in Egypt &amp; the Middle East</p>
+          <h1 id="hero-heading" class="hero-h1">
+            <span class="ln rise" style="--d:1">Turn every</span>
+            <span class="ln rise neon-ln" style="--d:2"><span class="neon">«<bdi lang="ar" dir="rtl">بكام؟</bdi>»</span></span>
+            <span class="ln rise" style="--d:3">into an answer</span>
+            <span class="ln rise ln-soft" style="--d:4">before the customer leaves.</span>
+          </h1>
+          <p class="lede rise" style="--d:5">LUMA answers your Instagram DMs and Shopify storefront chat in Arabic, English, and Franco, with prices, stock, and order status read from your Shopify store, not guessed. When it isn't sure, it hands the conversation to you.</p>
+          <div class="cta-row rise" style="--d:6">
+            <a class="btn btn-glow" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify <span class="arr" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
+          </div>
+          <p class="fine rise" style="--d:7">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
+        </div>
+
+        <div class="hero-stage rise" style="--d:3">
+          <div class="halo" aria-hidden="true"></div>
+          <div class="phone" id="hero-thread">
+            <div class="phone-status" aria-hidden="true"><span>11:47</span><span class="phone-island"></span><span class="phone-bars"><i></i><i></i><i></i></span></div>
             <div class="chat-head">
-              <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
-              <span class="chat-label">Example conversation</span>
+              <span class="chat-avatar" aria-hidden="true">N</span>
+              <span class="chat-store">@nilethreads.eg<small>Instagram DMs · example conversation</small></span>
             </div>
             <div class="chat-body">
               <div class="msg msg-customer" data-step>
@@ -179,7 +199,7 @@
               <p class="sysline" data-step>→ variant M · in stock · checkout link created</p>
               <div class="msg msg-luma" data-step data-typing>
                 <div class="product-card">
-                  <div class="product-thumb" aria-hidden="true"></div>
+                  <img class="product-thumb" src="img/hoodie.webp" alt="" width="56" height="56" />
                   <div class="product-info">
                     <p class="product-name">Oversized Hoodie</p>
                     <p class="product-price mono">EGP 750 · size M</p>
@@ -190,46 +210,126 @@
             </div>
             <button type="button" class="thread-replay" hidden>Replay ↻</button>
           </div>
+          <span class="float-chip chip-a" aria-hidden="true"><span lang="ar" dir="rtl">عربي</span></span>
+          <span class="float-chip chip-b" aria-hidden="true">Franco</span>
+          <span class="float-chip chip-c" aria-hidden="true">English</span>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#night" aria-label="Scroll to the 11:47 pm problem"><span aria-hidden="true"></span></a>
+    </section>
+
+    <!-- ============ TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span><i>11:47 pm</i><b lang="ar" dir="rtl">بكام؟</b></span>
+        <span><i>11:52 pm</i><b>3andoko size L?</b></span>
+        <span><i>12:04 am</i><b lang="ar" dir="rtl">فين الأوردر؟</b></span>
+        <span><i>12:31 am</i><b>Do you have size M?</b></span>
+        <span><i>1:15 am</i><b>bikam el satin dress?</b></span>
+        <span><i>2:02 am</i><b lang="ar" dir="rtl">الهودي ده متوفر؟</b></span>
+        <span><i>3:40 am</i><b>3ayez arga3 el order</b></span>
+        <span><i>11:47 pm</i><b lang="ar" dir="rtl">بكام؟</b></span>
+        <span><i>11:52 pm</i><b>3andoko size L?</b></span>
+        <span><i>12:04 am</i><b lang="ar" dir="rtl">فين الأوردر؟</b></span>
+        <span><i>12:31 am</i><b>Do you have size M?</b></span>
+        <span><i>1:15 am</i><b>bikam el satin dress?</b></span>
+        <span><i>2:02 am</i><b lang="ar" dir="rtl">الهودي ده متوفر؟</b></span>
+        <span><i>3:40 am</i><b>3ayez arga3 el order</b></span>
+      </div>
+    </div>
+
+    <!-- ============ PROBLEM · the light switch ============ -->
+    <section class="night" id="night" data-sky="night" data-clock="23:52" aria-labelledby="problem-heading">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">01</span>
+          <h2 id="problem-heading" class="reveal">The 11:47 pm problem.</h2>
+          <p class="sec-intro reveal">High-intent buyers rarely wait until morning. At LUMA's first live store, nearly half of all questions arrived after hours. Flip the switch.</p>
+        </div>
+
+        <div class="switch-stage" data-luma="off">
+          <button type="button" class="lumaswitch" aria-pressed="false">
+            <span class="lumaswitch-track" aria-hidden="true"><span class="lumaswitch-knob"><img src="logo.png" alt="" width="34" height="24" /></span></span>
+            <span class="lumaswitch-label"><span class="sr-only">LUMA</span><span class="when-off">LUMA is off · store team asleep</span><span class="when-on">LUMA is on · answers arrive in seconds</span></span>
+          </button>
+          <p class="caption mono">Illustrative example</p>
+
+          <ol class="night-list">
+            <li class="nrow">
+              <span class="ntime mono">11:47 pm</span>
+              <p class="nq" lang="ar" dir="rtl">بكام؟</p>
+              <div class="nout">
+                <p class="nmiss mono">seen · answered 10:15 am</p>
+                <div class="nreply"><p lang="ar" dir="rtl">الهودي بـ750 جنيه ومتوفر بمقاسات <bdi dir="ltr">S</bdi> لـ <bdi dir="ltr">XL</bdi>.</p><span class="mono">11:47 pm · 4s later</span></div>
+              </div>
+            </li>
+            <li class="nrow">
+              <span class="ntime mono">11:52 pm</span>
+              <p class="nq" lang="ar-Latn" dir="ltr">3andoko size L?</p>
+              <div class="nout">
+                <p class="nmiss mono">seen · answered 10:15 am</p>
+                <div class="nreply"><p lang="ar-Latn" dir="ltr">Aiwa, size L mawgood 🖤 <span class="demo-copy mono" role="presentation" aria-hidden="true">checkout: nilethreads.eg/co/8813</span></p><span class="mono">11:52 pm · 3s later</span></div>
+              </div>
+            </li>
+            <li class="nrow">
+              <span class="ntime mono">12:04 am</span>
+              <p class="nq" lang="ar" dir="rtl">فين الأوردر؟</p>
+              <div class="nout">
+                <p class="nmiss mono">seen · never answered</p>
+                <div class="nreply"><p lang="ar" dir="rtl">أوردرك رقم <bdi dir="ltr">10482</bdi> مع شركة الشحن، رقم التتبع <bdi class="mono" dir="ltr">BOSTA-882140</bdi></p><span class="mono">12:04 am · 2s later</span></div>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
 
     <!-- ============ PROOF ============ -->
-    <section class="proof" id="proof" aria-labelledby="proof-heading">
+    <section class="proof" id="proof" data-sky="night" data-clock="00:30" aria-labelledby="proof-heading">
+      <div class="proof-trails" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 760px)" srcset="img/light-trails-1024.webp" />
+          <img src="img/light-trails-2048.webp" alt="" width="2048" height="878" loading="lazy" data-parallax="-0.12" />
+        </picture>
+      </div>
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">01</span>
-        <h2 id="proof-heading">Real numbers. One store. Six weeks.</h2>
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">02</span>
+          <h2 id="proof-heading" class="reveal">Real numbers. One store. Six weeks.</h2>
+        </div>
         <div class="proof-figures">
-          <div>
-            <div class="proof-figure-n mono" data-count="99.8" data-decimals="1" data-suffix="%">99.8%</div>
-            <div class="proof-figure-l">of conversations answered</div>
+          <div class="pf reveal" style="--d:0">
+            <div class="pf-n" data-count="99.8" data-decimals="1" data-suffix="%">99.8%</div>
+            <div class="pf-l">of conversations answered</div>
           </div>
-          <div>
-            <div class="proof-figure-n mono" data-count="1846" data-group="true">1,846</div>
-            <div class="proof-figure-l">conversations handled</div>
+          <div class="pf reveal" style="--d:1">
+            <div class="pf-n" data-count="1846" data-group="true">1,846</div>
+            <div class="pf-l">conversations handled</div>
           </div>
-          <div>
-            <div class="proof-figure-n mono" data-count="2.1" data-decimals="1" data-suffix="s">2.1s</div>
-            <div class="proof-figure-l">median reply time</div>
+          <div class="pf reveal" style="--d:2">
+            <div class="pf-n" data-count="2.1" data-decimals="1" data-suffix="s">2.1s</div>
+            <div class="pf-l">median reply time</div>
           </div>
-          <div>
-            <div class="proof-figure-n mono" data-count="846">846</div>
-            <div class="proof-figure-l">answered after hours (8 pm – 9 am)</div>
+          <div class="pf pf-moon reveal" style="--d:3">
+            <div class="pf-n" data-count="846">846</div>
+            <div class="pf-l">answered after hours (8 pm – 9 am)</div>
           </div>
         </div>
-        <p class="proof-context">From LUMA's first live store: six weeks and 25,000+ messages across Instagram DMs and storefront chat. One real store's numbers — not a platform average.</p>
-        <div class="proof-quotes">
-          <p class="proof-quotes-heading mono">what customers replied · unedited</p>
-          <div class="proof-quotes-grid">
-            <figure class="proof-quote">
+        <p class="proof-context reveal">From LUMA's first live store: six weeks and 25,000+ messages across Instagram DMs and storefront chat. One real store's numbers, not a platform average.</p>
+
+        <div class="quotes">
+          <p class="caption mono reveal">what customers replied · unedited</p>
+          <div class="quotes-grid">
+            <figure class="quote reveal" style="--d:0">
               <blockquote>Thanks for being so responsive, you're the best</blockquote>
               <figcaption class="mono">Instagram DM · July 2026</figcaption>
             </figure>
-            <figure class="proof-quote">
+            <figure class="quote reveal" style="--d:1">
               <blockquote>Thank you for the great service and great product 🙏🏽</blockquote>
               <figcaption class="mono">Instagram DM · July 2026</figcaption>
             </figure>
-            <figure class="proof-quote">
+            <figure class="quote reveal" style="--d:2">
               <blockquote lang="ar" dir="rtl">شكرا ع المساعده الفيت تحفه والكوالتى وكل حاجه ان شاء الله مش اخر مره</blockquote>
               <figcaption class="mono">Instagram DM · July 2026</figcaption>
             </figure>
@@ -238,247 +338,155 @@
       </div>
     </section>
 
-    <!-- ============ PROBLEM ============ -->
-    <section class="problem" aria-labelledby="problem-heading">
-      <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">02</span>
-        <h2 id="problem-heading">The 11:47 pm problem</h2>
-        <div class="problem-grid">
-          <div class="problem-col">
-            <h3>Without LUMA</h3>
-            <p class="problem-col-note">Store team asleep</p>
-            <p class="problem-caption">Illustrative example</p>
-
-            <div class="pmsg">
-              <div class="pmsg-row">
-                <p class="pmsg-text" lang="ar" dir="rtl">بكام؟</p>
-                <span class="pmsg-time mono">11:47 pm</span>
-              </div>
-              <p class="pmsg-status mono">seen · answered 10:15 am</p>
-            </div>
-
-            <div class="pmsg">
-              <div class="pmsg-row">
-                <p class="pmsg-text" lang="ar-Latn" dir="ltr">3andoko size L?</p>
-                <span class="pmsg-time mono">11:52 pm</span>
-              </div>
-              <p class="pmsg-status mono">seen · answered 10:15 am</p>
-            </div>
-
-            <div class="pmsg">
-              <div class="pmsg-row">
-                <p class="pmsg-text" lang="ar" dir="rtl">فين الأوردر؟</p>
-                <span class="pmsg-time mono">12:04 am</span>
-              </div>
-              <p class="pmsg-status mono">seen · never answered</p>
-            </div>
-
-            <p class="problem-closing">High-intent buyers rarely wait until morning — at LUMA's first live store, nearly half of all questions arrived after hours.</p>
-          </div>
-
-          <div class="problem-col">
-            <h3>With LUMA</h3>
-            <p class="problem-col-note">Answers arrive in seconds</p>
-            <p class="problem-caption">Illustrative example</p>
-
-            <div class="pmsg">
-              <div class="pmsg-row">
-                <p class="pmsg-text" lang="ar" dir="rtl">بكام؟</p>
-                <span class="pmsg-time mono">11:47 pm</span>
-              </div>
-              <div class="pmsg-reply" lang="ar" dir="rtl">الهودي بـ750 جنيه ومتوفر بمقاسات <bdi dir="ltr">S</bdi> لـ <bdi dir="ltr">XL</bdi>.</div>
-              <p class="pmsg-reply-time mono">11:47 pm · 4s later</p>
-            </div>
-
-            <div class="pmsg">
-              <div class="pmsg-row">
-                <p class="pmsg-text" lang="ar-Latn" dir="ltr">3andoko size L?</p>
-                <span class="pmsg-time mono">11:52 pm</span>
-              </div>
-              <div class="pmsg-reply" lang="ar-Latn" dir="ltr">Aiwa, size L mawgood 🖤 — <span class="demo-copy mono" role="presentation" aria-hidden="true">checkout: nilethreads.eg/co/8813</span></div>
-              <p class="pmsg-reply-time mono">11:52 pm · 3s later</p>
-            </div>
-
-            <div class="pmsg">
-              <div class="pmsg-row">
-                <p class="pmsg-text" lang="ar" dir="rtl">فين الأوردر؟</p>
-                <span class="pmsg-time mono">12:04 am</span>
-              </div>
-              <div class="pmsg-reply" lang="ar" dir="rtl">أوردرك رقم <bdi dir="ltr">10482</bdi> مع شركة الشحن — رقم التتبع <bdi class="mono" dir="ltr">BOSTA-882140</bdi></div>
-              <p class="pmsg-reply-time mono">12:04 am · 2s later</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ PRODUCT DEMO ============ -->
-    <section class="product-demo" id="product" aria-labelledby="product-heading">
+    <section class="product" id="product" data-sky="deep" data-clock="01:15" aria-labelledby="product-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">03</span>
-        <h2 id="product-heading">From DM to done</h2>
-        <p class="product-demo-intro">Four things customers keep asking. Select one to see the full exchange — without JavaScript, all four are shown below.</p>
-
-        <div class="scenario-tabs demo-tabs" role="tablist" aria-label="Example scenarios">
-          <button type="button" class="scenario-tab" id="tab-price" role="tab" aria-selected="true" aria-controls="panel-price">
-            <bdi class="ar-part" lang="ar" dir="rtl">بكام؟</bdi> — Price &amp; stock
-          </button>
-          <button type="button" class="scenario-tab" id="tab-order" role="tab" aria-selected="false" aria-controls="panel-order" tabindex="-1">
-            <bdi class="ar-part" lang="ar" dir="rtl">فين الأوردر؟</bdi> — Order status
-          </button>
-          <button type="button" class="scenario-tab" id="tab-size" role="tab" aria-selected="false" aria-controls="panel-size" tabindex="-1">
-            Do you have size L? — Size → checkout
-          </button>
-          <button type="button" class="scenario-tab" id="tab-return" role="tab" aria-selected="false" aria-controls="panel-return" tabindex="-1">
-            <span class="ar-part" lang="ar-Latn" dir="ltr">3ayez arga3 el order</span> — Return → human
-          </button>
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">03</span>
+          <h2 id="product-heading" class="reveal">From DM to done.</h2>
+          <p class="sec-intro reveal">Four things customers keep asking. Pick one to watch the full exchange.</p>
         </div>
 
-        <div class="scenario-panels">
+        <div class="demo">
+          <div class="scenario-tabs" role="tablist" aria-label="Example scenarios">
+            <button type="button" class="scenario-tab" id="tab-price" role="tab" aria-selected="true" aria-controls="panel-price">
+              <span class="tab-q"><bdi lang="ar" dir="rtl">بكام؟</bdi></span><span class="tab-a">Price &amp; stock</span>
+            </button>
+            <button type="button" class="scenario-tab" id="tab-order" role="tab" aria-selected="false" aria-controls="panel-order" tabindex="-1">
+              <span class="tab-q"><bdi lang="ar" dir="rtl">فين الأوردر؟</bdi></span><span class="tab-a">Order status</span>
+            </button>
+            <button type="button" class="scenario-tab" id="tab-size" role="tab" aria-selected="false" aria-controls="panel-size" tabindex="-1">
+              <span class="tab-q">Do you have size L?</span><span class="tab-a">Size → checkout</span>
+            </button>
+            <button type="button" class="scenario-tab" id="tab-return" role="tab" aria-selected="false" aria-controls="panel-return" tabindex="-1">
+              <span class="tab-q" lang="ar-Latn" dir="ltr">3ayez arga3 el order</span><span class="tab-a">Return → human</span>
+            </button>
+          </div>
 
-          <div class="scenario-panel" id="panel-price" role="tabpanel" aria-labelledby="tab-price">
-            <h3>«<bdi lang="ar" dir="rtl">بكام؟</bdi>» — Price &amp; stock</h3>
-            <div class="chat-card chat-card--standard thread--auto">
-              <div class="chat-head">
-                <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
-                <span class="chat-label">Example conversation</span>
-              </div>
-              <div class="chat-body">
-                <div class="msg msg-customer" data-step>
-                  <p lang="ar-Latn" dir="ltr">bikam el satin slip dress?</p>
-                </div>
-                <p class="sysline" data-step>→ shopify: catalog lookup · Satin Slip Dress</p>
-                <div class="msg msg-luma" data-step data-typing>
-                  <p lang="ar-Latn" dir="ltr">el Satin Slip Dress bi <strong>1,250 genaih</strong> 🖤 mawgood bel S, M w L</p>
-                </div>
-                <div class="msg msg-luma" data-step>
-                  <div class="product-card">
-                    <div class="product-thumb" aria-hidden="true"></div>
-                    <div class="product-info">
-                      <p class="product-name">Satin Slip Dress</p>
-                      <p class="product-price mono">EGP 1,250</p>
-                      <div class="size-chips">
-                        <span class="demo-action demo-chip" role="presentation" aria-hidden="true">S</span>
-                        <span class="demo-action demo-chip" role="presentation" aria-hidden="true">M</span>
-                        <span class="demo-action demo-chip" role="presentation" aria-hidden="true">L</span>
+          <div class="scenario-panels">
+            <div class="scenario-panel" id="panel-price" role="tabpanel" aria-labelledby="tab-price" tabindex="0">
+              <h3 class="sr-only">«<bdi lang="ar" dir="rtl">بكام؟</bdi>» Price &amp; stock</h3>
+              <div class="chat-card">
+                <div class="chat-head"><span class="chat-avatar" aria-hidden="true">N</span><span class="chat-store">@nilethreads.eg<small>Instagram DMs · example conversation</small></span></div>
+                <div class="chat-body">
+                  <div class="msg msg-customer" data-step><p lang="ar-Latn" dir="ltr">bikam el satin slip dress?</p></div>
+                  <p class="sysline" data-step>→ shopify: catalog lookup · Satin Slip Dress</p>
+                  <div class="msg msg-luma" data-step data-typing><p lang="ar-Latn" dir="ltr">el Satin Slip Dress bi <strong>1,250 genaih</strong> 🖤 mawgood bel S, M w L</p></div>
+                  <div class="msg msg-luma" data-step>
+                    <div class="product-card">
+                      <img class="product-thumb" src="img/slip-dress.webp" alt="" width="56" height="56" loading="lazy" />
+                      <div class="product-info">
+                        <p class="product-name">Satin Slip Dress</p>
+                        <p class="product-price mono">EGP 1,250</p>
+                        <div class="size-chips"><span class="demo-chip" role="presentation" aria-hidden="true">S</span><span class="demo-chip" role="presentation" aria-hidden="true">M</span><span class="demo-chip" role="presentation" aria-hidden="true">L</span></div>
                       </div>
+                      <span class="demo-action" role="presentation" aria-hidden="true">View</span>
                     </div>
-                    <span class="demo-action" role="presentation" aria-hidden="true">View product</span>
                   </div>
                 </div>
+                <button type="button" class="thread-replay" hidden>Replay ↻</button>
               </div>
-              <button type="button" class="thread-replay" hidden>Replay ↻</button>
             </div>
-          </div>
 
-          <div class="scenario-panel" id="panel-order" role="tabpanel" aria-labelledby="tab-order">
-            <h3>«<bdi lang="ar" dir="rtl">فين الأوردر؟</bdi>» — Order status</h3>
-            <div class="chat-card chat-card--standard thread--auto">
-              <div class="chat-head">
-                <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
-                <span class="chat-label">Example conversation</span>
+            <div class="scenario-panel" id="panel-order" role="tabpanel" aria-labelledby="tab-order" tabindex="0">
+              <h3 class="sr-only">«<bdi lang="ar" dir="rtl">فين الأوردر؟</bdi>» Order status</h3>
+              <div class="chat-card">
+                <div class="chat-head"><span class="chat-avatar" aria-hidden="true">N</span><span class="chat-store">@nilethreads.eg<small>Instagram DMs · example conversation</small></span></div>
+                <div class="chat-body">
+                  <div class="msg msg-customer" dir="rtl" data-step><p lang="ar" dir="rtl">فين الأوردر؟ 😩</p></div>
+                  <p class="sysline" data-step>→ shopify: order #10482 · fulfilled</p>
+                  <div class="msg msg-luma" dir="rtl" data-step data-typing><p lang="ar" dir="rtl">أوردرك اتشحن يوم الاتنين 🚚 وهيوصلك خلال يومين، ده رقم التتبع:</p></div>
+                  <p class="sysline mono" data-step>BOSTA-882140</p>
+                  <div class="msg msg-luma" dir="rtl" data-step><span class="demo-action demo-action--compact" role="presentation" aria-hidden="true" lang="en" dir="ltr">Track order</span></div>
+                </div>
+                <button type="button" class="thread-replay" hidden>Replay ↻</button>
               </div>
-              <div class="chat-body">
-                <div class="msg msg-customer" dir="rtl" data-step>
-                  <p lang="ar" dir="rtl">فين الأوردر؟ 😩</p>
-                </div>
-                <p class="sysline" data-step>→ shopify: order #10482 · fulfilled</p>
-                <div class="msg msg-luma" dir="rtl" data-step data-typing>
-                  <p lang="ar" dir="rtl">أوردرك اتشحن يوم الاتنين 🚚 وهيوصلك خلال يومين — ده رقم التتبع:</p>
-                </div>
-                <p class="sysline mono" data-step>BOSTA-882140</p>
-                <div class="msg msg-luma" dir="rtl" data-step>
-                  <span class="demo-action demo-action--compact" role="presentation" aria-hidden="true" lang="en" dir="ltr">Track order</span>
-                </div>
-              </div>
-              <button type="button" class="thread-replay" hidden>Replay ↻</button>
             </div>
-          </div>
 
-          <div class="scenario-panel" id="panel-size" role="tabpanel" aria-labelledby="tab-size">
-            <h3>"Do you have size L?" — Size → checkout</h3>
-            <div class="chat-card chat-card--tall thread--auto">
-              <div class="chat-head">
-                <span class="chat-store">@nilethreads.eg · Shopify storefront chat</span>
-                <span class="chat-label">Example conversation</span>
-              </div>
-              <div class="chat-body">
-                <div class="msg msg-customer" data-step>
-                  <p>Do you have size L?</p>
-                </div>
-                <p class="sysline" data-step>→ shopify: inventory check · size L</p>
-                <div class="msg msg-luma" data-step data-typing>
-                  <p>Yes — size L is in stock. Want me to set up checkout?</p>
-                </div>
-                <div class="msg msg-customer" data-step>
-                  <p>yes</p>
-                </div>
-                <div class="msg msg-luma" data-step data-typing>
-                  <div class="product-card">
-                    <div class="product-thumb" aria-hidden="true"></div>
-                    <div class="product-info">
-                      <p class="product-name">Oversized Hoodie</p>
-                      <p class="product-price mono">EGP 750 · size L</p>
+            <div class="scenario-panel" id="panel-size" role="tabpanel" aria-labelledby="tab-size" tabindex="0">
+              <h3 class="sr-only">"Do you have size L?" Size → checkout</h3>
+              <div class="chat-card">
+                <div class="chat-head"><span class="chat-avatar" aria-hidden="true">N</span><span class="chat-store">@nilethreads.eg<small>Shopify storefront chat · example conversation</small></span></div>
+                <div class="chat-body">
+                  <div class="msg msg-customer" data-step><p>Do you have size L?</p></div>
+                  <p class="sysline" data-step>→ shopify: inventory check · size L</p>
+                  <div class="msg msg-luma" data-step data-typing><p>Yes, size L is in stock. Want me to set up checkout?</p></div>
+                  <div class="msg msg-customer" data-step><p>yes</p></div>
+                  <div class="msg msg-luma" data-step data-typing>
+                    <div class="product-card">
+                      <img class="product-thumb" src="img/hoodie.webp" alt="" width="56" height="56" loading="lazy" />
+                      <div class="product-info">
+                        <p class="product-name">Oversized Hoodie</p>
+                        <p class="product-price mono">EGP 750 · size L</p>
+                      </div>
+                      <span class="demo-action" role="presentation" aria-hidden="true">Checkout</span>
                     </div>
-                    <span class="demo-action" role="presentation" aria-hidden="true">Checkout</span>
                   </div>
                 </div>
+                <button type="button" class="thread-replay" hidden>Replay ↻</button>
               </div>
-              <button type="button" class="thread-replay" hidden>Replay ↻</button>
+            </div>
+
+            <div class="scenario-panel" id="panel-return" role="tabpanel" aria-labelledby="tab-return" tabindex="0">
+              <h3 class="sr-only"><span lang="ar-Latn" dir="ltr">"3ayez arga3 el order"</span> Return → human</h3>
+              <div class="chat-card">
+                <div class="chat-head"><span class="chat-avatar" aria-hidden="true">N</span><span class="chat-store">@nilethreads.eg<small>Instagram DMs · example conversation</small></span></div>
+                <div class="chat-body">
+                  <div class="msg msg-customer" data-step><p lang="ar-Latn" dir="ltr">3ayez arga3 el order</p></div>
+                  <p class="sysline" data-step>→ intent: return request · policy: needs human review</p>
+                  <p class="sysline" data-step>confidence 0.42 → escalate</p>
+                  <div class="msg msg-luma" data-step><div class="handoff-card">⏸ LUMA paused this conversation and handed it to Sara with the full thread and order #10482 attached. LUMA won't reply here again until Sara closes it.</div></div>
+                </div>
+                <button type="button" class="thread-replay" hidden>Replay ↻</button>
+              </div>
             </div>
           </div>
-
-          <div class="scenario-panel" id="panel-return" role="tabpanel" aria-labelledby="tab-return">
-            <h3><span lang="ar-Latn" dir="ltr">"3ayez arga3 el order"</span> — Return → human</h3>
-            <div class="chat-card chat-card--return thread--auto">
-              <div class="chat-head">
-                <span class="chat-store">@nilethreads.eg · Instagram DMs</span>
-                <span class="chat-label">Example conversation</span>
-              </div>
-              <div class="chat-body">
-                <div class="msg msg-customer" data-step>
-                  <p lang="ar-Latn" dir="ltr">3ayez arga3 el order</p>
-                </div>
-                <p class="sysline" data-step>→ intent: return request · policy: needs human review</p>
-                <p class="sysline" data-step>confidence 0.42 → escalate</p>
-                <div class="msg msg-luma" data-step>
-                  <div class="handoff-card">⏸ LUMA paused this conversation — handed to Sara with the full thread and order #10482 attached. LUMA won't reply here again until Sara closes it.</div>
-                </div>
-              </div>
-              <button type="button" class="thread-replay" hidden>Replay ↻</button>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ============ HANDOFF / MERCHANT CONTROL ============ -->
-    <section class="control" id="control" aria-labelledby="control-heading">
+    <!-- ============ CONTROL ============ -->
+    <section class="control" id="control" data-sky="deep" data-clock="02:10" aria-labelledby="control-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">04</span>
-        <h2 id="control-heading">Confident? It answers. Unsure? It stops.</h2>
-        <p class="control-intro">LUMA scores its own confidence on every reply. And this is your side of it: every conversation in one inbox, with a takeover that always works.</p>
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">04</span>
+          <h2 id="control-heading" class="reveal">Confident? It answers.<br /><span class="dim">Unsure? It stops.</span></h2>
+          <p class="sec-intro reveal">LUMA scores its own confidence on every reply. And this is your side of it: every conversation in one inbox, with a takeover that always works.</p>
+        </div>
+
         <div class="control-grid">
-          <div class="control-trust">
-            <div class="trust-card">
-              <p class="trust-conf mono">confidence 0.93</p>
-              <span class="trust-tag is-auto">auto-reply</span>
-              <p class="body">The catalog, price, and stock all support the answer, so LUMA replies directly — no waiting on your team.</p>
+          <div class="gauge-card reveal" data-mode="auto">
+            <div class="gauge-toggle" role="group" aria-label="Example question">
+              <button type="button" aria-pressed="true" data-set="auto">Price question</button>
+              <button type="button" aria-pressed="false" data-set="handoff">Return request</button>
             </div>
-            <div class="trust-card">
-              <p class="trust-conf mono">confidence 0.42</p>
-              <span class="trust-tag is-handoff">handoff</span>
-              <p class="body">When the data doesn't clearly support an answer, LUMA stops. It stays silent while a human has the conversation.</p>
+            <div class="gauge" aria-hidden="true">
+              <svg viewBox="0 0 200 112" class="gauge-svg">
+                <defs>
+                  <linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#FF7A59" /><stop offset=".5" stop-color="#C38BFF" /><stop offset="1" stop-color="#4F6BFF" /></linearGradient>
+                </defs>
+                <path d="M14 104 A86 86 0 0 1 186 104" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="14" stroke-linecap="round" />
+                <path class="gauge-arc" d="M14 104 A86 86 0 0 1 186 104" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round" pathLength="100" />
+                <g class="gauge-needle"><line x1="100" y1="104" x2="100" y2="34" stroke="#fff" stroke-width="3" stroke-linecap="round" /><circle cx="100" cy="104" r="7" fill="#fff" /></g>
+              </svg>
             </div>
-            <p class="sysline sysline--info">In production so far, about 1 in 5 conversations is handed to a human.</p>
-            <p class="trust-note">On handoff, your team sees the full thread alongside the relevant order context.</p>
+            <div class="gauge-readout" aria-live="polite">
+              <div class="gauge-state" data-for="auto">
+                <p class="trust-conf mono">confidence 0.93</p>
+                <span class="trust-tag is-auto">auto-reply</span>
+                <p>The catalog, price, and stock all support the answer, so LUMA replies directly. No waiting on your team.</p>
+              </div>
+              <div class="gauge-state" data-for="handoff">
+                <p class="trust-conf mono">confidence 0.42</p>
+                <span class="trust-tag is-handoff">handoff</span>
+                <p>When the data doesn't clearly support an answer, LUMA stops. It stays silent while a human has the conversation.</p>
+              </div>
+            </div>
+            <p class="caption mono">Illustrative example</p>
           </div>
-          <div class="chat-card inbox-card">
-            <div class="chat-head">
-              <span class="chat-store">LUMA inbox · nilethreads.eg</span>
-              <span class="chat-label">Illustrative example</span>
-            </div>
+
+          <div class="inbox reveal" style="--d:1">
+            <div class="chat-head"><span class="chat-store">LUMA inbox · nilethreads.eg<small>Illustrative example</small></span></div>
             <div class="inbox-list">
               <div class="inbox-row">
                 <div><strong>@mariam.k</strong><p lang="ar-Latn" dir="ltr">bikam el satin dress?</p></div>
@@ -490,7 +498,7 @@
               </div>
               <div class="inbox-takeover">
                 <p class="mono">⏸ LUMA paused · order #10482 attached</p>
-                <div class="inbox-reply" role="presentation" aria-hidden="true"><span>Reply as nilethreads…</span><span class="inbox-send">Send</span></div>
+                <div class="inbox-reply" role="presentation" aria-hidden="true"><span class="typed" data-text="Hi Omar, Sara here. I'll sort out the return with you now.">Reply as nilethreads…</span><span class="inbox-send">Send</span></div>
               </div>
               <div class="inbox-row">
                 <div><strong>@nour.xx</strong><p lang="ar" dir="rtl">فين الأوردر؟</p></div>
@@ -499,48 +507,56 @@
             </div>
           </div>
         </div>
+        <div class="control-notes">
+          <p class="pill-note reveal">In production so far, about 1 in 5 conversations is handed to a human.</p>
+          <p class="sec-intro reveal">On handoff, your team sees the full thread alongside the relevant order context.</p>
+        </div>
       </div>
     </section>
 
     <!-- ============ LANGUAGES ============ -->
-    <section class="languages" id="languages" aria-labelledby="languages-heading">
+    <section class="languages" id="languages" data-sky="dusk" data-clock="03:40" aria-labelledby="languages-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">05</span>
-        <h2 id="languages-heading">One question, three ways it actually arrives</h2>
-        <div class="lang-grid">
-          <div class="lang-cell">
-            <p class="lang-label">Arabic</p>
-            <p class="lang-msg ar" lang="ar" dir="rtl">بكام الهودي؟</p>
-            <p class="lang-note mono">answered in the same language</p>
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">05</span>
+          <h2 id="languages-heading" class="reveal">One question, three ways it actually arrives.</h2>
+        </div>
+        <div class="lang-stack">
+          <div class="lang-line reveal" style="--d:0">
+            <span class="lang-label mono">Arabic</span>
+            <p class="lang-msg" lang="ar" dir="rtl">بكام الهودي؟</p>
+            <span class="lang-note mono">answered in the same language</span>
           </div>
-          <div class="lang-cell">
-            <p class="lang-label">Franco-Arabic</p>
+          <div class="lang-line reveal" style="--d:1">
+            <span class="lang-label mono">Franco-Arabic</span>
             <p class="lang-msg" lang="ar-Latn" dir="ltr">bikam el hoodie?</p>
-            <p class="lang-note mono">answered in the same language</p>
+            <span class="lang-note mono">answered in the same language</span>
           </div>
-          <div class="lang-cell">
-            <p class="lang-label">English</p>
+          <div class="lang-line reveal" style="--d:2">
+            <span class="lang-label mono">English</span>
             <p class="lang-msg" lang="en" dir="ltr">How much is the hoodie?</p>
-            <p class="lang-note mono">answered in the same language</p>
+            <span class="lang-note mono">answered in the same language</span>
           </div>
         </div>
-        <p class="languages-footnote">Customers switch scripts mid-thread all the time. LUMA follows, message by message.</p>
+        <p class="sec-intro lang-foot reveal">Customers switch scripts mid-thread all the time. LUMA follows, message by message.</p>
       </div>
     </section>
 
     <!-- ============ COMPARISON ============ -->
-    <section class="compare" aria-labelledby="compare-heading">
+    <section class="compare" data-sky="dusk" data-clock="04:30" aria-labelledby="compare-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">06</span>
-        <h2 id="compare-heading">Your inbox, three ways</h2>
-        <div class="compare-scroll">
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">06</span>
+          <h2 id="compare-heading" class="reveal">Your inbox, three ways.</h2>
+        </div>
+        <div class="compare-scroll reveal">
           <table class="compare-table">
             <thead>
               <tr>
                 <th scope="col"><span class="sr-only">Criteria</span></th>
                 <th scope="col">Managing DMs yourself</th>
                 <th scope="col">A generic chatbot</th>
-                <th scope="col" class="is-luma">LUMA</th>
+                <th scope="col" class="is-luma"><img src="logo.png" alt="" width="26" height="18" /> LUMA</th>
               </tr>
             </thead>
             <tbody>
@@ -576,7 +592,7 @@
               </tr>
               <tr>
                 <th scope="row">Setup &amp; upkeep</th>
-                <td data-label="Managing DMs yourself">None — it's just you</td>
+                <td data-label="Managing DMs yourself">None, it's just you</td>
                 <td data-label="A generic chatbot">You build and maintain every flow</td>
                 <td data-label="LUMA" class="is-luma">Install once, reads your store</td>
               </tr>
@@ -586,67 +602,78 @@
       </div>
     </section>
 
-    <!-- ============ SETUP ============ -->
-    <section class="setup" id="setup" data-cta-location="setup" aria-labelledby="setup-heading">
+    <!-- ============ SETUP · dawn ============ -->
+    <section class="setup" id="setup" data-sky="dawn" data-clock="06:10" data-cta-location="setup" aria-labelledby="setup-heading">
+      <div class="dawn-bg" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 760px)" srcset="img/dawn-rooftops-1024.webp" />
+          <img src="img/dawn-rooftops-2048.webp" alt="" width="2048" height="878" loading="lazy" data-parallax="0.1" />
+        </picture>
+      </div>
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">07</span>
-        <h2 id="setup-heading">Live before tonight's DMs</h2>
-        <p class="setup-intro">No flows to build, nothing to script. LUMA answers from your store's data from day one.</p>
-        <div class="setup-grid">
-          <div class="setup-step"><span class="setup-marker mono">step 01</span><h3>Install from the Shopify App Store</h3><p>One click. LUMA reads your catalog, inventory, policies, and orders — the same data it answers from.</p><span class="setup-time mono">≈ 2 minutes</span></div>
-          <div class="setup-step"><span class="setup-marker mono">step 02</span><h3>Connect Instagram</h3><p>Link an Instagram Business or Creator account so LUMA can answer DMs. Storefront chat works without it.</p><span class="setup-time mono">≈ 5 minutes</span></div>
-          <div class="setup-step"><span class="setup-marker mono">step 03</span><h3>Review and go live</h3><p>Check the tone and handoff settings, send yourself a test DM, switch it on.</p><span class="setup-time mono">same day</span></div>
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">07</span>
+          <h2 id="setup-heading" class="reveal">Live before tonight's DMs.</h2>
+          <p class="sec-intro reveal">No flows to build, nothing to script. LUMA answers from your store's data from day one.</p>
         </div>
-        <p class="setup-footnote mono">Permissions: LUMA reads products, inventory, policies, and orders from your Shopify store, and reads &amp; replies to DMs of the Instagram account you connect. Nothing else.</p>
-        <div class="setup-ctas">
-          <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
+        <ol class="steps">
+          <li class="step reveal" style="--d:0"><span class="step-n">1</span><h3>Install from the Shopify App Store</h3><p>One click. LUMA reads your catalog, inventory, policies, and orders, the same data it answers from.</p><span class="step-t mono">≈ 2 minutes</span></li>
+          <li class="step reveal" style="--d:1"><span class="step-n">2</span><h3>Connect Instagram</h3><p>Link an Instagram Business or Creator account so LUMA can answer DMs. Storefront chat works without it.</p><span class="step-t mono">≈ 5 minutes</span></li>
+          <li class="step reveal" style="--d:2"><span class="step-n">3</span><h3>Review and go live</h3><p>Check the tone and handoff settings, send yourself a test DM, switch it on.</p><span class="step-t mono">same day</span></li>
+        </ol>
+        <p class="perm mono reveal">Permissions: LUMA reads products, inventory, policies, and orders from your Shopify store, and reads &amp; replies to DMs of the Instagram account you connect. Nothing else.</p>
+        <div class="cta-row reveal">
+          <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-line" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
         </div>
       </div>
     </section>
 
     <!-- ============ PRICING ============ -->
-    <section class="pricing" id="pricing" data-cta-location="pricing" aria-labelledby="pricing-heading">
+    <section class="pricing" id="pricing" data-sky="day" data-clock="08:00" data-cta-location="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">08</span>
-        <div class="pricing-head">
-          <h2 id="pricing-heading">Pricing</h2>
-          <p class="pricing-sub">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">08</span>
+          <h2 id="pricing-heading" class="reveal">Pricing.</h2>
+          <p class="sec-intro reveal">Free plan available · 7-day free trial on paid plans · Billed through Shopify</p>
         </div>
-        <div class="plan-table">
-          <div class="plan-row">
-            <div class="plan-name-row"><span class="plan-name">Free</span></div>
-            <div class="plan-price">$0<span class="mo mono"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">20</span> conversations/day · Try LUMA on your store</div>
-            <a class="btn btn-outline" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Start free</a>
+        <div class="plans">
+          <div class="plan reveal" style="--d:0">
+            <p class="plan-name">Free</p>
+            <p class="plan-price">$0<span class="mo mono">/mo</span></p>
+            <p class="plan-desc"><b>20</b> conversations/day<br />Try LUMA on your store</p>
+            <a class="btn btn-line" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Start free</a>
           </div>
-          <div class="plan-row">
-            <div class="plan-name-row"><span class="plan-name">Starter</span></div>
-            <div class="plan-price">$29<span class="mo mono"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">200</span> conversations/day · For growing DM volume</div>
-            <a class="btn btn-outline" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+          <div class="plan reveal" style="--d:1">
+            <p class="plan-name">Starter</p>
+            <p class="plan-price">$29<span class="mo mono">/mo</span></p>
+            <p class="plan-desc"><b>200</b> conversations/day<br />For growing DM volume</p>
+            <a class="btn btn-line" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
           </div>
-          <div class="plan-row is-popular">
-            <div class="plan-name-row"><span class="plan-name">Growth</span><span class="plan-popular-tag">Most popular</span></div>
-            <div class="plan-price">$79<span class="mo mono"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">600</span> conversations/day · Most active brands</div>
-            <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+          <div class="plan is-popular reveal" style="--d:2">
+            <p class="plan-name">Growth <span class="plan-tag">Most popular</span></p>
+            <p class="plan-price">$79<span class="mo mono">/mo</span></p>
+            <p class="plan-desc"><b>600</b> conversations/day<br />Most active brands</p>
+            <a class="btn btn-glow" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
           </div>
-          <div class="plan-row">
-            <div class="plan-name-row"><span class="plan-name">Pro</span></div>
-            <div class="plan-price">$149<span class="mo mono"> /mo</span></div>
-            <div class="plan-desc"><span class="cnt">1,500</span> conversations/day · High-volume storefronts</div>
-            <a class="btn btn-outline" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
+          <div class="plan reveal" style="--d:3">
+            <p class="plan-name">Pro</p>
+            <p class="plan-price">$149<span class="mo mono">/mo</span></p>
+            <p class="plan-desc"><b>1,500</b> conversations/day<br />High-volume storefronts</p>
+            <a class="btn btn-line" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ FAQ ============ -->
-    <section class="faq" id="faq" aria-labelledby="faq-heading">
-      <div class="wrap">
-        <span class="section-num mono" aria-hidden="true">09</span>
-        <h2 id="faq-heading">Frequently asked questions</h2>
+    <section class="faq" id="faq" data-sky="day" data-clock="09:00" aria-labelledby="faq-heading">
+      <div class="wrap faq-grid">
+        <div class="sec-head">
+          <span class="sec-num mono" aria-hidden="true">09</span>
+          <h2 id="faq-heading" class="reveal">Questions, answered.</h2>
+          <p class="sec-intro reveal">Something else? <a class="ulink" href="mailto:team@luma-bot.com">team@luma-bot.com</a></p>
+        </div>
         <div class="faq-list">
           <details class="faq-item">
             <summary>Which Shopify stores can use LUMA?</summary>
@@ -658,11 +685,11 @@
           </details>
           <details class="faq-item">
             <summary>Does it understand Egyptian Franco-Arabic?</summary>
-            <p>Yes — Franco-Arabic (Egyptian Arabic typed in Latin letters) and Egyptian Arabic script are both core capabilities, alongside English.</p>
+            <p>Yes. Franco-Arabic (Egyptian Arabic typed in Latin letters) and Egyptian Arabic script are both core capabilities, alongside English.</p>
           </details>
           <details class="faq-item">
             <summary>How does it know my products and orders?</summary>
-            <p>After you install LUMA, it reads your store's catalog, inventory, policies, and order data directly from Shopify — prices and stock come from your real store, not a script.</p>
+            <p>After you install LUMA, it reads your store's catalog, inventory, policies, and order data directly from Shopify. Prices and stock come from your real store, not a script.</p>
           </details>
           <details class="faq-item">
             <summary>What happens when it isn't sure?</summary>
@@ -674,7 +701,7 @@
           </details>
           <details class="faq-item">
             <summary>How is customer data handled?</summary>
-            <p>Conversation content and the Shopify data LUMA reads are used to answer customers. Its AI provider is Claude by Anthropic; see our <a href="privacy-policy.html">Privacy Policy</a> for retention and your rights.</p>
+            <p>Conversation content and the Shopify data LUMA reads are used to answer customers. Its AI provider is Claude by Anthropic; see our <a class="ulink" href="privacy-policy.html">Privacy Policy</a> for retention and your rights.</p>
           </details>
           <details class="faq-item">
             <summary>What do I need to set it up?</summary>
@@ -686,20 +713,24 @@
           </details>
           <details class="faq-item">
             <summary>How do plans count conversations?</summary>
-            <p>Each plan includes a number of conversations per day (Free 20, Starter 200, Growth 600, Pro 1,500). A conversation is a customer chat that LUMA handles that day, across Instagram DMs and storefront chat combined. For edge cases, reach out to <a href="mailto:team@luma-bot.com">team@luma-bot.com</a>.</p>
+            <p>Each plan includes a number of conversations per day (Free 20, Starter 200, Growth 600, Pro 1,500). A conversation is a customer chat that LUMA handles that day, across Instagram DMs and storefront chat combined. For edge cases, reach out to <a class="ulink" href="mailto:team@luma-bot.com">team@luma-bot.com</a>.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ============ CLOSING CTA ============ -->
-    <section class="closing" data-cta-location="footer" aria-labelledby="closing-heading">
+    <!-- ============ CLOSING ============ -->
+    <section class="closing" data-sky="brand" data-clock="23:47" data-cta-location="footer" aria-labelledby="closing-heading">
+      <div class="closing-star" aria-hidden="true"><img src="logo.png" alt="" width="375" height="264" loading="lazy" /></div>
       <div class="wrap">
-        <h2 id="closing-heading" class="closing-line1">Your customers are already asking. <bdi lang="ar" dir="rtl">بكام؟</bdi> <bdi lang="ar" dir="rtl">فين الأوردر؟</bdi> <span>Do you have size M?</span></h2>
-        <p class="closing-line2">LUMA answers in seconds, from your store's real data — and hands off to you when it matters.</p>
-        <div class="closing-ctas">
-          <a class="btn" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-          <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
+        <h2 id="closing-heading" class="closing-h">
+          <span class="ln reveal">Your customers are already asking.</span>
+          <span class="closing-qs reveal" style="--d:1"><bdi lang="ar" dir="rtl">بكام؟</bdi> <bdi lang="ar" dir="rtl">فين الأوردر؟</bdi> <span>Do you have size M?</span></span>
+        </h2>
+        <p class="closing-sub reveal" style="--d:2">LUMA answers in seconds, from your store's real data, and hands off to you when it matters. Tonight included.</p>
+        <div class="cta-row reveal" style="--d:3">
+          <a class="btn btn-paper" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
           <a class="btn-text" href="mailto:team@luma-bot.com">Talk to us</a>
         </div>
       </div>
@@ -711,40 +742,42 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="foot-top">
-        <img src="logo.png" alt="" width="24" height="24" />
-        <span>LUMA</span>
+        <div>
+          <div class="foot-brand"><img src="logo.png" alt="" width="34" height="24" /><span>LUMA</span></div>
+          <p class="foot-blurb">An AI sales and customer-service teammate for Shopify merchants in Egypt and the Middle East.</p>
+        </div>
+        <div class="foot-grid">
+          <div>
+            <p class="foot-col-title mono">Product</p>
+            <div class="foot-links">
+              <a href="#product">Product</a>
+              <a href="#languages">Languages</a>
+              <a href="#proof">Proof</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </div>
+          <div>
+            <p class="foot-col-title mono">Legal</p>
+            <div class="foot-links">
+              <a href="privacy-policy.html">Privacy Policy</a>
+              <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+          </div>
+          <div>
+            <p class="foot-col-title mono">Contact</p>
+            <div class="foot-links">
+              <a href="https://www.instagram.com/luma__bot/" target="_blank" rel="noopener">Instagram</a>
+              <a href="mailto:team@luma-bot.com">Email</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="foot-blurb">An AI sales and customer-service teammate for Shopify merchants in Egypt and the Middle East.</p>
-
-      <div class="foot-grid">
-        <div>
-          <p class="foot-col-title">Product</p>
-          <div class="foot-links">
-            <a href="#product">Product</a>
-            <a href="#languages">Languages</a>
-            <a href="#proof">Proof</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
-          </div>
-        </div>
-        <div>
-          <p class="foot-col-title">Legal</p>
-          <div class="foot-links">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms-of-service.html">Terms of Service</a>
-          </div>
-        </div>
-        <div>
-          <p class="foot-col-title">Contact</p>
-          <div class="foot-links">
-            <a href="https://www.instagram.com/luma__bot/" target="_blank" rel="noopener">Instagram</a>
-            <a href="mailto:team@luma-bot.com">Email</a>
-          </div>
-        </div>
+      <p class="foot-word" aria-hidden="true">LUMA</p>
+      <div class="foot-bottom">
+        <p class="foot-note">Works with Instagram DMs and Shopify storefront chat today · WhatsApp on the roadmap</p>
+        <p class="foot-copy">© 2026 LUMA · Built in Cairo by Antony Hani Reda Ramzy</p>
       </div>
-
-      <p class="foot-note">Works with Instagram DMs and Shopify storefront chat today · WhatsApp on the roadmap</p>
-      <p class="foot-copy">© 2026 LUMA · Built in Cairo by Antony Hani Reda Ramzy</p>
     </div>
   </footer>
 
@@ -786,217 +819,6 @@
       }
     });
   </script>
-  <script>
-    (function () {
-      try {
-        var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-        var header = document.querySelector('.site-header');
-        var navToggle = document.querySelector('.nav-toggle');
-
-        function closeNav(returnFocus) {
-          if (!header || !navToggle) return;
-          header.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-          if (returnFocus) navToggle.focus();
-        }
-
-        if (header && navToggle) {
-          navToggle.addEventListener('click', function () {
-            var isOpen = header.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-          });
-          Array.prototype.slice.call(document.querySelectorAll('.nav-links a')).forEach(function (link) {
-            link.addEventListener('click', function () { closeNav(false); });
-          });
-          document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && header.classList.contains('open')) closeNav(true);
-          });
-        }
-
-        function setupThread(card) {
-          if (!card) return { play: function (done) { if (done) done(); }, cancel: function () {}, complete: function () {} };
-          var items = Array.prototype.slice.call(card.querySelectorAll('[data-step]'));
-          var timers = [];
-          var indicators = [];
-
-          function cancel() {
-            timers.forEach(function (timer) { window.clearTimeout(timer); });
-            timers = [];
-            indicators.forEach(function (indicator) { indicator.remove(); });
-            indicators = [];
-          }
-
-          function schedule(fn, delay) {
-            var timer = window.setTimeout(function () {
-              timers = timers.filter(function (id) { return id !== timer; });
-              fn();
-            }, delay);
-            timers.push(timer);
-          }
-
-          function complete() {
-            cancel();
-            items.forEach(function (el) {
-              el.style.opacity = '1';
-              el.style.transform = 'translateY(0)';
-            });
-          }
-
-          function reset() {
-            cancel();
-            card.classList.add('thread--resetting');
-            items.forEach(function (el) {
-              el.style.opacity = '0';
-              el.style.transform = 'translateY(8px)';
-            });
-            card.offsetWidth;
-            card.classList.remove('thread--resetting');
-          }
-
-          function play(done) {
-            if (!items.length || reduceMotion) { complete(); if (done) done(); return; }
-            reset();
-            var i = 0;
-            function finishAfterTransition() { schedule(function () { if (done) done(); }, 410); }
-            function step() {
-              if (i >= items.length) { if (done) done(); return; }
-              var el = items[i];
-              function reveal() {
-                el.style.transition = 'opacity .4s var(--ease), transform .4s var(--ease)';
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-                i++;
-                if (i >= items.length) finishAfterTransition();
-                else schedule(step, 220);
-              }
-              if (el.hasAttribute('data-typing')) {
-                var indicator = document.createElement('div');
-                indicator.className = 'typing-indicator';
-                indicator.setAttribute('aria-hidden', 'true');
-                indicator.innerHTML = '<span></span><span></span><span></span>';
-                el.parentNode.insertBefore(indicator, el);
-                indicators.push(indicator);
-                schedule(function () {
-                  indicator.remove();
-                  indicators = indicators.filter(function (item) { return item !== indicator; });
-                  reveal();
-                }, 650);
-              } else {
-                schedule(reveal, 120);
-              }
-            }
-            step();
-          }
-
-          return { play: play, cancel: cancel, complete: complete };
-        }
-
-        function observeOnce(target, callback) {
-          if (!target || reduceMotion || !('IntersectionObserver' in window)) { callback(); return; }
-          var observer = new IntersectionObserver(function (entries) {
-            if (entries[0] && entries[0].isIntersecting) { observer.disconnect(); callback(); }
-          }, { threshold: .15, rootMargin: '0px 0px -10%' });
-          observer.observe(target);
-        }
-
-        // Hero thread — autoplay once on scroll into view.
-        var heroCard = document.getElementById('hero-thread');
-        var heroCtrl = setupThread(heroCard);
-        var heroReplay = heroCard && heroCard.querySelector('.thread-replay');
-        if (heroReplay) {
-          heroReplay.addEventListener('click', function () {
-            if (io) io.disconnect();
-            played = true;
-            heroReplay.hidden = true;
-            heroCtrl.play(function () { heroReplay.hidden = false; });
-          });
-        }
-        if (heroCard && !reduceMotion && 'IntersectionObserver' in window) {
-          var played = false;
-          var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting && !played) {
-                played = true;
-                heroCtrl.play(function () { if (heroReplay) heroReplay.hidden = false; });
-                io.disconnect();
-              }
-            });
-          }, { threshold: .15, rootMargin: '0px 0px -10%' });
-          io.observe(heroCard);
-        } else {
-          heroCtrl.complete();
-          if (heroReplay) heroReplay.hidden = false;
-        }
-
-        // Scenario tabs are an enhancement: the static page shows every panel.
-        var tabs = Array.prototype.slice.call(document.querySelectorAll('.scenario-tab'));
-        if (tabs.length) {
-          var panels = tabs.map(function (tab) { return document.getElementById(tab.getAttribute('aria-controls')); });
-          panels.forEach(function (panel, index) { panel.hidden = index !== 0; });
-          var ctrls = panels.map(function (panel) { return setupThread(panel.querySelector('.chat-card')); });
-          var replays = panels.map(function (panel) { return panel.querySelector('.thread-replay'); });
-          var panelTimers = panels.map(function () { return null; });
-
-          function resetPanelCrossfade(index) {
-            if (panelTimers[index] !== null) window.clearTimeout(panelTimers[index]);
-            panelTimers[index] = null;
-            panels[index].classList.remove('is-entering', 'is-active');
-          }
-
-          function playScenario(index) {
-            ctrls.forEach(function (ctrl) { ctrl.cancel(); });
-            if (replays[index]) replays[index].hidden = true;
-            ctrls[index].play(function () { if (replays[index]) replays[index].hidden = false; });
-          }
-
-          function select(index, focus) {
-            panels.forEach(function (panel, panelIndex) { resetPanelCrossfade(panelIndex); });
-            tabs.forEach(function (tab, tabIndex) {
-              var isSelected = tabIndex === index;
-              tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-              tab.tabIndex = isSelected ? 0 : -1;
-              panels[tabIndex].hidden = !isSelected;
-            });
-            panels[index].classList.add('is-entering');
-            panels[index].offsetWidth;
-            panels[index].classList.add('is-active');
-            panelTimers[index] = window.setTimeout(function () {
-              panels[index].classList.remove('is-entering', 'is-active');
-              panelTimers[index] = null;
-            }, 160);
-            if (focus) tabs[index].focus();
-            playScenario(index);
-          }
-
-          tabs.forEach(function (tab, index) {
-            tab.addEventListener('click', function () { select(index); });
-            tab.addEventListener('keydown', function (event) {
-              var next = null;
-              if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
-              if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
-              if (next !== null) { event.preventDefault(); select(next, true); }
-            });
-            if (replays[index]) replays[index].addEventListener('click', function () { playScenario(index); });
-          });
-
-          select(0);
-        }
-        function revealProblem(){var s=document.querySelector('.problem');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){s.classList.add('is-revealed')})}
-        function tween(a,b,d,draw,done){var s;function f(t){if(!s)s=t;var p=Math.min((t-s)/d,1),e=1-Math.pow(1-p,3);draw(a+(b-a)*e);if(p<1)window.requestAnimationFrame(f);else if(done)done()}window.requestAnimationFrame(f)}
-        function revealLanguages(){var s=document.querySelector('.languages');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){s.classList.add('is-revealed')})}
-        function revealProof(){var s=document.querySelector('.proof');if(!s||reduceMotion)return;observeOnce(s,function(){Array.prototype.slice.call(s.querySelectorAll('[data-count]')).forEach(function(e){var n=Number(e.getAttribute('data-count')),x=e.getAttribute('data-suffix')||'',d=Number(e.getAttribute('data-decimals')||0),g=e.getAttribute('data-group')==='true',finished=false;function format(v){var value=d?v.toFixed(d):String(Math.round(v));return(g?Number(value).toLocaleString('en-US'):value)+x}function final(){if(finished)return;finished=true;e.textContent=format(n)}tween(0,n,600,function(v){if(!finished)e.textContent=format(v)},final);window.setTimeout(final,900)})})}
-        function revealClosing(){var s=document.querySelector('.closing');if(!s||reduceMotion)return;s.classList.add('motion-pending');observeOnce(s,function(){s.classList.add('is-revealed')})}
-        var sentinel=document.querySelector('.header-sentinel');if(header&&sentinel&&'IntersectionObserver'in window)new IntersectionObserver(function(e){header.classList.toggle('is-stuck',!e[0].isIntersecting)},{threshold:0}).observe(sentinel);
-        revealProblem();revealLanguages();revealProof();revealClosing();
-      } catch (error) {
-        document.documentElement.classList.remove('js');
-        Array.prototype.slice.call(document.querySelectorAll('.thread--auto [data-step]')).forEach(function (step) {
-          step.style.opacity = '1';
-          step.style.transform = 'translateY(0)';
-        });
-        Array.prototype.slice.call(document.querySelectorAll('.scenario-panel')).forEach(function (panel) { panel.hidden = false; });
-      }
-    })();
-  </script>
+  <script src="landing.js" defer></script>
 </body>
 </html>
