@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LUMA: Turn every «بكام؟» into a sale | AI sales teammate for Shopify</title>
+  <title>LUMA: DMs in. Orders out. | AI sales teammate for Shopify</title>
   <meta name="description" content="LUMA answers Instagram DMs and Shopify storefront chat in Arabic, English, and Franco-Arabic — with prices, stock, and order status read from your real Shopify store. Unsure? It hands off to your team.">
   <link rel="canonical" href="https://luma-bot.com/">
   <link rel="icon" type="image/png" href="logo.png">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#1F3BFF">
   <meta name="facebook-domain-verification" content="8utcrivshlh7pi265543shz1l9l5vp" />
 
   <!-- Open Graph / social -->
@@ -16,14 +16,14 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ar_EG" />
   <meta property="og:url" content="https://luma-bot.com/" />
-  <meta property="og:title" content="LUMA — Turn every «بكام؟» into a sale" />
+  <meta property="og:title" content="LUMA: DMs in. Orders out." />
   <meta property="og:description" content="AI sales teammate for Shopify merchants in Egypt and the Middle East — answers Instagram DMs and storefront chat in Arabic, English, and Franco-Arabic from your live store data." />
   <meta property="og:image" content="https://luma-bot.com/og-image-v2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="LUMA — AI customer service for Shopify merchants, in Arabic, English, and Franco-Arabic." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LUMA — Turn every «بكام؟» into a sale" />
+  <meta name="twitter:title" content="LUMA: DMs in. Orders out." />
   <meta name="twitter:description" content="AI sales teammate for Shopify merchants — answers Instagram DMs and storefront chat in Arabic, English, and Franco-Arabic from your live store data." />
   <meta name="twitter:image" content="https://luma-bot.com/og-image-v2.png" />
 
@@ -77,7 +77,7 @@
         "name": "How long does setup take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Minutes for store chat. Add Instagram and you're live the same day."
+          "text": "Minutes for store chat. Add Instagram and you’re live the same day."
         }
       },
       {
@@ -125,7 +125,7 @@
         "name": "What happens to customer data?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It's used only to answer your customers. Details in the Privacy Policy."
+          "text": "It’s used only to answer your customers. Details in the Privacy Policy."
         }
       },
       {
@@ -142,11 +142,12 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,700&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700;900&display=swap">
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="sold.css">
+  <script src="sold.js" defer></script>
 
   <!-- Privacy-friendly analytics: Umami Cloud (cookieless, no consent banner needed). -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="fcdbd97e-6ecc-4f64-978a-c7d4eb612496"></script>
@@ -165,366 +166,323 @@
     fbq('track', 'PageView');
   </script>
 </head>
-<body>
+<body id="top">
   <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1066034615859469&amp;ev=PageView&amp;noscript=1" /></noscript>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header" data-cta-location="nav">
-  <a class="brand" href="#top" aria-label="LUMA, back to top"><img src="logo.png" width="40" height="28" alt="">LUMA</a>
-  <nav class="nav" aria-label="Main">
-    <a class="u" href="#product">How it works</a>
-    <a class="u" href="#pricing">Pricing</a>
-    <a class="u" href="#faq">FAQ</a>
-  </nav>
-  <div class="header-actions">
-    <a class="u link-demo" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a demo</a>
-    <a class="btn btn-blue btn-sm" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install on Shopify</a>
-  </div>
+<header class="site-head on-dark" data-cta-location="nav">
+    <a class="brand" href="#top" aria-label="LUMA home">
+      <img class="logo" src="logo.png" width="375" height="264" alt="">
+      <span class="wordmark" translate="no">LUMA</span>
+    </a>
+    <nav class="head-nav" aria-label="Main">
+      <a href="#product">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="head-cta">
+      <a class="demo-link" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a demo</a>
+      <a class="btn btn-lime btn-sm" href="https://apps.shopify.com/luma" target="_blank" rel="noopener"><span class="long">Install on Shopify</span><span class="short">Install</span></a>
+    </div>
 </header>
 
-<main id="main">
-
-<section class="hero" id="top" data-cta-location="hero" aria-labelledby="hero-title">
-  <h1 id="hero-title" class="hero-title">
-    <span class="ht-line"><span class="mask"><span class="mask-in">Turn every</span></span></span>
-    <span class="ht-ar" lang="ar" dir="rtl">بكام؟</span>
-    <span class="ht-line ht-end"><span class="mask"><span class="mask-in">into a sale.</span></span></span>
-  </h1>
-
-  <div class="hero-foot">
-    <div class="hero-cta">
-      <p class="hero-lede">Your 24/7 salesperson for Instagram DMs and Shopify chat. Replies in about 2 seconds, in Arabic, Franco or English, with real prices, stock and a checkout link.</p>
-      <div class="cta-row">
-        <a class="btn btn-blue" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install free on Shopify</a>
-        <a class="btn btn-line" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
+<main id="main" tabindex="-1">
+  <section class="hero on-dark" aria-labelledby="h1" data-cta-location="hero">
+    <div class="hero-copy">
+      <h1 id="h1"><span class="ln" style="--i:0">DMs in.</span><span class="ln" style="--i:1"><span class="slab">Orders</span> out.</span></h1>
+      <p class="lede">LUMA answers Instagram DMs and store chat with real prices, live stock and a checkout link in the right size. In about 2 seconds, in Arabic, Franco or English.</p>
+      <div class="btns" id="heroBtns">
+        <a class="btn btn-lime" id="heroInstall" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install free on Shopify</a>
+        <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a 15-min demo</a>
       </div>
       <p class="fine">Free plan. Live in minutes. Billed through Shopify.</p>
     </div>
-    <div class="answer">
-      <p class="who">LUMA</p>
-      <p class="answer-text" lang="ar" dir="rtl">الهودي بـ750 جنيه ومتوفر بمقاسات <bdi dir="ltr">S</bdi> لـ <bdi dir="ltr">XL</bdi>.</p>
-      <div class="product">
-        <img src="img/hoodie.webp" width="300" height="300" alt="Oversized Hoodie">
-        <div class="product-body">
-          <p class="product-name">Oversized Hoodie</p>
-          <p class="product-meta">EGP 750</p>
+
+    <div class="machine" id="machine">
+      <div class="m-card">
+        <div class="m-step m-cust"><p class="bub bub-c">«<span lang="ar" dir="rtl">بكام الهودي؟</span>»</p></div>
+        <div class="m-step m-luma"><p class="bub bub-l" lang="ar" dir="rtl">الهودي بـ750 جنيه ومتوفر بمقاسات <bdi dir="ltr" style="white-space:nowrap">S</bdi> لـ <bdi dir="ltr" style="white-space:nowrap">XL</bdi>.</p></div>
+        <div class="m-step pcard">
+          <img src="img/hoodie.webp" width="480" height="480" alt="Oversized Hoodie">
+          <div class="pc-text"><p class="pc-name">Oversized Hoodie</p><p class="pc-price">EGP 750, size M</p></div>
+          <span class="chip">Checkout</span>
         </div>
-        <span class="chip">Checkout</span>
       </div>
+      <div class="m-step ticket" id="ticket">
+        <div class="t-main"><p class="t-h">Order placed</p><p class="t-b">Oversized Hoodie · M · EGP 750</p></div>
+        <div class="t-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <button class="replay" type="button" id="mReplay"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Replay</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="product" aria-labelledby="how-title">
-  <h2 id="how-title" class="h2">From DM to checkout.</h2>
-  <div class="section-body">
-    <div class="tabs" role="tablist" aria-label="Scenarios">
-      <button class="tab" role="tab" id="t-a" aria-selected="true" aria-controls="p-a" data-tab="a">Price and stock</button>
-      <button class="tab" role="tab" id="t-b" aria-selected="false" aria-controls="p-b" tabindex="-1" data-tab="b">Order status</button>
-      <button class="tab" role="tab" id="t-c" aria-selected="false" aria-controls="p-c" tabindex="-1" data-tab="c">Size to checkout</button>
-      <button class="tab" role="tab" id="t-d" aria-selected="false" aria-controls="p-d" tabindex="-1" data-tab="d">Return request</button>
-    </div>
+<section class="how" id="product" aria-labelledby="how-h">
+  <div class="wrap">
+    <h2 id="how-h" class="rv">From DM to checkout.</h2>
+    <div class="how-body rv">
+      <div class="tabs" role="tablist" aria-label="From DM to checkout.">
+        <button class="tab" role="tab" type="button" id="tab-a" aria-controls="panel-a" aria-selected="true" tabindex="0">Price and stock</button>
+        <button class="tab" role="tab" type="button" id="tab-b" aria-controls="panel-b" aria-selected="false" tabindex="-1">Order status</button>
+        <button class="tab" role="tab" type="button" id="tab-c" aria-controls="panel-c" aria-selected="false" tabindex="-1">Size to checkout</button>
+        <button class="tab" role="tab" type="button" id="tab-d" aria-controls="panel-d" aria-selected="false" tabindex="-1">Return request</button>
+      </div>
 
-    <div class="panel is-active" role="tabpanel" id="p-a" aria-labelledby="t-a" data-panel="a">
-      <div class="msg">
-        <p class="who">Customer</p>
-        <p class="text">bikam el hoodie el oversize? 👀</p>
-      </div>
-      <div class="msg sys">
-        <p class="who">Shopify</p>
-        <p class="text">Oversized Hoodie: EGP 750, in stock, S to XL.</p>
-      </div>
-      <div class="msg luma">
-        <p class="who">LUMA</p>
-        <p class="text">el oversized hoodie bi 750 genaih 🖤 mawgood mn S l XL. tehebby size eh?</p>
-      </div>
-      <div class="msg">
-        <p class="who">Customer</p>
-        <p class="text">M please</p>
-      </div>
-      <div class="msg luma">
-        <p class="who">LUMA</p>
-        <article class="product">
-          <img src="img/hoodie.webp" width="300" height="300" alt="Oversized Hoodie">
-          <div class="product-body">
-            <h3 class="product-name">Oversized Hoodie</h3>
-            <p class="product-meta">EGP 750, size M</p>
+      <div class="chat">
+        <div class="panels">
+          <div class="panel is-active" role="tabpanel" id="panel-a" aria-labelledby="tab-a" tabindex="0">
+            <h3 class="p-title">Price and stock</h3>
+            <div class="thread">
+              <div class="msg cust" data-step><span class="who">Customer</span><p class="bub">bikam el hoodie el oversize? 👀</p></div>
+              <div class="msg data" data-step><span class="who">Shopify</span><p>Oversized Hoodie: EGP 750, in stock, S to XL.</p></div>
+              <div class="msg luma" data-step data-type><span class="who">LUMA</span><p class="bub"><span class="txt">el oversized hoodie bi 750 genaih 🖤 mawgood mn S l XL. tehebby size eh?</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p></div>
+              <div class="msg cust" data-step><span class="who">Customer</span><p class="bub">M please</p></div>
+              <div class="msg luma" data-step data-type><span class="who">LUMA</span>
+                <div class="bub pbub"><div class="pcard in-chat"><img src="img/hoodie.webp" width="480" height="480" alt="Oversized Hoodie" loading="lazy"><div class="pc-text"><p class="pc-name">Oversized Hoodie</p><p class="pc-price">EGP 750, size M</p></div><span class="chip">Checkout</span></div><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              </div>
+            </div>
           </div>
-          <span class="chip">Checkout</span>
-        </article>
-      </div>
-    </div>
 
-    <div class="panel" role="tabpanel" id="p-b" aria-labelledby="t-b" data-panel="b">
-      <div class="msg">
-        <p class="who">Customer</p>
-        <p class="text" lang="ar" dir="rtl">فين الأوردر؟ 😩</p>
-      </div>
-      <div class="msg sys">
-        <p class="who">Shopify</p>
-        <p class="text">Order <bdi dir="ltr">#10482</bdi>: fulfilled.</p>
-      </div>
-      <div class="msg luma">
-        <p class="who">LUMA</p>
-        <p class="text" lang="ar" dir="rtl">أوردرك اتشحن يوم الاتنين 🚚 وهيوصلك خلال يومين، ده رقم التتبع: <bdi dir="ltr">BOSTA-882140</bdi></p>
-      </div>
-    </div>
-
-    <div class="panel" role="tabpanel" id="p-c" aria-labelledby="t-c" data-panel="c">
-      <div class="msg">
-        <p class="who">Customer</p>
-        <p class="text">Do you have size L?</p>
-      </div>
-      <div class="msg luma">
-        <p class="who">LUMA</p>
-        <p class="text">Yes, size L is in stock. Want me to set up checkout?</p>
-      </div>
-      <div class="msg">
-        <p class="who">Customer</p>
-        <p class="text">yes</p>
-      </div>
-      <div class="msg luma">
-        <p class="who">LUMA</p>
-        <article class="product">
-          <img src="img/slip-dress.webp" width="300" height="300" alt="Satin Slip Dress">
-          <div class="product-body">
-            <h3 class="product-name">Satin Slip Dress</h3>
-            <p class="product-meta">EGP 1,250, size L</p>
+          <div class="panel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" tabindex="0">
+            <h3 class="p-title">Order status</h3>
+            <div class="thread">
+              <div class="msg cust" data-step><span class="who">Customer</span><p class="bub" lang="ar" dir="rtl"><span class="txt">فين الأوردر؟ 😩</span></p></div>
+              <div class="msg data" data-step><span class="who">Shopify</span><p>Order #10482: fulfilled.</p></div>
+              <div class="msg luma" data-step data-type><span class="who">LUMA</span><p class="bub" lang="ar" dir="rtl"><span class="txt">أوردرك اتشحن يوم الاتنين 🚚 وهيوصلك خلال يومين، ده رقم التتبع: <bdi dir="ltr" style="white-space:nowrap">BOSTA-882140</bdi></span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p></div>
+            </div>
           </div>
-          <span class="chip">Checkout</span>
-        </article>
-      </div>
-    </div>
 
-    <div class="panel" role="tabpanel" id="p-d" aria-labelledby="t-d" data-panel="d">
-      <div class="msg">
-        <p class="who">Customer</p>
-        <p class="text">3ayez arga3 el order</p>
-      </div>
-      <div class="msg sys">
-        <p class="who">Confidence</p>
-        <p class="text">0.42 on a return request, so it goes to a human.</p>
-      </div>
-      <div class="msg luma">
-        <p class="who">LUMA</p>
-        <p class="text">Handed to Sara with the full thread and order <bdi dir="ltr">#10482</bdi>.</p>
+          <div class="panel" role="tabpanel" id="panel-c" aria-labelledby="tab-c" tabindex="0">
+            <h3 class="p-title">Size to checkout</h3>
+            <div class="thread">
+              <div class="msg cust" data-step><span class="who">Customer</span><p class="bub">Do you have size L?</p></div>
+              <div class="msg luma" data-step data-type><span class="who">LUMA</span><p class="bub"><span class="txt">Yes, size L is in stock. Want me to set up checkout?</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p></div>
+              <div class="msg cust" data-step><span class="who">Customer</span><p class="bub">yes</p></div>
+              <div class="msg luma" data-step data-type><span class="who">LUMA</span>
+                <div class="bub pbub"><div class="pcard in-chat"><img src="img/slip-dress.webp" width="480" height="480" alt="Satin Slip Dress" loading="lazy"><div class="pc-text"><p class="pc-name">Satin Slip Dress</p><p class="pc-price">EGP 1,250, size L</p></div><span class="chip">Checkout</span></div><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-d" aria-labelledby="tab-d" tabindex="0">
+            <h3 class="p-title">Return request</h3>
+            <div class="thread">
+              <div class="msg cust" data-step><span class="who">Customer</span><p class="bub">3ayez arga3 el order</p></div>
+              <div class="msg data" data-step><span class="who">Confidence</span><p>0.42 on a return request, so it goes to a human.</p></div>
+              <div class="msg luma" data-step data-type><span class="who">LUMA</span><p class="bub"><span class="txt">Handed to Sara with the full thread and order #10482.</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p></div>
+            </div>
+          </div>
+        </div>
+        <button class="replay replay-dark" type="button" id="tReplay"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Replay</button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="features" aria-labelledby="features-title">
-  <h2 id="features-title" class="h2">Your best salesperson. Minus the sleep.</h2>
-  <ul class="section-body feat-list">
-    <li class="feat">
-      <h3 class="feat-title">Real prices. Real stock.</h3>
-      <p class="feat-text">Pulled live from your Shopify store on every reply.</p>
-    </li>
-    <li class="feat">
-      <h3 class="feat-title">One-tap checkout</h3>
-      <p class="feat-text">Sends a cart link with the right size already in it.</p>
-    </li>
-    <li class="feat">
-      <h3 class="feat-title">“Where's my order?” solved</h3>
-      <p class="feat-text">Status and tracking in seconds. No human needed.</p>
-    </li>
-    <li class="feat">
-      <h3 class="feat-title">Knows when to step back</h3>
-      <p class="feat-text">Tricky chats go to your team with the full context.</p>
-    </li>
-    <li class="feat">
-      <h3 class="feat-title">One team inbox</h3>
-      <p class="feat-text">Claim chats, reply, and pause LUMA on any thread.</p>
-    </li>
-    <li class="feat">
-      <h3 class="feat-title">Clicks you can see</h3>
-      <p class="feat-text">Track which product links customers actually open.</p>
-    </li>
-  </ul>
-</section>
-
-<section class="section" id="languages" aria-labelledby="langs-title">
-  <h2 id="langs-title" class="h2">Speaks fluent Cairo.</h2>
-  <div class="section-body">
-    <ul class="lang-rows">
-      <li class="lang-row">
-        <p class="lang-name">Arabic</p>
-        <p class="lang-text lang-ar" lang="ar" dir="rtl">بكام الهودي؟</p>
-      </li>
-      <li class="lang-row">
-        <p class="lang-name">Franco-Arabic</p>
-        <p class="lang-text">bikam el hoodie?</p>
-      </li>
-      <li class="lang-row">
-        <p class="lang-name">English</p>
-        <p class="lang-text">How much is the hoodie?</p>
-      </li>
-    </ul>
-    <p class="body-lg note">Arabic, Franco, English, or all three in one chat. LUMA keeps up.</p>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="handoff-title">
-  <h2 id="handoff-title" class="h2">Sure? It sells. Unsure? Your team takes over.</h2>
-  <div class="section-body">
-    <div class="axis">
-      <div class="mark mark-send"><p><b>0.93</b> LUMA sends</p></div>
-      <div class="mark mark-team"><p><b>0.42</b> Your team takes over</p></div>
-      <span class="axis-end axis-zero">0</span>
-      <span class="axis-end axis-one">1</span>
+<section class="feat" id="features" aria-labelledby="feat-h">
+  <div class="wrap">
+    <h2 id="feat-h" class="rv">Your best salesperson. <span class="blue">Minus the sleep.</span></h2>
+    <div class="bento">
+      <article class="cell c1 rv">
+        <h3>Real prices. Real stock.</h3>
+        <p>Pulled live from your Shopify store on every reply.</p>
+        <div class="frag f-stock" aria-hidden="true"><span class="pill">S</span><span class="pill">M</span><span class="pill">L</span><span class="pill">XL</span><span class="ptag">EGP 750</span></div>
+      </article>
+      <article class="cell c2 rv">
+        <h3>One-tap checkout</h3>
+        <p>Sends a cart link with the right size already in it.</p>
+        <div class="frag f-chip" aria-hidden="true"><span class="chip chip-lg">Checkout · size M</span></div>
+      </article>
+      <article class="cell c3 rv">
+        <h3>“Where’s my order?” solved</h3>
+        <p>Status and tracking in seconds. No human needed.</p>
+        <div class="frag f-track" aria-hidden="true"><span class="tr-top"><span class="tr-dot"></span>Shipped Monday</span><span class="tr-code">BOSTA-882140</span></div>
+      </article>
+      <article class="cell c4 rv">
+        <h3>Knows when to step back</h3>
+        <p>Tricky chats go to your team with the full context.</p>
+        <div class="frag f-hand" aria-hidden="true"><span class="hand-chip"><span class="hand-dot"></span>Handed to Sara</span></div>
+      </article>
+      <article class="cell c5 rv">
+        <h3>One team inbox</h3>
+        <p>Claim chats, reply, and pause LUMA on any thread.</p>
+        <div class="frag f-inbox" aria-hidden="true"><span class="ib-row"><span class="ib-msg">bikam el hoodie?</span><span class="ib-btns"><span class="ib-b ib-claim">Claim</span><span class="ib-b">Pause LUMA</span></span></span></div>
+      </article>
+      <article class="cell c6 rv">
+        <h3>Clicks you can see</h3>
+        <p>Track which product links customers actually open.</p>
+        <div class="frag f-link" aria-hidden="true"><span class="lk-row"><span class="pulse"></span>Oversized Hoodie link opened</span></div>
+      </article>
     </div>
-    <p class="body-lg">LUMA checks every answer against your catalog, policies and orders before it hits send. Anything tricky goes straight to your team, with the full thread.</p>
-    <p class="body-lg stat">4 in 5 conversations handled start to finish. No human needed.</p>
   </div>
 </section>
 
-<section class="section" id="proof" aria-labelledby="proof-title">
-  <h2 id="proof-title" class="h2">Proven on a live store.</h2>
-  <div class="section-body">
-    <dl class="stats">
-      <div class="stat-row"><dt>of DMs answered</dt><dd>99.8%</dd></div>
-      <div class="stat-row"><dt>conversations in six weeks</dt><dd>1,846</dd></div>
-      <div class="stat-row"><dt>typical reply time</dt><dd>2.1s</dd></div>
-      <div class="stat-row"><dt>answered while the team slept (8 pm to 9 am)</dt><dd>846</dd></div>
+<section class="proof on-dark" id="proof" aria-labelledby="proof-h">
+  <div class="wrap">
+    <h2 id="proof-h" class="rv">Proven on a live store.</h2>
+    <dl class="stats rv">
+      <div class="stat"><dt>of DMs answered</dt><dd>99.8%</dd></div>
+      <div class="stat"><dt>conversations in six weeks</dt><dd>1,846</dd></div>
+      <div class="stat"><dt>typical reply time</dt><dd>2.1s</dd></div>
+      <div class="stat"><dt>answered while the team slept (8&nbsp;pm to 9&nbsp;am)</dt><dd>846</dd></div>
     </dl>
-    <p class="source">LUMA's first live store. 25,000+ messages across Instagram and store chat.</p>
-
-    <figure class="quotes">
-      <figcaption>What their customers said:</figcaption>
-      <blockquote class="quote"><p>“Thanks for being so responsive, you're the best”</p></blockquote>
-      <blockquote class="quote"><p>“Thank you for the great service and great product 🙏🏽”</p></blockquote>
-      <blockquote class="quote quote-ar" lang="ar" dir="rtl"><p>“شكرا ع المساعده الفيت تحفه والكوالتى وكل حاجه ان شاء الله مش اخر مره”</p></blockquote>
-    </figure>
+    <p class="source rv">LUMA’s first live store. 25,000+ messages across Instagram and store chat.</p>
+    <p class="said rv">What their customers said:</p>
+    <div class="slips">
+      <figure class="slip s1 rv"><blockquote><p>“Thanks for being so responsive, you’re the best”</p></blockquote></figure>
+      <figure class="slip s2 rv"><blockquote><p>“Thank you for the great service and great product 🙏🏽”</p></blockquote></figure>
+      <figure class="slip s3 rv"><blockquote><p lang="ar" dir="rtl">“شكرا ع المساعده الفيت تحفه والكوالتى وكل حاجه ان شاء الله مش اخر مره”</p></blockquote></figure>
+    </div>
   </div>
 </section>
 
-<section class="section" id="setup" aria-labelledby="setup-title">
-  <h2 id="setup-title" class="h2">Live before tonight's DMs.</h2>
-  <ol class="section-body steps">
-    <li class="step">Install from Shopify. LUMA learns your catalog, policies and orders automatically.</li>
-    <li class="step">Connect Instagram in a few clicks. Store chat works right away.</li>
-    <li class="step">Send a test message. Switch it on.</li>
-  </ol>
-</section>
-
-<section class="section section-wide" id="pricing" data-cta-location="pricing" aria-labelledby="pricing-title">
-  <h2 id="pricing-title" class="h2">Pricing that pays for itself.</h2>
-  <table class="price-table">
-    <thead>
-      <tr>
-        <th scope="col">Plan</th>
-        <th scope="col">Conversations per day</th>
-        <th scope="col">Team seats</th>
-        <th scope="col">Knowledge entries</th>
-        <th scope="col">Link tracking</th>
-        <th scope="col" class="num">Per month</th>
-        <th scope="col"><span class="sr-only">Install</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Free</th>
-        <td data-label="Conversations per day">20</td>
-        <td data-label="Team seats">2</td>
-        <td data-label="Knowledge entries">20</td>
-        <td data-label="Link tracking">No</td>
-        <td data-label="Per month" class="num price">$0</td>
-        <td class="cta"><a class="btn btn-line btn-sm" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Start free</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Starter</th>
-        <td data-label="Conversations per day">200</td>
-        <td data-label="Team seats">5</td>
-        <td data-label="Knowledge entries">100</td>
-        <td data-label="Link tracking">Yes</td>
-        <td data-label="Per month" class="num price">$29</td>
-        <td class="cta"><a class="btn btn-line btn-sm" href="https://apps.shopify.com/luma" target="_blank" rel="noopener" aria-label="Install Starter">Install</a></td>
-      </tr>
-      <tr class="is-featured">
-        <th scope="row">Growth <span class="tag">Most popular</span></th>
-        <td data-label="Conversations per day">600</td>
-        <td data-label="Team seats">10</td>
-        <td data-label="Knowledge entries">Unlimited</td>
-        <td data-label="Link tracking">Yes</td>
-        <td data-label="Per month" class="num price">$79</td>
-        <td class="cta"><a class="btn btn-white btn-sm" href="https://apps.shopify.com/luma" target="_blank" rel="noopener" aria-label="Install Growth">Install</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Pro</th>
-        <td data-label="Conversations per day">1,500</td>
-        <td data-label="Team seats">15</td>
-        <td data-label="Knowledge entries">Unlimited</td>
-        <td data-label="Link tracking">Yes</td>
-        <td data-label="Per month" class="num price">$149</td>
-        <td class="cta"><a class="btn btn-line btn-sm" href="https://apps.shopify.com/luma" target="_blank" rel="noopener" aria-label="Install Pro">Install</a></td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="plans-note">Start free. 7-day free trial on paid plans. Cancel anytime from Shopify.</p>
-</section>
-
-<section class="section" id="faq" aria-labelledby="faq-title">
-  <h2 id="faq-title" class="h2">FAQ.</h2>
-  <div class="section-body faq-list">
-    <details>
-      <summary><span>How long does setup take?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>Minutes for store chat. Add Instagram and you're live the same day.</p>
-    </details>
-    <details>
-      <summary><span>Which stores can use LUMA?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>Any Shopify store. Instagram DMs need an Instagram Business or Creator account.</p>
-    </details>
-    <details>
-      <summary><span>Does it really understand Franco?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>Yes. Franco and Egyptian Arabic are core, alongside English.</p>
-    </details>
-    <details>
-      <summary><span>Where do prices and stock come from?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>Straight from your Shopify catalog, inventory, policies and orders. Always current.</p>
-    </details>
-    <details>
-      <summary><span>What if a question is tricky?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>LUMA passes it to your team with the full thread, so nobody has to ask the customer twice.</p>
-    </details>
-    <details>
-      <summary><span>Can my team reply from LUMA?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>Yes. One shared inbox: claim a chat, reply, or pause LUMA on that thread.</p>
-    </details>
-    <details>
-      <summary><span>What happens to customer data?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>It's used only to answer your customers. Details in the <a class="u u-on" href="privacy-policy.html">Privacy Policy</a>.</p>
-    </details>
-    <details>
-      <summary><span>How are conversations counted?</span><span class="plus" aria-hidden="true"></span></summary>
-      <p>One customer chat LUMA handles that day, across Instagram and store chat combined.</p>
-    </details>
+<section class="langs" id="languages" aria-labelledby="lang-h">
+  <div class="wrap langs-grid">
+    <div class="langs-head rv">
+      <h2 id="lang-h">Speaks fluent Cairo.</h2>
+      <p class="note">Arabic, Franco, English, or all three in one chat. LUMA keeps up.</p>
+    </div>
+    <div class="lbubbles">
+      <div class="lb lb-ar rv"><span class="who">Arabic</span><p class="bub bub-c" lang="ar" dir="rtl">بكام الهودي؟</p></div>
+      <div class="lb lb-fr rv"><span class="who">Franco-Arabic</span><p class="bub bub-l">bikam el hoodie?</p></div>
+      <div class="lb lb-en rv"><span class="who">English</span><p class="bub bub-c">How much is the hoodie?</p></div>
+    </div>
   </div>
 </section>
 
-<section class="section section-wide closing" data-cta-location="footer" aria-labelledby="closing-title">
-  <h2 id="closing-title" class="h2 h2-close">Your customers are already asking. Who's answering?</h2>
-  <div class="cta-row">
-    <a class="btn btn-blue" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install free on Shopify</a>
-    <a class="btn btn-line" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a demo</a>
+<section class="handoff" id="handoff" aria-labelledby="hand-h">
+  <div class="wrap hand-grid">
+    <h2 id="hand-h" class="rv"><span class="hl">Sure? It sells.</span> <span class="hl hl2">Unsure? Your team takes over.</span></h2>
+    <div class="lanes rv">
+      <div class="lane lane-send">
+        <p class="score">0.93</p>
+        <p class="lane-l">LUMA sends</p>
+        <div class="meter" aria-hidden="true"><i style="--v:.93"></i></div>
+      </div>
+      <div class="lane lane-team">
+        <p class="score">0.42</p>
+        <p class="lane-l">Your team takes over</p>
+        <div class="meter" aria-hidden="true"><i style="--v:.42"></i></div>
+      </div>
+    </div>
+    <div class="hand-text rv">
+      <p class="hand-body">LUMA checks every answer against your catalog, policies and orders before it hits send. Anything tricky goes straight to your team, with the full thread.</p>
+      <p class="hand-stat"><strong>4 in 5</strong> conversations handled start to finish. No human needed.</p>
+    </div>
   </div>
 </section>
 
+<section class="setup" id="setup" aria-labelledby="setup-h">
+  <div class="wrap">
+    <h2 id="setup-h" class="rv">Live before tonight’s DMs.</h2>
+    <ol class="steps">
+      <li class="step rv"><div class="tk"><div class="step-in"><span class="num" aria-hidden="true">1</span><div class="step-body"><h3>Install from Shopify.</h3><p>LUMA learns your catalog, policies and orders automatically.</p></div></div></div></li>
+      <li class="step rv"><div class="tk"><div class="step-in"><span class="num" aria-hidden="true">2</span><div class="step-body"><h3>Connect Instagram in a few clicks.</h3><p>Store chat works right away.</p></div></div></div></li>
+      <li class="step rv"><div class="tk"><div class="step-in"><span class="num" aria-hidden="true">3</span><div class="step-body"><h3>Send a test message.</h3><p>Switch it on.</p></div></div></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="pricing" id="pricing" data-cta-location="pricing" aria-labelledby="price-h">
+  <div class="wrap">
+    <h2 id="price-h" class="rv">Pricing that pays for itself.</h2>
+    <div class="plans">
+      <article class="plan p-free rv">
+        <h3>Free</h3>
+        <p class="price"><span class="amt">$0</span><span class="per">/mo</span></p>
+        <dl class="attrs">
+          <div><dt>Conversations per day</dt><dd>20</dd></div>
+          <div><dt>Team seats</dt><dd>2</dd></div>
+          <div><dt>Knowledge entries</dt><dd>20</dd></div>
+          <div><dt>Link tracking</dt><dd>No</dd></div>
+        </dl>
+        <a class="btn btn-cobalt" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Start free</a>
+      </article>
+      <article class="plan p-starter rv">
+        <h3>Starter</h3>
+        <p class="price"><span class="amt">$29</span><span class="per">/mo</span></p>
+        <dl class="attrs">
+          <div><dt>Conversations per day</dt><dd>200</dd></div>
+          <div><dt>Team seats</dt><dd>5</dd></div>
+          <div><dt>Knowledge entries</dt><dd>100</dd></div>
+          <div><dt>Link tracking</dt><dd>Yes</dd></div>
+        </dl>
+        <a class="btn btn-cobalt" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install</a>
+      </article>
+      <article class="plan p-growth hot rv">
+        <div class="plan-head"><h3>Growth</h3><span class="tag">Most popular</span></div>
+        <p class="price"><span class="amt">$79</span><span class="per">/mo</span></p>
+        <dl class="attrs">
+          <div><dt>Conversations per day</dt><dd>600</dd></div>
+          <div><dt>Team seats</dt><dd>10</dd></div>
+          <div><dt>Knowledge entries</dt><dd>Unlimited</dd></div>
+          <div><dt>Link tracking</dt><dd>Yes</dd></div>
+        </dl>
+        <a class="btn btn-lime" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install</a>
+      </article>
+      <article class="plan p-pro rv">
+        <h3>Pro</h3>
+        <p class="price"><span class="amt">$149</span><span class="per">/mo</span></p>
+        <dl class="attrs">
+          <div><dt>Conversations per day</dt><dd>1,500</dd></div>
+          <div><dt>Team seats</dt><dd>15</dd></div>
+          <div><dt>Knowledge entries</dt><dd>Unlimited</dd></div>
+          <div><dt>Link tracking</dt><dd>Yes</dd></div>
+        </dl>
+        <a class="btn btn-cobalt" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install</a>
+      </article>
+    </div>
+    <p class="price-note rv">Start free. 7-day free trial on paid plans. Cancel anytime from Shopify.</p>
+  </div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <h2 id="faq-h" class="rv">FAQ</h2>
+    <div class="faq-list">
+      <details class="qa rv"><summary>How long does setup take?<span class="plus" aria-hidden="true"></span></summary><p>Minutes for store chat. Add Instagram and you’re live the same day.</p></details>
+      <details class="qa rv"><summary>Which stores can use LUMA?<span class="plus" aria-hidden="true"></span></summary><p>Any Shopify store. Instagram DMs need an Instagram Business or Creator account.</p></details>
+      <details class="qa rv"><summary>Does it really understand Franco?<span class="plus" aria-hidden="true"></span></summary><p>Yes. Franco and Egyptian Arabic are core, alongside English.</p></details>
+      <details class="qa rv"><summary>Where do prices and stock come from?<span class="plus" aria-hidden="true"></span></summary><p>Straight from your Shopify catalog, inventory, policies and orders. Always current.</p></details>
+      <details class="qa rv"><summary>What if a question is tricky?<span class="plus" aria-hidden="true"></span></summary><p>LUMA passes it to your team with the full thread, so nobody has to ask the customer twice.</p></details>
+      <details class="qa rv"><summary>Can my team reply from LUMA?<span class="plus" aria-hidden="true"></span></summary><p>Yes. One shared inbox: claim a chat, reply, or pause LUMA on that thread.</p></details>
+      <details class="qa rv"><summary>What happens to customer data?<span class="plus" aria-hidden="true"></span></summary><p>It’s used only to answer your customers. Details in the <a href="privacy-policy.html">Privacy Policy</a>.</p></details>
+      <details class="qa rv"><summary>How are conversations counted?<span class="plus" aria-hidden="true"></span></summary><p>One customer chat LUMA handles that day, across Instagram and store chat combined.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing on-dark" id="closing" data-cta-location="footer" aria-labelledby="close-h">
+  <div class="wrap">
+    <h2 id="close-h" class="rv">Your customers are already asking. <span class="slab slab-lg">Who’s answering?</span></h2>
+    <div class="btns rv" id="closeBtns">
+      <a class="btn btn-lime" href="https://apps.shopify.com/luma" target="_blank" rel="noopener">Install free on Shopify</a>
+      <a class="btn btn-outline" href="https://calendly.com/tonyhani01/30min" target="_blank" rel="noopener">Book a demo</a>
+    </div>
+    <footer class="foot" id="foot">
+      <a class="brand" href="#top" aria-label="LUMA home">
+        <img class="logo" src="logo.png" width="375" height="264" alt="" loading="lazy">
+        <span class="wordmark" translate="no">LUMA</span>
+      </a>
+      <ul class="foot-links">
+        <li class="only-phone"><a href="#product">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="https://www.instagram.com/luma__bot/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:team@luma-bot.com">team@luma-bot.com</a></li>
+      </ul>
+      <p class="copy">© 2026 LUMA · Built in Cairo by Antony Hani Reda Ramzy</p>
+    </footer>
+  </div>
+</section>
 </main>
 
-<footer class="footer">
-  <ul class="foot-links">
-    <li><a class="u" href="#pricing">Pricing</a></li>
-    <li><a class="u" href="#faq">FAQ</a></li>
-    <li><a class="u" href="privacy-policy.html">Privacy Policy</a></li>
-    <li><a class="u" href="terms-of-service.html">Terms of Service</a></li>
-    <li><a class="u" href="https://www.instagram.com/luma__bot/" target="_blank" rel="noopener">Instagram</a></li>
-    <li><a class="u" href="mailto:team@luma-bot.com">team@luma-bot.com</a></li>
-  </ul>
-  <p class="copyright">© 2026 LUMA · Built in Cairo by Antony Hani Reda Ramzy</p>
-</footer>
+<div class="sticky" id="sticky" data-cta-location="sticky" aria-hidden="true" inert>
+  <a class="btn btn-lime" href="https://apps.shopify.com/luma" target="_blank" rel="noopener" tabindex="-1">Install free on Shopify</a>
+</div>
 
-<script src="home.js" defer></script>
 </body>
 </html>
